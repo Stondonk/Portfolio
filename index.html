@@ -49,6 +49,7 @@
                 padding-right: 8px;
             }
             .BbarButton:active{
+                left: 2px;
                 cursor: pointer;
                 background-color: rgb(102, 104, 104);
                 outline-style: inset;
@@ -69,15 +70,26 @@
                 outline-width: 1px;
                 outline-color: rgb(25, 149, 250);
             }
+
+            .topBar {
+                width: 256px;
+                position: absolute;
+                z-index: 9;
+                background-color: #f1f1f1;
+                text-align: left;
+                border: 1px solid #d3d3d3;
+            }
+
+            .topBarheader {
+                padding: 10px;
+                cursor: move;
+                z-index: 10;
+                background-color: #2196F3;
+                color: #fff;
+            }
         </style>
     </head>
     <body>
-        <div id="BBar"><button class="BbarButton" style=" padding:4; bottom: 2; margin-right: 8; margin-left: 4;" draggable="false"><img src="cheffMike.png" width="24" height="24" style="position: relative; vertical-align:middle; padding: 2;"draggable="false"></button>
-            <button class="BbarButton">Home</button>
-            <button class="BbarButton">Showcase</button>
-            <button class="BbarButton">Info</button>
-        </div>
-
         <div>
             <div style="display:flex ;">
                 <button class="iconSe" draggable="false"><img src="icons/play.png" width="72" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Games</button>
@@ -85,6 +97,24 @@
                 <button class="iconSe" draggable="false"><img src="icons/code.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Code</button>
             </div>
             <button class="iconSe" draggable="false"><img src="icons/unKnown.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Showcase</button>
+        </div>
+
+        <div class="topBar">
+            <div class="topBarheader">Click here to move</div>
+            <p>Window1</p>
+        </div>
+
+        <div class="topBar">
+            <div class="topBarheader">Click here to move</div>
+            <p>Window2</p>
+            <p>Window2 stuff here</p>
+        </div>
+        <script src="WindowSection.js"></script>
+
+        <div id="BBar"><button class="BbarButton" style=" padding:4; bottom: 2; margin-right: 8; margin-left: 4;" draggable="false"><img src="cheffMike.png" width="24" height="24" style="position: relative; vertical-align:middle; padding: 2;"draggable="false"></button>
+            <button class="BbarButton">Home</button>
+            <button class="BbarButton">Showcase</button>
+            <button class="BbarButton">Info</button>
         </div>
     </body>
 </html>
