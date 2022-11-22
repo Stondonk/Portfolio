@@ -1,15 +1,66 @@
 <html>
+    <meta charset="UTF-8">
     <head>
         <style>
-            h1 {
-                text-align: center;
-                color: black;
-                text-align: center;
-                font-size: 100px;
+            body {
+                background-color: rgb(68, 185, 214);
+            }
+
+            @font-face {
+                font-family: myFirstFont;
+                src: url(Roboto-Medium.ttf);
+            }
+
+            * {
+                font-family: myFirstFont;
+            }
+
+            #BBar{
+                vertical-align:middle;
+                align-items:flex-start;
+                display: flex;
+                display: inline;
+                margin-left: 0;
+                border : 0;
+                position: fixed;
+                left: 0;
+                width: 100%;
+                top: calc(100% - 48px);
+                height: 48px;
+                background-color: rgb(137, 139, 139);
+                outline-color: rgb(114, 114, 114);
+                outline-width: 4px;
+                outline-style: outset;
+                padding: 4;
+                padding-bottom: 4px;
+                justify-content: center;
+            }
+            .BbarButton{
+                position:relative;
+                font-size: 20px;
+                border: none;
+                outline-style: outset;
+                background-color: rgb(137, 139, 139);
+                outline-color: rgb(114, 114, 114);
+                outline-width: 2px;
+                padding: 4px;
+                line-height: 32px;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            .BbarButton:active{
+                cursor: pointer;
+                background-color: rgb(102, 104, 104);
+                outline-style: inset;
             }
         </style>
     </head>
     <body>
+        <div id="BBar"><button class="BbarButton" style=" padding:4; bottom: 2; margin-right: 8; margin-left: 4;" draggable="false"><img src="cheffMike.png" width="24" height="24" style="position: relative; vertical-align:middle; padding: 2;"></button>
+            <button class="BbarButton">Home</button>
+            <button class="BbarButton">Info</button>
+            <button class="BbarButton">Close Windows</button>
+        </div>
         <h1>Name</h1>
     </body>
 </html>
