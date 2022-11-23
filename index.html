@@ -119,7 +119,7 @@
             <div style="display:flex ;">
                 <button class="iconSe" draggable="false" onclick="pressedisation(0)"><img src="icons/play.png" width="72" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Games</button>
                 <button class="iconSe" draggable="false" onclick="pressedisation(1)"><img src="icons/art.png" width="74" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">3DArt</button>
-                <button class="iconSe" draggable="false"><img src="icons/code.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Code</button>
+                <button class="iconSe" draggable="false" onclick="pressedisation(2)"><img src="icons/code.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Code</button>
             </div>
             <button class="iconSe" draggable="false"><img src="icons/unKnown.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Showcase</button>
         </div>
@@ -137,10 +137,18 @@
             </div>
         </div>
 
+        <div class="topBar" style="width: 720;">
+            <div class="topBarheader"><h>Coding.exe</h><button class="windowBut" onclick="BringWindowOut(2)">X</button></div>
+            <div style="display:flex;"></div>
+                <p>A lot of my work focuses on development, disection and modifaction of code <br> Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Nisi vitae suscipit tellus mauris a diam maecenas sed. Neque convallis a cras semper auctor neque vitae tempus quam. Massa eget egestas purus viverra accumsan in nisl. Tortor at auctor urna nunc id cursus metus aliquam. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Diam phasellus vestibulum lorem sed. Varius vel pharetra vel turpis. Metus dictum at tempor commodo ullamcorper a. Eget sit amet tellus cras. Integer malesuada nunc vel risus. Placerat duis ultricies lacus sed turpis.</p>
+                <img src="screenShots/ben.png" width=" 256" style="padding: 12; margin-bottom: 12;" draggable="false">
+            </div>
+        </div>
+
         <script src="WindowSection.js"></script>
 
         <div id="BBar"><button class="BbarButton" style=" padding:4; bottom: 2; margin-right: 8; margin-left: 4;" draggable="false"><img src="cheffMike.png" width="24" height="24" style="position: relative; vertical-align:middle; padding: 2;"draggable="false"></button>
-            <button class="BbarButton">Home</button>
+            <button class="BbarButton" onclick="closeAllWindows()">Home</button>
             <button class="BbarButton">Showcase</button>
             <button class="BbarButton">Info</button>
         </div>

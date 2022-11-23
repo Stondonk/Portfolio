@@ -1,20 +1,52 @@
-
+var mobile = false;
+var ogSizes = [];
 
 function lockWindowPos(){
+  mobile = false;
+  if(document.documentElement.clientWidth * 1.25 <= document.documentElement.clientHeight)
+    mobile = true;
+
+  console.log (mobile);
+
     for (let index = 0; index < document.getElementsByClassName("topBar").length; index++) {
         const ReSelnt = document.getElementsByClassName("topBar")[index];
-        ReSelnt.style.top = - ReSelnt.clientHeight - 8;
+        reSizeCheck(index);
+        ReSelnt.style.top = clamp (ReSelnt.style.top, 0, (document.documentElement.clientHeight - ReSelnt.clientHeight - 52)) + "px";
+        ReSelnt.style.left = clamp (ReSelnt.style.left, 0 ,(document.documentElement.clientWidth - ReSelnt.clientWidth - 2)) + "px";
     }
 }
 
+function closeAllWindows(){
+  for (let index = 0; index < document.getElementsByClassName("topBar").length; index++) {
+    BringWindowOut(index);
+  }
+}
+
 function BringWindowOut(BarPeace){
-    document.getElementsByClassName("topBar")[BarPeace].style.top = - document.getElementsByClassName("topBar")[BarPeace].clientHeight - 8;
+    document.getElementsByClassName("topBar")[BarPeace].style.top = - document.getElementsByClassName("topBar")[BarPeace].clientHeight - 32;
+}
+
+function reSizeCheck(windowValue){    
+  if(mobile == true){
+    closeAllWindows();
+    document.getElementsByClassName("topBar")[windowValue].style.width = document.documentElement.clientWidth;
+    document.getElementsByClassName("topBar")[windowValue].style.left = 0;
+    document.getElementsByClassName("topBar")[windowValue].style.top = 0;
+    //document.getElementsByClassName("topBar")[windowValue].style.top = clamp (document.getElementsByClassName("topBar")[windowValue].style.top , 0, (document.documentElement.clientHeight)) + "px"
+  } else{
+    document.getElementsByClassName("topBar")[windowValue].style.width = ogSizes[windowValue * 2];
+    //document.getElementsByClassName("topBar")[windowValue].style.height = ogSizes[(windowValue * 2) + 1];
+  
+  }
 }
 
 function Start(){
-    lockWindowPos();
+  for (let index = 0; index < document.getElementsByClassName("topBar").length; index++) {
+    ogSizes.push(document.getElementsByClassName("topBar")[index].clientWidth);
+    ogSizes.push(document.getElementsByClassName("topBar")[index].clientHeight);
+    BringWindowOut(index);
+  }
 }
-Start();
 
 for (let index = 0; index < document.getElementsByClassName("topBar").length; index++) {
     const element = document.getElementsByClassName("topBar")[index];
@@ -54,6 +86,11 @@ function dragElement(item, headeritem) {
 
     item.style.top = clamp (item.offsetTop - pos2, 0, (document.documentElement.clientHeight - item.clientHeight - 52)) + "px";
     item.style.left = clamp (item.offsetLeft - pos1, 0 ,(document.documentElement.clientWidth - item.clientWidth - 2)) + "px";
+    //item.style.width = document.documentElement.clientWidth;
+    for (let index = 0; index < array.length; index++) {
+        if(item == document.getElementsByClassName("topBar")[index])
+        reSizeCheck(index);
+    }
   }
 
   function closeDragElement() {
@@ -64,9 +101,15 @@ function dragElement(item, headeritem) {
 }
 
 function pressedisation(windowValue){
+    if(mobile == true)
+      closeAllWindows();
+    
     console.log(windowValue);
     document.getElementsByClassName("topBar")[windowValue].style.top = 32;
         //BringWindowIn(document.getElementsByClassName("iconSe")[index]);
 }
 
-window.addEventListener('resize', lockWindowPos());
+Start();
+
+window.addEventListener("resize", lockWindowPos);
+lockWindowPos();
