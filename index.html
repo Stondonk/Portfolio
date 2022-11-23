@@ -75,25 +75,42 @@
                 width: 256px;
                 position: absolute;
                 z-index: 9;
-                background-color: #f1f1f1;
+                background-color: rgb(114, 114, 114);
                 text-align: left;
-                border: 1px solid #d3d3d3;
+                outline: 4px outset rgb(114, 114, 114);
             }
 
             .topBarheader {
+                color: white;
+                display:flex;
                 padding: 10px;
                 cursor: move;
                 z-index: 10;
-                background-color: #2196F3;
+                background-color: rgb(35, 120, 189);
+                outline: 4px outset rgb(114, 114, 114);
                 color: #fff;
             }
 
             .windowBut{
+                position:absolute;
+                left: calc(100% - 30px);
+                color: white;
+                background-color: rgb(172, 26, 26);
+                border: none;
                 font-size: 12px;
                 padding: 2px;
-                width: auto;
-                height: 16px;
-                text-align: right;
+                line-height: 16px;
+                align-self:center;
+                width: 24px;
+                height: 24px;
+                text-align: center;
+                outline-style: outset;
+                outline-width: 2px;
+                outline-color: rgb(206, 36, 36);
+            }
+            .windowBut:hover{
+                background-color: rgb(128, 19, 19);
+                outline-style: inset;
             }
         </style>
     </head>
@@ -108,12 +125,12 @@
         </div>
 
         <div class="topBar">
-            <div class="topBarheader">Click here to move<button class="windowBut" onclick="BringWindowOut(0)">close</button></div>
+            <div class="topBarheader"><h>Games.exe</h><button class="windowBut" onclick="BringWindowOut(0)">X</button></div>
             <p>Window1</p>
         </div>
 
-        <div class="topBar">
-            <div class="topBarheader">Click here to move<button class="windowBut" onclick="BringWindowOut(1)">close</button></div>
+        <div class="topBar" style="width: 340;">
+            <div class="topBarheader">Art stuff.exe<button class="windowBut" onclick="BringWindowOut(1)">X</button></div>
             <p>Window2</p>
             <p>Window2 stuff here</p>
         </div>
