@@ -1,4 +1,21 @@
 
+
+function lockWindowPos(){
+    for (let index = 0; index < document.getElementsByClassName("topBar").length; index++) {
+        const ReSelnt = document.getElementsByClassName("topBar")[index];
+        ReSelnt.style.top = - ReSelnt.clientHeight - 8;
+    }
+}
+
+function BringWindowOut(BarPeace){
+    document.getElementsByClassName("topBar")[BarPeace].style.top = - document.getElementsByClassName("topBar")[BarPeace].clientHeight - 8;
+}
+
+function Start(){
+    lockWindowPos();
+}
+Start();
+
 for (let index = 0; index < document.getElementsByClassName("topBar").length; index++) {
     const element = document.getElementsByClassName("topBar")[index];
     //gets proceeding header. topBarheader peices come in the same order as the topbar meaning to reference a top and top header you only need the index for one as there in the same location in each array
@@ -35,8 +52,8 @@ function dragElement(item, headeritem) {
 
     pos3 = Md.clientX; pos4 = Md.clientY;
 
-    item.style.top = clamp (item.offsetTop - pos2, 0, (screen.height - item.clientHeight - 160)) + "px";
-    item.style.left = clamp (item.offsetLeft - pos1, 0 ,(screen.width - item.clientWidth - 2)) + "px";
+    item.style.top = clamp (item.offsetTop - pos2, 0, (document.documentElement.clientHeight - item.clientHeight - 52)) + "px";
+    item.style.left = clamp (item.offsetLeft - pos1, 0 ,(document.documentElement.clientWidth - item.clientWidth - 2)) + "px";
   }
 
   function closeDragElement() {
@@ -45,3 +62,11 @@ function dragElement(item, headeritem) {
     document.onmousemove = null;
   }
 }
+
+function pressedisation(windowValue){
+    console.log(windowValue);
+    document.getElementsByClassName("topBar")[windowValue].style.top = 32;
+        //BringWindowIn(document.getElementsByClassName("iconSe")[index]);
+}
+
+window.addEventListener('resize', lockWindowPos());

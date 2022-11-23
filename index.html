@@ -87,28 +87,37 @@
                 background-color: #2196F3;
                 color: #fff;
             }
+
+            .windowBut{
+                font-size: 12px;
+                padding: 2px;
+                width: auto;
+                height: 16px;
+                text-align: right;
+            }
         </style>
     </head>
     <body>
         <div>
             <div style="display:flex ;">
-                <button class="iconSe" draggable="false"><img src="icons/play.png" width="72" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Games</button>
-                <button class="iconSe" draggable="false"><img src="icons/art.png" width="74" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">3DArt</button>
+                <button class="iconSe" draggable="false" onclick="pressedisation(0)"><img src="icons/play.png" width="72" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Games</button>
+                <button class="iconSe" draggable="false" onclick="pressedisation(1)"><img src="icons/art.png" width="74" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">3DArt</button>
                 <button class="iconSe" draggable="false"><img src="icons/code.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Code</button>
             </div>
             <button class="iconSe" draggable="false"><img src="icons/unKnown.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Showcase</button>
         </div>
 
         <div class="topBar">
-            <div class="topBarheader">Click here to move</div>
+            <div class="topBarheader">Click here to move<button class="windowBut" onclick="BringWindowOut(0)">close</button></div>
             <p>Window1</p>
         </div>
 
         <div class="topBar">
-            <div class="topBarheader">Click here to move</div>
+            <div class="topBarheader">Click here to move<button class="windowBut" onclick="BringWindowOut(1)">close</button></div>
             <p>Window2</p>
             <p>Window2 stuff here</p>
         </div>
+
         <script src="WindowSection.js"></script>
 
         <div id="BBar"><button class="BbarButton" style=" padding:4; bottom: 2; margin-right: 8; margin-left: 4;" draggable="false"><img src="cheffMike.png" width="24" height="24" style="position: relative; vertical-align:middle; padding: 2;"draggable="false"></button>
