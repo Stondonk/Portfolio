@@ -7,150 +7,129 @@
             }
 
             @font-face {
-                font-family: myFirstFont;
+                font-family: Roboto-Medium;
                 src: url(Roboto-Medium.ttf);
             }
 
             * {
-                font-family: myFirstFont;
+                color: rgb(48, 48, 48);
+                font-family: Roboto-Medium;
             }
 
-            #BBar{
-                vertical-align:middle;
-                align-items:flex-start;
+            .tabSt {
+                padding-left: 12px;
+                padding-top: 6px;
+                padding-bottom: 12px;
+                width: calc(100% - padding-left);
+                margin-left: 10%;
+                margin-right: 10%;
                 display: flex;
-                display: inline;
-                margin-left: 0;
-                border : 0;
-                position: fixed;
-                left: 0;
-                width: 100%;
-                top: calc(100% - 48px);
-                height: 48px;
-                background-color: rgb(137, 139, 139);
-                outline-color: rgb(114, 114, 114);
-                outline-width: 4px;
-                outline-style: outset;
-                padding: 4;
-                padding-bottom: 4px;
+                border-top: none;
+                border-radius: 4px;
+                outline: 1px solid rgb(120, 120, 120);
+                position: relative;
+                animation-name: example;
+                animation-duration: 1.5s;
+            }
+
+            .topBar{
+                background-color: rgb(224, 228, 231);
+                width: calc(100%);
+                left: 0px;
+                padding-right: 100px;
+                display: flex;
                 justify-content: center;
-            }
-            .BbarButton{
-                position:relative;
-                font-size: 20px;
-                border: none;
-                outline-style: outset;
-                background-color: rgb(137, 139, 139);
-                outline-color: rgb(114, 114, 114);
-                outline-width: 2px;
-                padding: 4px;
-                line-height: 32px;
-                padding-left: 8px;
-                padding-right: 8px;
-            }
-            .BbarButton:active{
-                left: 2px;
-                cursor: pointer;
-                background-color: rgb(102, 104, 104);
-                outline-style: inset;
+                align-items: center;
+                align-self: center;
+                position:fixed;
             }
 
-            .iconSe{
-                font-size: 20px;
-                display:block;
-                border: none;
-                width: 128px;
-                height: 128px;
-                padding: 0;
-                margin: 4;
-                background-color: rgb(68, 185, 214);
-            }
-            .iconSe:active{
-                outline-style: solid;
-                outline-width: 1px;
-                outline-color: rgb(25, 149, 250);
-            }
-
-            .topBar {
-                width: 256px;
-                position: absolute;
-                z-index: 9;
-                background-color: rgb(114, 114, 114);
-                text-align: left;
-                outline: 4px outset rgb(114, 114, 114);
-            }
-
-            .topBarheader {
-                color: white;
-                display:flex;
-                padding: 10px;
-                cursor: move;
-                z-index: 10;
-                background-color: rgb(35, 120, 189);
-                outline: 4px outset rgb(114, 114, 114);
-                color: #fff;
-            }
-
-            .windowBut{
-                position:absolute;
-                left: calc(100% - 30px);
-                color: white;
-                background-color: rgb(172, 26, 26);
-                border: none;
-                font-size: 12px;
-                padding: 2px;
-                line-height: 16px;
-                align-self:center;
-                width: 24px;
-                height: 24px;
+            .tabIcon{
+                background-color: rgb(224, 228, 231);
+                font-family: Roboto-Medium;
                 text-align: center;
-                outline-style: outset;
-                outline-width: 2px;
-                outline-color: rgb(206, 36, 36);
+                align-items: center;
+                align-self: center;
+                display: block;
+                outline: 1px solid rgb(145, 145, 145);
+                border-width: 0px;
+                width: 100%;
+                
             }
-            .windowBut:hover{
-                background-color: rgb(128, 19, 19);
-                outline-style: inset;
+
+            .tabIcon:active{
+                background-color: rgb(120, 120, 120);
+                
             }
+
+            .tabIcon:hover{
+                background-color: rgb(187, 185, 185);
+            }
+
+            .screenOffset{
+                position: relative;
+                top: 80px;
+            }
+
+            @keyframes example {
+                0% {top: calc(100vh + 256px);}
+                80% {top: -10px;}
+                90% {top: 5px;}
+                100% {top: 0px;}
+            }
+
         </style>
     </head>
     <body>
         <div>
-            <div style="display:flex ;">
-                <button class="iconSe" draggable="false" onclick="pressedisation(0)"><img src="icons/play.png" width="72" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Games</button>
-                <button class="iconSe" draggable="false" onclick="pressedisation(1)"><img src="icons/art.png" width="74" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">3DArt</button>
-                <button class="iconSe" draggable="false" onclick="pressedisation(2)"><img src="icons/code.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Code</button>
+
+            <div class="topBar">
+                <img src="cheffMike.png" style="width: 64; height: 64;" draggable="false">
+                <button onclick="OpenQucikTab(event, 'Home')" class="tabIcon"><p>Home</p></button>
+                <button onclick="OpenQucikTab(event, 'New')" class="tabIcon"><p>New</p></button>
+                <button onclick="OpenQucikTab(event, 'Games')" class="tabIcon"><p>Games</p></button>
+                <button onclick="OpenQucikTab(event, 'Programming')" class="tabIcon"><p>Programming</p></button>
             </div>
-            <button class="iconSe" draggable="false"><img src="icons/unKnown.png" width="78" height="72" style="position: relative; vertical-align:top; padding: 2;"draggable="false">Showcase</button>
-        </div>
 
-        <div class="topBar">
-            <div class="topBarheader"><h>Games.exe</h><button class="windowBut" onclick="BringWindowOut(0)">X</button></div>
-            <p>Window1</p>
-        </div>
+            <div class="screenOffset">
+                <div id="Home" class="tabSt">
+                    <h3>HomeTab Suff here</h3>
+                    <p>fgjifjdijgdifjgdofhdohgoidgodfhghdfoghdfog</p>
+                </div>
 
-        <div class="topBar" style="width: 512;">
-            <div class="topBarheader">Art stuff.exe<button class="windowBut" onclick="BringWindowOut(1)">X</button></div>
-            <div style="display:flex;">
-                <p>Quick 3D render <br> This is a quick 3D render of a can inspured by drinks such as fanta and 7-up named after some I know in the real life</p>
-                <img src="screenShots/CanU2.png" width=" 256" height="144" style="padding: 12px;" draggable="false">
+                <div id="New" class="tabSt" >
+                    <h3>New Stuff</h3>
+                    <p>fghfhgahfgoahfigohadohaoihgiofhodafhfo</p>
+                </div>
+  
+                <div id="Games" class="tabSt">
+                    <h3>Games Stuff</h3>
+                    <p>kfjiosjdioghfohgbohvoshvohvoahovhh</p>
+                </div>
+  
+                <div id="Programming" class="tabSt">
+                    <h3>Programming Stuff</h3>
+                    <p>hdfjgisjdgjishgosdhfoghsdgohsdgoshuo</p>
+                </div>
             </div>
         </div>
 
-        <div class="topBar" style="width: 720;">
-            <div class="topBarheader"><h>Coding.exe</h><button class="windowBut" onclick="BringWindowOut(2)">X</button></div>
-            <div style="display:flex;"></div>
-                <p>A lot of my work focuses on development, disection and modifaction of code <br> Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Nisi vitae suscipit tellus mauris a diam maecenas sed. Neque convallis a cras semper auctor neque vitae tempus quam. Massa eget egestas purus viverra accumsan in nisl. Tortor at auctor urna nunc id cursus metus aliquam. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Diam phasellus vestibulum lorem sed. Varius vel pharetra vel turpis. Metus dictum at tempor commodo ullamcorper a. Eget sit amet tellus cras. Integer malesuada nunc vel risus. Placerat duis ultricies lacus sed turpis.</p>
-                <img src="screenShots/ben.png" width=" 256" style="padding: 12; margin-bottom: 12;" draggable="false">
-            </div>
-        </div>
+        <script>
+            OpenQucikTab(event, 'Home');
 
-        <script src="WindowSection.js"></script>
+            function OpenQucikTab(evt, QucikTab) {
+              var i, tabSt, tablinks;
+              tabSt = document.getElementsByClassName("tabSt");
+              for (i = 0; i < tabSt.length; i++) {
+                tabSt[i].style.display = "none";
+              }
+              tabIcon = document.getElementsByClassName("tabIcon");
 
-        <div id="BBar"><button class="BbarButton" style=" padding:4; bottom: 2; margin-right: 8; margin-left: 4;" draggable="false"><img src="cheffMike.png" width="24" height="24" style="position: relative; vertical-align:middle; padding: 2;"draggable="false"></button>
-            <button class="BbarButton" onclick="closeAllWindows()">Home</button>
-            <button class="BbarButton">Showcase</button>
-            <button class="BbarButton">Info</button>
-        </div>
+              //item.style.backgroundcolor = document.getElementById(QucikTab).style.backgroundColor;
+              //item.className = item.className.replace(" active", "");
+              document.getElementById(QucikTab).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+        </script>
     </body>
 </html>
