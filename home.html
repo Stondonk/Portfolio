@@ -21,8 +21,6 @@
                 padding-top: 6px;
                 padding-bottom: 12px;
                 width: calc(100% - padding-left);
-                height: calc(100vh - 256px);
-                min-height: 100%;
                 margin-left: 10%;
                 margin-right: 10%;
                 display: flex;
@@ -35,9 +33,7 @@
             }
 
             .topBar{
-                background-color: rgb(73, 73, 73);
-                outline: 1px solid rgb(53, 53, 53);
-                top: 0px;
+                background-color: rgb(224, 228, 231);
                 width: calc(100%);
                 left: 0px;
                 padding-right: 100px;
@@ -50,18 +46,16 @@
             }
 
             .tabIcon{
-                color: rgb(240, 240, 240);
-                font-size:large;
-                background-color: rgb(73, 73, 73);
+                background-color: rgb(224, 228, 231);
                 font-family: Roboto-Medium;
                 text-align: center;
                 align-items: center;
                 align-self: center;
                 display: block;
-                outline: 1px solid rgb(53, 53, 53);
+                outline: 1px solid rgb(145, 145, 145);
                 border-width: 0px;
                 width: 100%;
-                height: 100%;
+                
             }
 
             .tabIcon:active{
@@ -70,13 +64,12 @@
             }
 
             .tabIcon:hover{
-                border: 2px solid rgb(68, 185, 214);
-                border-spacing: 0;
-                border-top: 0px; border-bottom: 0px; border-right: 0px;
-                background-color: rgb(53, 53, 53);
+                background-color: rgb(187, 185, 185);
             }
 
             .screenOffset{
+                height: 100%;
+                overflow-y:visible;
                 position: relative;
                 top: 104px;
             }
@@ -89,13 +82,8 @@
             }
 
             body {
-                height: 100vh;
-                overflow-y:hidden;
-                 /* Hide scrollbars */
-            }
-
-            .gameSubSelectButton{
                 
+                 /* Hide scrollbars */
             }
 
         </style>
@@ -104,40 +92,30 @@
         <div>
 
             <div class="topBar">
-                <img src="cheffMike.png" style="width: 64; height: 64; outline: 1px solid rgb(145, 145, 145);" draggable="false">
-                <div style=" display: inline-flex; width: 100%; padding-top: 0; height: 64;">
-                    <button onclick="OpenQucikTab(event, 'Home')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Home</p></button>
-                    <button onclick="OpenQucikTab(event, 'New')" class="tabIcon"><p style="color: rgb(240, 240, 240);">New</p></button>
-                    <button onclick="OpenQucikTab(event, 'Games')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Games</p></button>
-                    <button onclick="OpenQucikTab(event, 'Programming')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Programming</p></button>
-                </div>
+                <img src="cheffMike.png" style="width: 64; height: 64;" draggable="false">
+                <button onclick="OpenQucikTab(event, 'Home')" class="tabIcon"><p>Home</p></button>
+                <button onclick="OpenQucikTab(event, 'New')" class="tabIcon"><p>New</p></button>
+                <button onclick="OpenQucikTab(event, 'Games')" class="tabIcon"><p>Games</p></button>
+                <button onclick="OpenQucikTab(event, 'Programming')" class="tabIcon"><p>Programming</p></button>
             </div>
 
             <div class="screenOffset" style="height: 50%;">
                 <div id="Home" class="tabSt" style="display: block;">
                     <h3>HomeTab Suff here</h3>
                     <p>fgjifjdijgdifjgdofhdohgoidgodfhghdfoghdfog<br>gjgj<br>gfujgh<br>fjfhjfg</p>
-                    <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
-                    <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
-                    <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
+                    <img src="cheffMike.png" style="height: 100%;" draggable="false">
+                    <img src="cheffMike.png" style="height: 100%;" draggable="false">
+                    <img src="cheffMike.png" style="height: 100%;" draggable="false">
                 </div>
 
                 <div id="New" class="tabSt" >
-                    <div style="display: inline-flex; text-align: center; align-items: center; align-self: center;">
-                        <h3>New projects & stuff</h3>
-                        <p style="font-size: 16px;">&nbsp;&nbsp;New projects and things im currently working on</p>
-                    </div>
+                    <h3>New Stuff</h3>
+                    <p>fghfhgahfgoahfigohadohaoihgiofhodafhfo</p>
                 </div>
   
                 <div id="Games" class="tabSt">
-                    <div style="display: inline-flex; text-align: center; align-items: center; align-self: center;">
-                        <h3>Games & Projects</h3>
-                        <p style="font-size: 16px;">&nbsp;&nbsp;List and description of all my major Projects</p>
-                    </div class="gameSubSelectButton">
-                        
-                    <div style="border-top: none; border-radius: 4px; outline: 1px solid rgb(120, 120, 120);">
-                        <p>TEST</p>
-                    </div>
+                    <h3>Games Stuff</h3>
+                    <p>kfjiosjdioghfohgbohvoshvohvoahovhh</p>
                 </div>
   
                 <div id="Programming" class="tabSt">
@@ -151,7 +129,7 @@
             OpenQucikTab(event, 'Home');
 
             function OpenQucikTab(evt, QucikTab) {
-              var tabSt, tablinks;
+              var i, tabSt, tablinks;
               tabSt = document.getElementsByClassName("tabSt");
               for (i = 0; i < tabSt.length; i++) {
                 tabSt[i].style.display = "none";
