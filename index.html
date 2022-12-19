@@ -1,5 +1,5 @@
 <html>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <style>
             body {
@@ -19,10 +19,10 @@
             .tabSt {
                 padding-top: 6px;
                 width: calc(100% - padding-left);
-                height: calc(85vh);
-                min-height: 100%;
+                min-height: calc(50vh);
                 margin-left: 10%;
                 margin-right: 10%;
+                padding-bottom: 16px;
                 display: flex;
                 border-top: none;
                 border-radius: 4px;
@@ -88,7 +88,7 @@
 
             body {
                 height: 100vh;
-                overflow-y:hidden;
+
                  /* Hide scrollbars */
             }
 
@@ -123,6 +123,8 @@
             }
 
             .SubSubSectionFrame{
+                height: min-content;
+                min-height: min-content;
                 color: rgb(240, 240, 240);
                 border-top: none; 
                 border-radius: 4px; 
@@ -130,12 +132,14 @@
                 outline: 1px solid rgb(53, 53, 53);
                 padding: 4; 
                 width: calc(100%); 
-                height: calc(100% - 128px);
             }
 
             .SubSectionText{
+                height: 100%;
                 display: none;
-                padding:0; 
+                text-align: left;
+                align-items: center;
+                align-content: center;
                 animation-name: example2;
                 animation-duration: 0.75s;
             }
@@ -144,11 +148,18 @@
                 0% {opacity: 0;}
                 100% {opacity: 100;}
             }
+            
+            @media screen and (max-width: 800px) {
+                .SubSectionText{
+                    text-align: left;
+                     /* The width is 100%, when the viewport is 800px or smaller */
+                }
+            }
 
 
         </style>
     </head>
-    <body>
+    <body onresize="OpenMiniGameSelect(event, '')">
         <div>
 
             <div class="topBar">
@@ -193,7 +204,8 @@
                                 <button onclick="OpenMiniGameSelect(event, 'MightyVersus')" class="gameSubSelectButton"><p style="color: inherit;">Mighty Versus</p></button>
                             </div>
 
-                            <div id="TankTracks" class="SubSectionText" style="display: block;">
+                            <div id="TankTracks" class="SubSectionText" style="display:inline-flex">
+                                <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
                                 <p style="color: rgb(240, 240, 240);">Tank Tracks is one of the more recent better preforming games I've ever made</p>
                             </div>
                             <div id="FlipTennis" class="SubSectionText">
@@ -203,6 +215,7 @@
                                 <p style="color: rgb(240, 240, 240);">Tank Tracks is one of the more recent better preforming games I've ever made2</p>
                             </div>
                             <div id="MightyVersus" class="SubSectionText">
+                                <img src="imageReference/MightyVersus footage.gif" style="width: 100%; max-width: 50vh;" draggable="false">
                                 <p style="color: rgb(240, 240, 240);">Mighty Versus is a project made over the duration of two weeks created for a Game Jam called LOWREZJAM 2022 the theme and objective being to create a game within a 64 pixel by 64 pixel resolution</p>
                             </div>
                         </div>
@@ -234,8 +247,18 @@
             }
 
             function OpenMiniGameSelect(evt, QucikTab) {
-              var tabSt, tablinks;
-              tabSt = document.getElementsByClassName("SubSectionText");
+                var tabSt, tablinks;
+                tabSt = document.getElementsByClassName("SubSectionText");
+                var fitUse = QucikTab;
+
+                if(QucikTab == '')
+                    for (let index = 0; index < tabSt.length; index++) {
+                        const element = tabSt[index];
+                        if(tabSt[index].style.display != "none")
+                            fitUse = tabSt[index].id;
+                        
+                    }
+
               for (i = 0; i < tabSt.length; i++) {
                 tabSt[i].style.display = "none";
               }
@@ -243,7 +266,12 @@
 
               //item.style.backgroundcolor = document.getElementById(QucikTab).style.backgroundColor;
               //item.className = item.className.replace(" active", "");
-              document.getElementById(QucikTab).style.display = "block";
+              
+              if(visualViewport.width >= 700)
+                document.getElementById(fitUse).style.display = "inline-flex"
+              else
+                document.getElementById(fitUse).style.display = "block"; //inline-flex
+
               evt.currentTarget.className += " active";
             }
         </script>
