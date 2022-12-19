@@ -135,11 +135,12 @@
             }
 
             .SubSectionText{
+                padding: 8px;
                 height: 100%;
                 display: none;
                 text-align: left;
-                align-items: center;
-                align-content: center;
+                align-items: top;
+                align-content:center;
                 animation-name: example2;
                 animation-duration: 0.75s;
             }
@@ -208,15 +209,29 @@
                                 <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
                                 <p style="color: rgb(240, 240, 240);">Tank Tracks is one of the more recent better preforming games I've ever made</p>
                             </div>
+
                             <div id="FlipTennis" class="SubSectionText">
-                                <p style="color: rgb(240, 240, 240);">Flip Tennis was the first ever major game release for me back in the summer of 2021 and has since been one of my favourite projects to have worked on. Created for the simplistic nature of phones and mobile devices the game has a simple control schyme and gameplay loop with many collectables and unlockables to be found thoughout the many different gamemodes </p>
+                                <img src="imageReference/Flip tennis Clip.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
+                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Flip Tennis was the first ever major game release for me back in the 
+                                    summer of 2021 and ever since has been one of my favourite projects to have worked on. Created for the simplistic nature of phones and mobile devices 
+                                    the game has a basic control schyme and gameplay loop with many collectables and unlockables to be found thoughout the many different gamemodes.
+                                </p>
                             </div>
+
                             <div id="NewMoves" class="SubSectionText">
                                 <p style="color: rgb(240, 240, 240);">Tank Tracks is one of the more recent better preforming games I've ever made2</p>
                             </div>
+
                             <div id="MightyVersus" class="SubSectionText">
-                                <img src="imageReference/MightyVersus footage.gif" style="width: 100%; max-width: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240);">Mighty Versus is a project made over the duration of two weeks created for a Game Jam called LOWREZJAM 2022 the theme and objective being to create a game within a 64 pixel by 64 pixel resolution</p>
+                                <img src="imageReference/MightyVersus footage.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
+                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Mighty Versus is a project made over the duration of two weeks created 
+                                    for a Game Jam called LOWREZJAM 2022 the theme and objective being to create a game within a 64 pixel by 64 pixel resolution. For this challenge 
+                                    I decided to make a recreation / Demake of a new and very popular game at the time MultiVersus. But the my challenge did'nt just lay in the low 
+                                    resoulition but also in the program I had decided to make the game in or the lack there of, beacuse this project was written entirally within 
+                                    javaScript with no external tools aiding in its creation. <br><br> This Project was the main point of development for my javascript knowledge base
+                                    which would go on to not only aid my in the developemt of the sight your currently on, but also helped strenghten my understanding of higher level 
+                                    programming languages which may seem to be an easy transition from a lower end language but each language and level of Programming language have 
+                                    their own quirks.</p>
                             </div>
                         </div>
                     </div>
@@ -233,6 +248,7 @@
             OpenQucikTab(event, 'Home');
 
             function OpenQucikTab(evt, QucikTab) {
+                window.scrollTo(0,0); 
               var tabSt, tablinks;
               tabSt = document.getElementsByClassName("tabSt");
               for (i = 0; i < tabSt.length; i++) {
@@ -267,7 +283,7 @@
               //item.style.backgroundcolor = document.getElementById(QucikTab).style.backgroundColor;
               //item.className = item.className.replace(" active", "");
               
-              if(visualViewport.width >= 700)
+              if(visualViewport.width >= 800)
                 document.getElementById(fitUse).style.display = "inline-flex"
               else
                 document.getElementById(fitUse).style.display = "block"; //inline-flex
