@@ -205,11 +205,17 @@
                         <h3>New projects & stuff</h3>
                         <p style="font-size: 16px;">Check out all my new and old projects I've worked on</p>
 
-                        <div class="lineHolderInset" style="min-height: 33%;">
+                        <div class="lineHolderInset" style="min-height: 33%; align-content: center; align-items: center;">
+                            <img src="imageReference/Flip tennis Clip.gif" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <p style="margin-left: 8px; display: flex;">C++ Top-DownShooter</p>
                         </div>
-                        <div class="lineHolderInset" style="min-height: 33%;">
+                        <div class="lineHolderInset" style="min-height: 33%; align-content: center; align-items: center;">
+                            <img src="imageReference/Flip tennis Clip.gif" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <p style="margin-left: 8px; display: flex;">New Moves Update</p>
                         </div>
-                        <div class="lineHolderInset" style="min-height: 33%;">
+                        <div class="lineHolderInset" style="min-height: 33%; align-content: center; align-items: center;">
+                            <img src="imageReference/Flip tennis Clip.gif" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <p style="margin-left: 8px; display: flex;">Roll the Dice Game too good?</p>
                         </div>
                     </div>
                 </div>
@@ -228,8 +234,8 @@
                             </div>
 
                             <div id="TankTracks" class="SubSectionText" style="display:inline-flex">
-                                <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240);">Tank Tracks is one of the more recent better preforming games I've ever made</p>
+                                <img src="imageReference/TankTracksGif.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
+                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Tank Tracks is one of the more recent better preforming games I've ever made</p>
                             </div>
 
                             <div id="FlipTennis" class="SubSectionText">
@@ -263,7 +269,7 @@
                 <div id="Programming" class="tabSt">
                     <div class="SubSectionRing">
                         <h3>Programming Stuff</h3>
-                        <p>hdfjgisjdgjishgosdhfoghsdgohsdgoshuo</p>
+                        <p>These are some the Larger Programming projects I've worked on</p>
                         <div class="SubSubSectionFrame" onchange="OpenMiniGameSelect(event, 'Flip Tennis 89k')">
                             <div style="display: flex;">
                                 <button onclick="OpenMiniGameSelect(event, 'Flip Tennis 89k')" class="gameSubSelectButton"><p style="color: inherit;">Flip Tennis 89k</p></button>
@@ -272,16 +278,19 @@
                             </div>
 
                             <div id="Flip Tennis 89k" class="SubSectionText" style="display:inline-flex">
-                                <p style="color: rgb(240, 240, 240);">Flip Tennis was one of my projects I kept coming back to</p>
+                                <img src="imageReference/FlipT89.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
+                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Flip Tennis was one of my projects I kept coming back to</p>
                             </div>
 
                             <div id="C++ Top down Shooter" class="SubSectionText">
-                                <p style="color: rgb(240, 240, 240);">After creating the low level language game of flip tennis 89k I wished to make a better more interestin project that being</p>
+                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">After creating the low level language game of flip tennis 89k I wished 
+                                    to make a better more interestin project that being</p>
                             </div>
 
                             <div id="C++ Engine" class="SubSectionText">
-                                <p style="color: rgb(240, 240, 240);">My C++ game engine came around as a consiquence to the C++ shooter game I developed and was created with the soul purpose of 
-                                aiding and developing the gameplay abilities of what programming in C++ could do for game projects in the future.</p>
+                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">My C++ game engine came around as a consiquence to the C++ shooter game 
+                                    I developed and was created with the soul purpose of aiding and developing the gameplay abilities of what programming in C++ could do for game 
+                                    projects in the future.</p>
                             </div>
                         </div>
                     </div>
@@ -301,10 +310,16 @@
         <script>
             OpenQucikTab(event, 'Home');
 
+            function openMenuSub (evt, QucikTab, MiniQucikTab){
+                OpenQucikTab(evt, QucikTab);
+                OpenMiniGameSelect(evt, MiniQucikTab);
+            }
+
             function checkForMiniOpen(QucikTab){
                 //quick dirty adjustment system works but inst great for any adintion tabs
+                //opened tab when clicked on section
                 if(QucikTab == 'Games')
-                    OpenMiniGameSelect(event, 'TankTracks');
+                    OpenMiniGameSelect(event, 'MightyVersus');
                 if(QucikTab == 'Programming')
                     OpenMiniGameSelect(event, 'Flip Tennis 89k');
             }
