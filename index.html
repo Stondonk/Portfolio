@@ -30,7 +30,7 @@
                 animation-name: example;
                 animation-duration: 1.5s;
                 padding: 8;
-                padding-bottom: 16px;
+                padding-bottom: 32px;
             }
 
             .topBar{
@@ -158,6 +158,18 @@
                 }
             }
 
+            .lineHolderInset{
+                border-top: none; 
+                border-radius: 4px; 
+                outline: 1px solid 
+                rgb(73, 73, 73); 
+                padding: 4; 
+                width: auto; 
+                height: auto; 
+                min-height: calc(70vh - 64px); 
+                display: flex;
+            }
+
 
         </style>
     </head>
@@ -180,8 +192,8 @@
                     <div class="SubSectionRing">
                         <h3>Home</h3>
                         <p>Welcome to Jacob Standings portfolio</p>
-                        <div style="border-top: none; border-radius: 4px; outline: 1px solid rgb(73, 73, 73); padding: 4; width: auto; height: auto; min-height: calc(100% - 64px); ">
-
+                        <div class="lineHolderInset">
+                            <img src="cheffMike.png" style="width: 256; height: 256; margin: auto;" draggable="false">
                         </div>
                     </div>
                 </div>
@@ -191,7 +203,7 @@
                         <h3>New projects & stuff</h3>
                         <p style="font-size: 16px;">Check out all my new and old projects I've worked on</p>
 
-                        <div style="border-top: none; border-radius: 4px; outline: 1px solid rgb(73, 73, 73); padding: 4; width: calc(100%); height: auto; min-height: calc(100% - 64px); display: inline-flex;">
+                        <div class="lineHolderInset">
                         </div>
                     </div>
                 </div>
@@ -243,14 +255,20 @@
                 </div>
   
                 <div id="Programming" class="tabSt">
-                    <h3>Programming Stuff</h3>
-                    <p>hdfjgisjdgjishgosdhfoghsdgohsdgoshuo</p>
+                    <div class="SubSectionRing">
+                        <h3>Programming Stuff</h3>
+                        <p>hdfjgisjdgjishgosdhfoghsdgohsdgoshuo</p>
+                        <div class="lineHolderInset">
+                        </div>
+                    </div>
                 </div>
 
                 <div id="Contact" class="tabSt" style="display: block;">
                     <div class="SubSectionRing">
                         <h3>Basic Contact Info</h3>
                         <p>Use for business inquiries and bug reports</p>
+                        <div class="lineHolderInset">
+                        </div>
                     </div>
                 </div>
             </div>
