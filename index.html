@@ -255,6 +255,8 @@
                 tabSt[i].style.display = "none";
               }
               tabIcon = document.getElementsByClassName("tabIcon");
+              if(QucikTab == 'Games')
+                OpenMiniGameSelect(evt, '');
 
               //item.style.backgroundcolor = document.getElementById(QucikTab).style.backgroundColor;
               //item.className = item.className.replace(" active", "");
@@ -277,7 +279,8 @@
                 }
 
               for (i = 0; i < tabSt.length; i++) {
-                tabSt[i].style.display = "none";
+                if(tabSt[i].id != fitUse)
+                    tabSt[i].style.display = "none";
               }
               tabIcon = document.getElementsByClassName("tabIcon");
 
