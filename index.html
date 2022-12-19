@@ -22,7 +22,6 @@
                 min-height: calc(50vh);
                 margin-left: 10%;
                 margin-right: 10%;
-                padding-bottom: 16px;
                 display: flex;
                 border-top: none;
                 border-radius: 4px;
@@ -30,6 +29,8 @@
                 position: relative;
                 animation-name: example;
                 animation-duration: 1.5s;
+                padding: 8;
+                padding-bottom: 16px;
             }
 
             .topBar{
@@ -170,16 +171,39 @@
                     <button onclick="OpenQucikTab(event, 'New')" class="tabIcon"><p style="color: rgb(240, 240, 240);">New</p></button>
                     <button onclick="OpenQucikTab(event, 'Games')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Games</p></button>
                     <button onclick="OpenQucikTab(event, 'Programming')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Programming</p></button>
+                    <button onclick="OpenQucikTab(event, 'Contact')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Contact</p></button>
                 </div>
             </div>
 
             <div class="screenOffset" style="height: 50%;">
                 <div id="Home" class="tabSt" style="display: block;">
-                    <h3>HomeTab Suff here</h3>
-                    <p>fgjifjdijgdifjgdofhdohgoidgodfhghdfoghdfog<br>gjgj<br>gfujgh<br>fjfhjfg</p>
-                    <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
-                    <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
-                    <img src="cheffMike.png" style="width: 25%; max-width: 50vh;" draggable="false">
+                    <div class="SubSectionRing">
+                        <h3>Home</h3>
+                        <p>Welcome to Jacob Standings portfolio</p>
+                        <div style="border-top: none; border-radius: 4px; outline: 1px solid rgb(73, 73, 73); padding: 4; width: auto; height: auto;">
+                            <div class="SubSubSectionFrame"style="display: flex; align-items: center; align-content:center; display: inline-flex; width:calc(100% - 8px);">
+                                <div style="margin-left: auto; margin-right: auto; padding-top: 24px; padding-bottom: 24px;">
+                                    <div style="display: inline-flex;">
+                                        <div class="gameSubSelectButton" style="height: auto; width: 75%; display: block; padding-top: 16px;">
+                                            <img src="imageReference/NewMove.png" style="width: 100%; max-width: 50vh; min-width: 48px;" draggable="false">
+                                            <p style="color: inherit; font-size: medium;">New Moves</p>
+                                        </div>
+
+                                        <div class="gameSubSelectButton" style="height: auto; width: 75%;  display: block; padding-top: 16px;">
+                                            <img src="imageReference/owmiNP.png" style="width: 100%; max-width: 50vh; min-width: 48px;" draggable="false">
+                                            <p style="color: inherit; font-size: medium;">Tank Tracks</p>
+                                        </div>
+
+                                        <div class="gameSubSelectButton" style="height: auto; width: 75%;  display: block; padding-top: 16px;">
+                                            <img src="imageReference/k4qPo6.png" style="width: 100%; max-width: 50vh; min-width: 48px;" draggable="false">
+                                            <p style="color: inherit; font-size: medium;">MightyVersus</p>
+                                        </div>
+                                    </div>
+                                    <p style="text-align: center; color: rgb(240,240,240);">These are just a few of the projects I've worked on in the past all with seperate inspection pages view them by click on them.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="New" class="tabSt" >
@@ -220,7 +244,7 @@
 
                             <div id="NewMoves" class="SubSectionText">
                                 <img src="imageReference/New Moves Clip.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240);">New Moves is one of my most successful games I've ever made and has</p>
+                                <p style="color: rgb(240, 240, 240);">New Moves is one of my more successful games made for the </p>
                             </div>
 
                             <div id="MightyVersus" class="SubSectionText">
@@ -241,6 +265,13 @@
                 <div id="Programming" class="tabSt">
                     <h3>Programming Stuff</h3>
                     <p>hdfjgisjdgjishgosdhfoghsdgohsdgoshuo</p>
+                </div>
+
+                <div id="Contact" class="tabSt" style="display: block;">
+                    <div class="SubSectionRing">
+                        <h3>Basic Contact Info</h3>
+                        <p>Use for business inquiries and bug reports</p>
+                    </div>
                 </div>
             </div>
         </div>
