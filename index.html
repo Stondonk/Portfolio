@@ -267,13 +267,14 @@
                 tabSt = document.getElementsByClassName("SubSectionText");
                 var fitUse = QucikTab;
 
-                if(QucikTab == '')
+                if(QucikTab == ''){
                     for (let index = 0; index < tabSt.length; index++) {
                         const element = tabSt[index];
-                        if(tabSt[index].style.display != "none")
-                            fitUse = tabSt[index].id;
+                        if(tabSt[index].style.display != "none"){
+                            fitUse = tabSt[index].id;}
                         
                     }
+                }
 
               for (i = 0; i < tabSt.length; i++) {
                 tabSt[i].style.display = "none";
