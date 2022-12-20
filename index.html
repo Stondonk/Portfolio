@@ -40,6 +40,7 @@
                 outline: 1px solid rgb(53, 53, 53);
                 top: 0px;
                 width: calc(100vw);
+                min-width: 500px;
                 left: 0px;
                 padding-right: 100px;
                 display: flex;
@@ -392,7 +393,7 @@
             }
 
             function OpenQucikTab(evt, QucikTab) {
-                window.scrollTo(0,0); 
+                window.scrollTo(window.scrollX,0); 
               var tabSt, tablinks;
               tabSt = document.getElementsByClassName("tabSt");
               for (i = 0; i < tabSt.length; i++) {
