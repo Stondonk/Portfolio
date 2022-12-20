@@ -21,6 +21,7 @@
                 padding: 8;
                 width: calc(100% - padding-left);
                 min-height: calc(50vh);
+                min-width: 360px;
                 margin-left: 10%;
                 margin-right: 10%;
                 display: flex;
@@ -37,7 +38,7 @@
                 background-color: rgb(73, 73, 73);
                 outline: 1px solid rgb(53, 53, 53);
                 top: 0px;
-                width: calc(100%);
+                width: calc(100vw);
                 left: 0px;
                 padding-right: 100px;
                 display: flex;
@@ -45,6 +46,7 @@
                 align-items: center;
                 align-self: center;
                 position:fixed;
+
                 z-index: 100;
             }
 
@@ -175,10 +177,10 @@
 
         </style>
     </head>
-    <body onresize="checkotherChanges()">
+    <body onresize="checkotherChanges()" onscroll="BarCheck()">
         <div>
 
-            <div class="topBar">
+            <div id="BarPeice" class="topBar" style="min-width: 460;">
                 <img src="cheffMike.png" style="width: 64; height: 64; outline: 1px solid rgb(145, 145, 145);" draggable="false">
                 <div style=" display: inline-flex; width: 100%; padding-top: 0; height: 64;">
                     <button onclick="OpenQucikTab(event, 'Home'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Home</p></button>
@@ -373,6 +375,10 @@
             function openMenuSub (evt, QucikTab, MiniQucikTab){
                 OpenQucikTab(evt, QucikTab);
                 OpenMiniGameSelect(evt, MiniQucikTab);
+            }
+
+            function BarCheck(){
+                 document.getElementById("BarPeice").style.left = -document.body.scrollLeft
             }
 
             function checkForMiniOpen(QucikTab){
