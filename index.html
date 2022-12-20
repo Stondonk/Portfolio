@@ -4,7 +4,7 @@
         <style>
             body {
                 background-color: rgb(68, 185, 214);
-                min-width: 500px;
+                min-width: 360px;
             }
 
             @font-face {
@@ -22,7 +22,7 @@
                 padding: 8;
                 width: calc(100% - padding-left);
                 min-height: calc(50vh);
-                min-width: 360px;
+                min-width: 300px;
                 margin-left: 10%;
                 margin-right: 10%;
                 display: flex;
@@ -40,7 +40,7 @@
                 outline: 1px solid rgb(53, 53, 53);
                 top: 0px;
                 width: calc(100vw);
-                min-width: 500px;
+                min-width: 360px;
                 left: 0px;
                 padding-right: 100px;
                 display: flex;
@@ -182,7 +182,7 @@
     <body onresize="checkotherChanges()" onscroll="BarCheck()">
         <div>
 
-            <div id="BarPeice" class="topBar" style="min-width: 460;">
+            <div id="BarPeice" class="topBar">
                 <img src="cheffMike.png" style="width: 64; height: 64; outline: 1px solid rgb(145, 145, 145);" draggable="false">
                 <div style=" display: inline-flex; width: 100%; padding-top: 0; height: 64;">
                     <button onclick="OpenQucikTab(event, 'Home'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Home</p></button>
