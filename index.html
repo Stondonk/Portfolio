@@ -181,11 +181,11 @@
             <div class="topBar">
                 <img src="cheffMike.png" style="width: 64; height: 64; outline: 1px solid rgb(145, 145, 145);" draggable="false">
                 <div style=" display: inline-flex; width: 100%; padding-top: 0; height: 64;">
-                    <button onclick="OpenQucikTab(event, 'Home')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Home</p></button>
-                    <button onclick="OpenQucikTab(event, 'New')" class="tabIcon"><p style="color: rgb(240, 240, 240);">New</p></button>
-                    <button onclick="OpenQucikTab(event, 'Games')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Games</p></button>
-                    <button onclick="OpenQucikTab(event, 'Programming')" class="tabIcon"><p style="color: rgb(240, 240, 240);">Programming</p></button>
-                    <button onclick="OpenQucikTab(event, 'Contact')" class="tabIcon"><p style="color: rgb(240, 240, 240);">About</p></button>
+                    <button onclick="OpenQucikTab(event, 'Home'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Home</p></button>
+                    <button onclick="OpenQucikTab(event, 'New'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">New</p></button>
+                    <button onclick="OpenQucikTab(event, 'Games'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Games</p></button>
+                    <button onclick="OpenQucikTab(event, 'Programming'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Programming</p></button>
+                    <button onclick="OpenQucikTab(event, 'Contact'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">About</p></button>
                 </div>
             </div>
 
@@ -345,12 +345,12 @@
                     </div>
                 </div>
 
-                <div id="Contact" class="tabSt" style="display: block;">
-                    <div class="SubSectionRing" onchange="checkotherChanges()">
+                <div id="Contact" class="tabSt" >
+                    <div class="SubSectionRing">
                         <h3>General Synopsis / Basic Contact Info</h3>
                         <p>This is a general about page for me an for contact info to be used for business inquiries and bug reports only</p>
-                        <div class="SubSubSectionFrame" style="display:flex; align-content: left; align-items: top;">
-                            <div id="PersonalSection" style="display: flex;">
+                        <div class="SubSubSectionFrame">
+                            <div id="PersonalSection" style="display: block;">
                                 <img src="imageReference/ProPP.png" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
                                 <div style="display: block; height: 100%;">
                                     <p style="color: rgb(240, 240, 240); padding: 8; padding-top: 0; align-items: top;">Hello my name is Jacob you could probably tell from the Url tho, this website is a portfolio of some of some projects I’ve 
@@ -368,6 +368,7 @@
 
         <script>
             OpenQucikTab(event, 'Home');
+            checkotherChanges();
 
             function openMenuSub (evt, QucikTab, MiniQucikTab){
                 OpenQucikTab(evt, QucikTab);
