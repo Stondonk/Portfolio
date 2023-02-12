@@ -168,9 +168,23 @@
                 outline: 1px solid 
                 rgb(73, 73, 73); 
                 padding: 8; 
-                padding-right: 4;
+                padding-right: 4px;
                 margin-top: 8px;
                 width:100%;
+                height: auto; 
+                min-height: calc(70vh - 64px); 
+                display: inline-flex;
+            }
+
+            .BoxHolderInsert{
+                border-top: none; 
+                border-radius: 4px; 
+                outline: 1px solid 
+                rgb(73, 73, 73); 
+                padding: 8; 
+                padding-right: 4;
+                margin-top: 8px;
+                width: auto;
                 height: auto; 
                 min-height: calc(70vh - 64px); 
                 display: inline-flex;
@@ -209,17 +223,25 @@
                         <h3>New projects & stuff</h3>
                         <p style="font-size: 16px;">Check out all my new and old projects I've worked on</p>
 
-                        <div class="lineHolderInset" style="min-height: 33%; align-content: center; align-items: center;">
-                            <img src="imageReference/Unkown.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <p style="margin-left: 8px; display: flex;">C++ Top DownShooter</p>
+                        <div style="border: 1px solid rgb(73, 73, 73); border-radius: 4px; margin-left: auto; margin-right: auto; padding: 8px; padding-bottom: 16px; background-color: rgb(73, 73, 73);">
+                        <div style="padding-left: 8px; margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block; ">
+                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
+                                <img src="imageReference/CrocIcon.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                                <button onclick="location.href='https://stondonk.itch.io/croc-game'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style="color: rgb(240, 240, 240); width: 100%; ">Croc game release</p></button>
+                            </div>
                         </div>
-                        <div class="lineHolderInset" style="min-height: 33%; align-content: center; align-items: center;">
-                            <img src="imageReference/Unkown.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <p style="margin-left: 8px; display: flex;">New Moves Update</p>
+                        <div style="padding-left: 8px;margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block; ">
+                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
+                                <img src="imageReference/MovesLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                                <button onclick="location.href='https://stondonk.itch.io/newmoves'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style="color: rgb(240, 240, 240); width: 100%; ">New Moves Update?</p></button>
+                            </div>
                         </div>
-                        <div class="lineHolderInset" style="min-height: 33%; align-content: center; align-items: center;">
-                            <img src="imageReference/Unkown.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <p style="margin-left: 8px; display: flex;">Roll the Dice Game too good?</p>
+                        <div style="padding-left: 8px;margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block;">
+                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
+                                <img src="imageReference/DiceLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                                <button onclick="location.href='https://stondonk.itch.io/roll-the-dice-dice-adventure'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style="color: rgb(240, 240, 240); width: 100%; ">Roll the Dice Game too good?</p></button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -238,7 +260,10 @@
                             </div>
 
                             <div id="TankTracks" class="SubSectionText" style="display:inline-flex">
-                                <img src="imageReference/TankTracksGif.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
+                                <div style="display: flex;">
+                                    <img src="imageReference/TankTracksGif.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
+                                    
+                                </div>
                                 <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Tank Tracks a game created in Unity is one of the more recent better performing games I've made
                                     created for one of the many LOWREZJAMs I've been a part of, this one being LOWREZJAM 2021. The game was created not only around the theme of the
                                     low resolution but also around the idea of an easily understandable gameplay mechanic so I looked at other games from the Kirby series for inspiration.
@@ -301,7 +326,7 @@
                         <div class="SubSubSectionFrame" onchange="OpenMiniGameSelect(event, 'Flip Tennis 89k')">
                             <div style="display: flex;">
                                 <button onclick="OpenMiniGameSelect(event, 'Flip Tennis 89k')" class="gameSubSelectButton"><p style="color: inherit;">Flip Tennis 89k</p></button>
-                                <button onclick="OpenMiniGameSelect(event, 'C++ Top down Shooter')" class="gameSubSelectButton"><p style="color: inherit;">C++ Shooter</p></button>
+                                <button onclick="OpenMiniGameSelect(event, 'Croc game')" class="gameSubSelectButton"><p style="color: inherit;">Croc Game</p></button>
                                 <button onclick="OpenMiniGameSelect(event, 'C++ Engine')" class="gameSubSelectButton"><p style="color: inherit;">C++ Engine</p></button>
                             </div>
 
@@ -319,8 +344,8 @@
                                 that single script, showing the possibilities that this game might have for testing and showcasing in software for the future.</p>
                             </div>
 
-                            <div id="C++ Top down Shooter" class="SubSectionText">
-                                <img src="imageReference/CGameClip.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
+                            <div id="Croc game" class="SubSectionText">
+                                <img src="imageReference/Crocgame2.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
                                 <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">After creating the low level language game of flip tennis 89k I wished
                                     to make a better more improved engine and tools culminating in a project that would show off the improvements and capabilities of the engine. That
                                     project evolved into The Top Down Shooter, depicted here. The Top Down shooter has many aspects to it a lot of that being more engine based stuff
@@ -335,7 +360,7 @@
 
                             <div id="C++ Engine" class="SubSectionText">
                                 <img src="imageReference/C++EngineClip.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">My C++ game engine came around as a consequence to the C++ shooter game
+                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px; ">My C++ game engine came around as a consequence to the C++ shooter game
                                     I developed and was created with the soul purpose of aiding and developing the gameplay abilities of what programming in C++ could do for my
                                     projects in the future. <br><br> This engine relies heavily on the object oriented side of C++ functions turning every thing
                                     bar editing and debug tools into a object to easily be spawned in and created at a whim for solo functionality. A lot of these solo Objects revolve
