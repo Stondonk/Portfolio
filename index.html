@@ -150,6 +150,20 @@
                 animation-duration: 0.75s;
             }
 
+            .newsSubsection{
+                /*outline: 1px solid white;*/
+                padding-left: 8px;
+                margin-top: 8px; 
+                align-content: center; 
+                align-items: center; 
+                display: flex;
+            }
+            .newSubimage{
+                height: 100%; 
+                max-height: 20vh;
+
+            }
+
             @keyframes example2 {
                 0% {opacity: 0;}
                 100% {opacity: 100;}
@@ -223,37 +237,51 @@
                         <h3>New projects & stuff</h3>
                         <p style="font-size: 16px;">Check out all my new and old projects I've worked on</p>
 
-                        <div style="border: 1px solid rgb(73, 73, 73); border-radius: 4px; margin-left: auto; margin-right: auto; padding: 8px; padding-bottom: 16px; background-color: rgb(73, 73, 73);">
-                        <div style="padding-left: 8px; margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block; ">
-                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
-                                <img src="imageReference/CrocIcon.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                                <button onclick="location.href='https://stondonk.itch.io/croc-game'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style="width: 100%; color: inherit;">Croc game release</p></button>
-                            </div>
+                        <div id="NewRSectionDesk" style="border: 1px solid rgb(73, 73, 73); border-radius: 4px; margin-left: auto; margin-right: auto; padding: 8px; padding-bottom: 16px; background-color: rgb(73, 73, 73);">
+                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
+                            <img src="imageReference/CrocIcon.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <button onclick="location.href='https://stondonk.itch.io/croc-game'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style="width: 100%; color: inherit;">Croc game release</p></button>
                         </div>
-                        <div style="padding-left: 8px;margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block;">
-                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
-                                <img src="imageReference/MightyLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                                <button onclick="location.href='https://stondonk.itch.io/mightyversus'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style=" width: 100%; color: inherit;">MightyVersus</p></button>
-                            </div>
+                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
+                            <img src="imageReference/MightyLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <button onclick="location.href='https://stondonk.itch.io/mightyversus'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">MightyVersus</p></button>
                         </div>
-                        <div style="padding-left: 8px;margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block;">
-                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
-                                <img src="imageReference/DiceLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                                <button onclick="location.href='https://stondonk.itch.io/roll-the-dice-dice-adventure'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style=" width: 100%; color: inherit;">Roll the Dice Game too good?</p></button>
-                            </div>
+                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
+                            <img src="imageReference/DiceLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <button onclick="location.href='https://stondonk.itch.io/roll-the-dice-dice-adventure'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">Roll the Dice Game too good?</p></button>
                         </div>
-                        <div style="padding-left: 8px;margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block;">
-                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
-                                <img src="imageReference/89KLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                                <button onclick="location.href='https://stondonk.itch.io/flip-tennis-89k'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style=" width: 100%; color: inherit;">All in 89kilobytes?</p></button>
-                            </div>
+                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
+                            <img src="imageReference/89KLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <button onclick="location.href='https://stondonk.itch.io/flip-tennis-89k'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">All in 89kilobytes?</p></button>
                         </div>
-                        <div style="padding-left: 8px;margin-top: 8px; min-height: 33%; align-content: center; align-items: center; display: block; ">
-                            <div style="display: inline-flex; width: 100%; height: 100%; max-height: 20vh;">
-                                <img src="imageReference/MovesLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                                <button onclick="location.href='https://stondonk.itch.io/newmoves'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 8px;"><p style=" width: 100%; color: inherit;">New Moves Update?</p></button>
-                            </div>
+                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
+                            <img src="imageReference/MovesLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
+                            <button onclick="location.href='https://stondonk.itch.io/newmoves'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">New Moves Update?</p></button>
                         </div>
+                        </div>
+                        <div id="NewRSectionMobile" style="border: 1px solid rgb(73, 73, 73); border-radius: 4px; margin-left: auto; margin-right: auto; padding: 8px; padding-bottom: 16px; background-color: rgb(73, 73, 73);">
+                            <div style="width: 100%; display:table-row; ">
+                                <div style="display: block;">
+                                    <img src="imageReference/CrocIcon.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px;  min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
+                                    <button onclick="location.href='https://stondonk.itch.io/croc-game'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh;  margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">Croc game release</p></button>
+                                </div>
+                                <div style="display: block;">
+                                    <img src="imageReference/MightyLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
+                                    <button onclick="location.href='https://stondonk.itch.io/mightyversus'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh;   margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">MightyVersus</p></button>
+                                </div>
+                                <div style="display: block;">
+                                    <img src="imageReference/DiceLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
+                                    <button onclick="location.href='https://stondonk.itch.io/roll-the-dice-dice-adventure'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh; margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">Roll the Dice Game too good?</p></button>
+                                </div>
+                                <div style="display: block;">
+                                    <img src="imageReference/89KLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
+                                    <button onclick="location.href='https://stondonk.itch.io/flip-tennis-89k'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh; margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">All in 89kilobytes?</p></button>
+                                </div>
+                                <div style="display: block;">
+                                    <img src="imageReference/MovesLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%; min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
+                                    <button onclick="location.href='https://stondonk.itch.io/newmoves'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh; margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">New Moves Update?</p></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -479,9 +507,17 @@
                 OpenMiniGameSelect(event, '');
                 
                 if(visualViewport.width >= 800){
-                    document.getElementById("PersonalSection").style.display = "flex"}
+                    document.getElementById("PersonalSection").style.display = "flex";
+                    document.getElementById("NewRSectionDesk").style.display = "block";
+                    document.getElementById("NewRSectionMobile").style.display = "none";
+                    //will improve im lazy
+                }
                 else{
-                    document.getElementById("PersonalSection").style.display = "block";}
+                    document.getElementById("PersonalSection").style.display = "block";
+                    document.getElementById("NewRSectionDesk").style.display = "none";
+                    document.getElementById("NewRSectionMobile").style.display = "block";
+                    
+                }
             }
         </script>
     </body>
