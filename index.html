@@ -3,8 +3,13 @@
     <head>
         <style>
             body {
-                background-color: rgb(68, 185, 214);
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.719)), url("imageReference/imageBg2.png"); /*linear-gradient(to bottom, rgba(68, 185, 214, 0.15), rgba(68, 185, 214, 0.25)), url("imageReference/imageBg2.png");*/
+                background-position: top;
+                background-size: 50%;
+                background-color: rgba(68, 185, 214, 0.5);
                 min-width: 360px;
+                padding: 0;
+                margin: 0;
             }
 
             @font-face {
@@ -13,510 +18,186 @@
             }
 
             * {
-                color: rgb(48, 48, 48);
+                color: #f2f2f2;
                 font-family: Roboto-Medium;
             }
 
-            .tabSt {
-                padding-top: 6px;
-                padding: 8;
-                width: calc(100% - padding-left);
-                min-height: calc(50vh);
-                min-width: 300px;
-                margin-left: 10%;
-                margin-right: 10%;
-                display: flex;
-                border-top: none;
-                border-radius: 4px;
-                outline: 1px solid rgb(73, 73, 73);
-                position: relative;
-                animation-name: example;
-                animation-duration: 1.5s;
-                padding-bottom: 32px;
-            }
+            .mainnav {
+                width: 100%;
+                margin: 0;
+                padding: 0px 0px;
+                left: 0;
+                top: 0;
 
-            .topBar{
-                background-color: rgb(73, 73, 73);
-                outline: 1px solid rgb(53, 53, 53);
-                top: 0px;
-                width: calc(100vw);
-                min-width: 360px;
-                left: 0px;
-                padding-right: 100px;
-                display: flex;
-                justify-content: center;
+                float: left;
+
+                justify-content: left;
                 align-items: center;
                 align-self: center;
+                text-align: left;
                 position:fixed;
 
-                z-index: 100;
+                background-color: rgb(46, 46, 46);
+                overflow-x: hidden;
+                overflow-y: hidden;
             }
 
-            .tabIcon{
-                color: rgb(240, 240, 240);
-                font-size:large;
-                background-color: rgb(73, 73, 73);
-                font-family: Roboto-Medium;
-                text-align: center;
+            .mainnav button{
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0);
+                border: 0;
+                transition: 0.75s;
+            }
+
+            .mainnav button:hover{
+                background-color: rgba(0, 0, 0, 0.295);
+            }
+
+            .sidenav {
+                height: 0;
+                width: 100%;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+
+                padding-top: 0;
+
+                background-color: rgba(46, 46, 46, 0.705);
+                overflow-x: hidden;
+                overflow-y: hidden;
+                transition: 0.5s;
+                text-align:center;
+            }
+
+            .sidenav button{
+                width: 55%;
+                height: 100%;
+
+                margin-top: 3px;
+
+                font-size: x-large;
+
+                z-index: 1;
+                left: 0;
+                height: 64px;
+
+                background-color: rgb(46, 46, 46);
+                transition: 0.5s;
+                text-align:center;
+            }
+
+            .sidenav button:hover{
+                background-color: rgb(68, 185, 214);
+                transition: 0.5s;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 0px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+
+            
+            }
+
+            .mediaSection {
+                background-color: rgba(46, 46, 46, 0.56);
+                padding: 32px;
+                height: 100%;
+                width: calc(100% - 64px);
+                margin-top: 32px;
+                border: 1px solid #f2f2f2;
+            }
+
+            .main{
+                width: 75%;
+
+                margin-left: 12.5%;
+
+                justify-content: left;
                 align-items: center;
                 align-self: center;
-                display: block;
-                outline: 1px solid rgb(53, 53, 53);
-                border-width: 0px;
-                width: 100%;
-                height: 100%;
-            }
-
-            .tabIcon:active{
-                background-color: rgb(120, 120, 120);
-                
-            }
-
-            .tabIcon:hover{
-                border: 2px solid rgb(68, 185, 214);
-                border-spacing: 0;
-                border-top: 0px; border-bottom: 0px; border-right: 0px;
-                background-color: rgb(53, 53, 53);
-            }
-
-            .screenOffset{
-                position: relative;
-                top: 104px;
-            }
-
-            @keyframes example {
-                0% {top: 100vh;}
-                80% {top: -10px;}
-                90% {top: 2px;}
-                100% {top: 0px;}
-            }
-
-            body {
-                height: 100vh;
-
-                 /* Hide scrollbars */
-            }
-
-            .SubSectionRing{
-                display: inline-flex; 
-                text-align: left; 
-                align-items: center; 
-                align-self: center; 
-                align-content: center; 
-                display: block; 
-                padding-left: 12; 
-                padding-right: 24;
-            }
-
-            .gameSubSelectButton{
-                background-color: rgb(68, 185, 214);
-                border-radius: 4px;
-                border: 1px;
-                border-color: rgb(241, 130, 130);
-                width: 100%;
-                text-align: center;
-                align-items: center;
-                align-content: center;
-                margin: 4px;
-                height: 64px;
-                display: block;
-            }
-            .gameSubSelectButton:hover{
-                border: 1px solid rgb(68, 185, 214);
-                background-color: rgb(53, 53, 53);
-                color: rgb(68, 185, 214);
-            }
-
-            .SubSubSectionFrame{
-                height: min-content;
-                min-height: min-content;
-                color: rgb(240, 240, 240);
-                border-top: none; 
-                border-radius: 4px; 
-                background-color: rgb(53, 53, 53);
-                outline: 1px solid rgb(53, 53, 53);
-                padding: 4; 
-                width: calc(100%); 
-            }
-
-            .SubSectionText{
-                padding: 8px;
-                height: 100%;
-                display: none;
                 text-align: left;
-                align-items: center;
-                align-content:center;
-                animation-name: example2;
-                animation-duration: 0.75s;
+
+                transition: 2s;
             }
 
-            .newsSubsection{
-                /*outline: 1px solid white;*/
-                padding-left: 8px;
-                margin-top: 8px; 
-                align-content: center; 
-                align-items: center; 
-                display: flex;
-            }
-            .newSubimage{
-                height: 100%; 
-                max-height: 20vh;
+            @media screen and (max-width: 560px) {
+                .sidenav button {
+                    margin-top: 1px;
+                    width: 100%;
+                    font-size: medium;
+                }
 
-            }
+                .main{
+                    border-spacing: 0;
+                    width: 100%;
+                    margin-left: 0;
+                    padding: 0;
+                }
 
-            @keyframes example2 {
-                0% {opacity: 0;}
-                100% {opacity: 100;}
-            }
-            
-            @media screen and (max-width: 800px) {
-                .SubSectionText{
-                    text-align: left;
-                     /* The width is 100%, when the viewport is 800px or smaller */
+                .mediaSection{
+                    border-left: 0;
+                    border-right: 0;
                 }
             }
-
-            .lineHolderInset{
-                border-top: none; 
-                border-radius: 4px; 
-                outline: 1px solid 
-                rgb(73, 73, 73); 
-                padding: 8; 
-                padding-right: 4px;
-                margin-top: 8px;
-                width:100%;
-                height: auto; 
-                min-height: calc(70vh - 64px); 
-                display: inline-flex;
-            }
-
-            .BoxHolderInsert{
-                border-top: none; 
-                border-radius: 4px; 
-                outline: 1px solid 
-                rgb(73, 73, 73); 
-                padding: 8; 
-                padding-right: 4;
-                margin-top: 8px;
-                width: auto;
-                height: auto; 
-                min-height: calc(70vh - 64px); 
-                display: inline-flex;
-            }
-
-
         </style>
     </head>
-    <body onresize="checkotherChanges()" onscroll="BarCheck()">
-        <div>
-
-            <div id="BarPeice" class="topBar">
-                <img src="cheffMike.png" style="width: 64; height: 64; outline: 1px solid rgb(145, 145, 145);" draggable="false">
-                <div style=" display: inline-flex; width: 100%; padding-top: 0; height: 64;">
-                    <button onclick="OpenQucikTab(event, 'Home'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Home</p></button>
-                    <button onclick="OpenQucikTab(event, 'New'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">New</p></button>
-                    <button onclick="OpenQucikTab(event, 'Games'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Games</p></button>
-                    <button onclick="OpenQucikTab(event, 'Programming'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">Programming</p></button>
-                    <button onclick="OpenQucikTab(event, 'Contact'); checkotherChanges();" class="tabIcon"><p style="color: rgb(240, 240, 240);">About</p></button>
-                </div>
-            </div>
-
-            <div class="screenOffset" style="height: 50%;">
-                <div id="Home" class="tabSt" style="display: block;">
-                    <div class="SubSectionRing">
-                        <h3>Home</h3>
-                        <p>Welcome to Jacob Standings portfolio</p>
-                        <div class="lineHolderInset" style="width:100%;">
-                            <img src="cheffMike.png" style="width: 256; height: 256; margin: auto;" draggable="false">
-                        </div>
-                    </div>
-                </div>
-
-                <div id="New" class="tabSt" >
-                    <div class="SubSectionRing">
-                        <h3>New projects & stuff</h3>
-                        <p style="font-size: 16px;">Check out all my new and old projects I've worked on</p>
-
-                        <div id="NewRSectionDesk" style="border: 1px solid rgb(73, 73, 73); border-radius: 4px; margin-left: auto; margin-right: auto; padding: 8px; padding-bottom: 16px; background-color: rgb(73, 73, 73);">
-                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
-                            <img src="imageReference/CrocIcon.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <button onclick="location.href='https://stondonk.itch.io/croc-game'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style="width: 100%; color: inherit;">Croc game release</p></button>
-                        </div>
-                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
-                            <img src="imageReference/MightyLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <button onclick="location.href='https://stondonk.itch.io/mightyversus'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">MightyVersus</p></button>
-                        </div>
-                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
-                            <img src="imageReference/DiceLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <button onclick="location.href='https://stondonk.itch.io/roll-the-dice-dice-adventure'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">Roll the Dice Game too good?</p></button>
-                        </div>
-                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
-                            <img src="imageReference/89KLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <button onclick="location.href='https://stondonk.itch.io/flip-tennis-89k'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">All in 89kilobytes?</p></button>
-                        </div>
-                        <div class="newsSubsection" style="width: 100%; height: 100%; max-height: 20vh;">
-                            <img src="imageReference/MovesLogoPeace1Sq.png" style="height: 100%; max-height: 20vh;" draggable="false">
-                            <button onclick="location.href='https://stondonk.itch.io/newmoves'" class="gameSubSelectButton" style="width: 100%; height: calc(100% - 8px); max-height: 20vh; margin-right: 16px;"><p style=" width: 100%; color: inherit;">New Moves Update?</p></button>
-                        </div>
-                        </div>
-                        <div id="NewRSectionMobile" style="border: 1px solid rgb(73, 73, 73); border-radius: 4px; margin-left: auto; margin-right: auto; padding: 8px; padding-bottom: 16px; background-color: rgb(73, 73, 73);">
-                            <div style="width: 100%; display:table-row; ">
-                                <div style="display: block;">
-                                    <img src="imageReference/CrocIcon.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px;  min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
-                                    <button onclick="location.href='https://stondonk.itch.io/croc-game'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh;  margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">Croc game release</p></button>
-                                </div>
-                                <div style="display: block;">
-                                    <img src="imageReference/MightyLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
-                                    <button onclick="location.href='https://stondonk.itch.io/mightyversus'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh;   margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">MightyVersus</p></button>
-                                </div>
-                                <div style="display: block;">
-                                    <img src="imageReference/DiceLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
-                                    <button onclick="location.href='https://stondonk.itch.io/roll-the-dice-dice-adventure'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh; margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">Roll the Dice Game too good?</p></button>
-                                </div>
-                                <div style="display: block;">
-                                    <img src="imageReference/89KLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%;  min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
-                                    <button onclick="location.href='https://stondonk.itch.io/flip-tennis-89k'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh; margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">All in 89kilobytes?</p></button>
-                                </div>
-                                <div style="display: block;">
-                                    <img src="imageReference/MovesLogoPeace1Sq.png" style="display: flex; height: calc(100% - 8px); width: 100%; min-width: 64px; min-height: 64px; margin-left: auto;margin-right: auto;" draggable="false">
-                                    <button onclick="location.href='https://stondonk.itch.io/newmoves'" class="gameSubSelectButton" style=" height: calc(20% - 16px); min-width: 64px; min-height: 64px; max-height: 20vh; margin-left: auto;margin-right: auto; "><p style="width: 100%; color: inherit;">New Moves Update?</p></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-  
-                <div id="Games" class="tabSt">
-                    <div class="SubSectionRing">
-                        <h3>Games & Projects</h3>
-                        <p style="font-size: 16px;">List and description of all my major Projects</p> <!-- &nbsp;&nbsp; -->
-
-                        <div class="SubSubSectionFrame" onchange="OpenMiniGameSelect(event, 'MightyVersus')">
-                            <div style="display: flex;">
-                                <button onclick="OpenMiniGameSelect(event, 'TankTracks')" class="gameSubSelectButton"><p style="color: inherit;">TankTracks</p></button>
-                                <button onclick="OpenMiniGameSelect(event, 'FlipTennis')" class="gameSubSelectButton"><p style="color: inherit;">Flip Tennis</p></button>
-                                <button onclick="OpenMiniGameSelect(event, 'NewMoves')" class="gameSubSelectButton"><p style="color: inherit;">New Moves</p></button>
-                                <button onclick="OpenMiniGameSelect(event, 'MightyVersus')" class="gameSubSelectButton"><p style="color: inherit;">Mighty Versus</p></button>
-                            </div>
-
-                            <div id="TankTracks" class="SubSectionText" style="display:inline-flex">
-                                <img src="imageReference/TankTracksGif.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Tank Tracks a game created in Unity is one of the more recent better performing games I've made
-                                    created for one of the many LOWREZJAMs I've been a part of, this one being LOWREZJAM 2021. The game was created not only around the theme of the
-                                    low resolution but also around the idea of an easily understandable gameplay mechanic so I looked at other games from the Kirby series for inspiration.
-                                    I then used this to develop an idea of using Kirby's inhale ability to retrieve dodgeballs being shot by enemies and redirecting them back at toward the enemy
-                                    just like how Kirby can inhale rockets and fire them back out at opposing obstacles. <br><br> The main mechanic of this game is the inhaling
-                                    and then the further collection / redirection of the enemy projectiles back at them to damage or possibly even kill them. The game only has a handful
-                                    of levels each feeling unique in its design, using different environments and similar setups to give the player a feeling of progression without
-                                    overdoing it to make an overall bit sized yet fun experience.
-                                </p>
-                            </div>
-
-                            <div id="FlipTennis" class="SubSectionText">
-                                <img src="imageReference/Flip tennis Clip.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Flip Tennis was the first ever major game release for me back in the
-                                    summer of 2021 and ever since has been one of my favorite projects to have worked on. Created for the simplistic nature of phones and mobile devices
-                                    the game has a basic control scheme and gameplay loop with many collectables and unlockables to be found throughout with many different game modes and
-                                    ideas sprinkled within. <br><br> The game unlike most wasn't created for a game jam but for the soul reason to make a fun and simple mobile game
-                                    that could be enjoyed by all without an advert popping up every minute or so bringing misery and despair, pulling you right out of the experience with it.
-                                    The whole game had many plans for expansion and growth but unfortunately the files for the game went corrupt and all the future content for the game
-                                    was lost alongside it. The gameplay itself boils down to tap left and right to move and hitting a ping pong ball as fast as you can before it fades into nothing
-                                    increasing the score with every swing from the player. The game has 2 player, an infinite mode and a campaign / adventure mode where you travel to various
-                                    stages and complete highscore objects to progress.
-                                </p>
-                            </div>
-
-                            <div id="NewMoves" class="SubSectionText">
-                                <img src="imageReference/New Moves Clip.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">New Moves is one of my more successful games made for the Juice Jam, a game
-                                    jam with the objective of making the most satisfactory game imaginable in a short amount of time that being about a week or so, decently long for a game jam
-                                    but not enough for the game I was attempting to make. <br><br> The game was made in Unity and has 4 player versus with computer controlled characters as well
-                                    this game is probably one of my more enjoyable games to come back to as the functionality and gameplay still hold up quite well. As previously stated the
-                                    objective for this jam was to make a very satisfying game, with that in mind I used a lot of screen shake and meaty feeling sound design to amplify the atmosphere and
-                                    satisfaction factor. Another part of this game designed differently from my other projects is the artstyle now it is true that a lot of my project designs
-                                    and artstyles have had a simplistic nature to them in previous times but this one was more deserving. I felt to help aid the screenshake making it harder to see the screen my artstyle should be easier to perceive
-                                    so simple colors and tones were used to ensure easy player visibility even in the worst of times so each player, computer and environment have differing
-                                    and strongly contracting colors used to help make the overall experience clearer and more pleasant to view.    
-                                </p>
-                            </div>
-
-                            <div id="MightyVersus" class="SubSectionText">
-                                <img src="imageReference/MightyVersus footage.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Mighty Versus is a project made over the duration of two weeks created
-                                    for a Game Jam called LOWREZJAM 2022 the theme and objective being to create a game within a 64 pixel by 64 pixel resolution. For this challenge
-                                    I decided to make a recreation / Demake of a new and very popular game at the time MultiVersus. But my challenge didn't just lay in the low
-                                    resolution but also in the program I had decided to make the game in, or the lack there of, because this project was written entirely within
-                                    javaScript with no external tools aiding in its creation. <br><br> This Project was the main point of development for my javascript knowledge base
-                                    which would go on to not only aid me in the development of the website your currently on, but also helped strengthen my understanding of higher level
-                                    programming languages. Which may seem useless to transition from a lower end language but to something higher spec but each language and level of Programming have
-                                    their own quirks, something very important that I learnt throughout this games production.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-  
-                <div id="Programming" class="tabSt">
-                    <div class="SubSectionRing">
-                        <h3>Programming Stuff</h3>
-                        <p>These are some the Larger Programming projects I've worked on</p>
-                        <div class="SubSubSectionFrame" onchange="OpenMiniGameSelect(event, 'Flip Tennis 89k')">
-                            <div style="display: flex;">
-                                <button onclick="OpenMiniGameSelect(event, 'Flip Tennis 89k')" class="gameSubSelectButton"><p style="color: inherit;">Flip Tennis 89k</p></button>
-                                <button onclick="OpenMiniGameSelect(event, 'Croc game')" class="gameSubSelectButton"><p style="color: inherit;">Croc Game</p></button>
-                                <button onclick="OpenMiniGameSelect(event, 'C++ Engine')" class="gameSubSelectButton"><p style="color: inherit;">C++ Engine</p></button>
-                            </div>
-
-                            <div id="Flip Tennis 89k" class="SubSectionText" style="display:inline-flex">
-                                <img src="imageReference/FlipT89.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">Flip Tennis was one of the projects I kept coming back to. So During a
-                                    game jam called the Floppy disk game jam I was challenged to make a game within a small file size ranged between 3 categories allotted, those being
-                                    80kb, 256kb and 1.4mbs I chose to aim for the hardest that being 80kb and so I would have to tear every little bit of data I could to ensure a smaller size.    
-                                <br><br>This project was created using only the programming language C and a popular renderer called OpenGL a single dll file used to assist in
-                                rendering for a .exe file that runs the application all together totaling 264kb which when placed in a rar file converts into about 89 kilobytes of data
-                                an incredibly small impressive amount for any game and so that's where the name comes from. Finally the last tidbit of relevant info about this game is its construction over an entire script
-                                rather than being made though a selection of separate scripts and bodies simplifying the data needed for the game once compiled.
-                                This becomes incredibly useful to know if I ever want to port this application to another other language or software. For instance there's a game called
-                                retro gadgets where you build and program little devices you make with lua code. I recreated a version of Flip tennis in that game by using the code made in
-                                that single script, showing the possibilities that this game might have for testing and showcasing in software for the future.</p>
-                            </div>
-
-                            <div id="Croc game" class="SubSectionText">
-                                <img src="imageReference/Crocgame2.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px;">After creating the low level language game of flip tennis 89k I wished
-                                    to make a better more improved engine and tools culminating in a project that would show off the improvements and capabilities of the engine. That
-                                    project evolved into The Top Down Shooter, depicted here. The Top Down shooter has many aspects to it a lot of that being more engine based stuff
-                                    which I've placed in a separate tab called C++ engine above, But for the most part the two are interlinked developed alongside one another which
-                                    I feel deserve separate tabs to accommodate. <br><br>The project has two gamemodes a battle arena mode spawning in random enemies across an arena dueling for survival,
-                                    the second mode is an endless mode both modes are endless but its used as a simple term for how the player gets set a random room and has to finish
-                                    said room by killing all the enemies before they inevitably kill him. This game is intentionally very high score based, hopefully in the future being
-                                    developed out into a more robust roguelike that feels as if more is going on. Finally this project is one of my more advanced bar bones games those
-                                    being projects created without engines and heavy restrictions in place so Hopefully once I feel its finished development ,it should feel as if those
-                                    restrictions didn't mold the game and more so that the game was made for its own sake. </p>
-                            </div>
-
-                            <div id="C++ Engine" class="SubSectionText">
-                                <img src="imageReference/C++EngineClip.gif" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <p style="color: rgb(240, 240, 240); margin-left: 8px; margin-right: 8px; ">My C++ game engine came around as a consequence to the C++ shooter game
-                                    I developed and was created with the soul purpose of aiding and developing the gameplay abilities of what programming in C++ could do for my
-                                    projects in the future. <br><br> This engine relies heavily on the object oriented side of C++ functions turning every thing
-                                    bar editing and debug tools into a object to easily be spawned in and created at a whim for solo functionality. A lot of these solo Objects revolve
-                                    around a subclass called gameobject but to explain what a subclass is, I first need to explain A class. A class is an object that can be stored as a
-                                    variable type with its own separate functions and child variables within and a subclass is when you take that class and make essentially a copy of all
-                                    its properties, functions and variables and append other assets such as more functions and variables to it under a different title. Using this methodology I have created a
-                                    workflow that mirrors some of the functionalities of other big name engines such as Unity or Unreal with it placement and object based system, software I have also used in the past to create
-                                    projects. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="Contact" class="tabSt" >
-                    <div class="SubSectionRing">
-                        <h3>General Synopsis / Basic Contact Info</h3>
-                        <p>This is a general about page for me an for contact info to be used for business inquiries and bug reports only</p>
-                        <div class="SubSubSectionFrame">
-                            <div id="PersonalSection" style="display: flex;text-align: left;align-items: center;align-content:center;">
-                                <img src="imageReference/ProPP.png" style="width: 100%; max-width: 50vh; max-height: 50vh;" draggable="false">
-                                <div style="display: block; height: 100%;">
-                                    <p style="color: rgb(240, 240, 240); padding: 8; padding-top: 0; align-items: top;">Hello my name is Jacob you could probably tell from the Url tho, this website is a portfolio of some projects I’ve 
-                                worked on in the past. I have had a passion for making games for years and have loved creating them under-restrictions and challenges, then to 
-                                release them onto the world. A lot of time has been put into not only the games but also this website so if you encounter any issues with it or 
-                                any of my games maybe even to inquire about business please use the contacts below. </p>
-                                    <p style="display: flex; color: rgb(240, 240, 240); padding: 8; padding-bottom: 0; align-items: bottom;">Info : <br> Email - stondonkdev@gmail.com  <br> Itch - https://stondonk.itch.io/</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <body>
+        <div id="myMainnav" class="mainnav">
+            <button onclick="Nav()" id="NavBarPres"><p style="font-size: medium;">&#9776; OPEN</p></button>
+            <!--<span style="font-size:30px;cursor:pointer;color:#f2f2f2;z-index: 100;height: 100%;" onclick="openNav()">&#9776; OPEN</span>-->
+            <div id="mySidenav" class="sidenav">
+                <button><p  style="font-size: inherit;">Home</p></button>
+                <button><p  style="font-size: inherit;">Projects</p></button>
+                <button><p  style="font-size: inherit;">Experience</p></button>
+                <button><p  style="font-size: inherit;">Contact</p></button>
             </div>
         </div>
 
+        <div id="Main" class="main" style="padding-top: 48px;">
+
+            <div class="mediaSection" id="Home" style="height: fit-content;">
+                <h1>HOME</h1>
+                <p>Yoooo its the Home</p>
+            </div>
+
+            <div class="mediaSection" id="Home">
+                <h1>Second Section</h1>
+                <p>Yoooo its the Second Section</p>
+            </div>
+
+            <div class="mediaSection" id="Home" style="height: fit-content;">
+                <h1>Another Section</h1>
+                <p>Yoooo its the Another Section</p>
+            </div>
+
+        </div>
+
         <script>
-            OpenQucikTab(event, 'Home');
-            checkotherChanges();
-
-            function openMenuSub (evt, QucikTab, MiniQucikTab){
-                OpenQucikTab(evt, QucikTab);
-                OpenMiniGameSelect(evt, MiniQucikTab);
-            }
-
-            function BarCheck(){
-                 document.getElementById("BarPeice").style.left = -document.body.scrollLeft
-            }
-
-            function checkForMiniOpen(QucikTab){
-                //quick dirty adjustment system works but inst great for any adintion tabs
-                //opened tab when clicked on section
-                if(QucikTab == 'Games')
-                    OpenMiniGameSelect(event, 'MightyVersus');
-                if(QucikTab == 'Programming')
-                    OpenMiniGameSelect(event, 'Flip Tennis 89k');
-            }
-
-            function OpenQucikTab(evt, QucikTab) {
-                window.scrollTo(window.scrollX,0); 
-              var tabSt, tablinks;
-              tabSt = document.getElementsByClassName("tabSt");
-              for (i = 0; i < tabSt.length; i++) {
-                tabSt[i].style.display = "none";
-              }
-              tabIcon = document.getElementsByClassName("tabIcon");
-              if(QucikTab == 'Games' || QucikTab == 'Programming')
-                OpenMiniGameSelect(evt, '');
-
-            checkForMiniOpen(QucikTab);
-              //item.style.backgroundcolor = document.getElementById(QucikTab).style.backgroundColor;
-              //item.className = item.className.replace(" active", "");
-              document.getElementById(QucikTab).style.display = "block";
-              evt.currentTarget.className += " active";
-            }
-
-            function OpenMiniGameSelect(evt, QucikTab) {
-                var tabSt, tablinks;
-                tabSt = document.getElementsByClassName("SubSectionText");
-                var fitUse = QucikTab;
-
-                if(QucikTab == ''){
-                    for (let index = 0; index < tabSt.length; index++) {
-                        const element = tabSt[index];
-                        if(tabSt[index].style.display != "none"){
-                            fitUse = tabSt[index].id;}
-                        
-                    }
-                }
-
-              for (i = 0; i < tabSt.length; i++) {
-                if(tabSt[i].id != fitUse)
-                    tabSt[i].style.display = "none";
-              }
-              tabIcon = document.getElementsByClassName("tabIcon");
-
-              //item.style.backgroundcolor = document.getElementById(QucikTab).style.backgroundColor;
-              //item.className = item.className.replace(" active", "");
-              
-              if(visualViewport.width >= 800)
-                document.getElementById(fitUse).style.display = "inline-flex"
-              else
-                document.getElementById(fitUse).style.display = "block"; //inline-flex
-
-              evt.currentTarget.className += " active";
-            }
-
-            function checkotherChanges() {
-                OpenMiniGameSelect(event, '');
-                
-                if(visualViewport.width >= 800){
-                    document.getElementById("PersonalSection").style.display = "flex";
-                    document.getElementById("NewRSectionDesk").style.display = "block";
-                    document.getElementById("NewRSectionMobile").style.display = "none";
-                    //will improve im lazy
+            let Menu = false;
+            function Nav() {
+                Menu=!Menu;
+                if(!Menu){
+                    document.getElementById("mySidenav").style.height = "0";
+                    document.getElementById("NavBarPres").style.backgroundColor = "rgba(255,255,255,0)";
                 }
                 else{
-                    document.getElementById("PersonalSection").style.display = "block";
-                    document.getElementById("NewRSectionDesk").style.display = "none";
-                    document.getElementById("NewRSectionMobile").style.display = "block";
-                    
+                    document.getElementById("mySidenav").style.height = "100%";
+                    document.getElementById("NavBarPres").style.backgroundColor = "rgba(68, 185, 214, 1)";
                 }
             }
         </script>
