@@ -113,7 +113,7 @@
                 height: 100%;
                 width: calc(100% - 64px);
                 margin-top: 32px;
-                border: 1px solid #f2f2f2;
+                border: 1px solid rgb(242, 242, 242);
             }
 
             .main{
@@ -127,6 +127,58 @@
                 text-align: left;
 
                 transition: 2s;
+            }
+
+            .WindowButton{
+                display: flex;
+                overflow: auto;
+                white-space: nowrap;
+                border: 1px solid rgb(242, 242, 242);
+            }
+
+            .FlipTennis{
+                background-image: url('imageReference/Flip tennis Clip.gif');
+            }
+
+            .WindowButton button{
+                border: 1px solid rgb(242, 242, 242);
+                color: rgba(242, 242, 242, 0);
+                font-size: x-large;
+                background-color: rgb(46,46,46);
+                
+                transition: 0.5s;
+                font-size: 0;
+            }
+
+            .WindowButton button:hover{
+                border: 1px solid rgb(68, 185, 214);
+                color: rgb(242, 242, 242,1);
+
+                font-size: larger;
+            }
+
+            /* width */
+            ::-webkit-scrollbar {
+                padding: 6px;
+                width: 20px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                padding: 6px;
+                background:  rgb(156, 156, 156); 
+                border-radius: 0px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: rgba(242, 242, 242,1); 
+                background-image: rgba(242, 242, 242,1);
+                border-radius: 0px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgb(20, 20, 20); 
+                background-image: rgb(20, 20, 20);
             }
 
             @media screen and (max-width: 560px) {
@@ -147,6 +199,10 @@
                     scroll-margin-top: 24px;
                     border-left: 0;
                     border-right: 0;
+                }
+                
+                .WindowButton{
+                    display: inline-flex;
                 }
             }
         </style>
@@ -170,9 +226,24 @@
                 <p>Hello your currently viewing Jacob standings portfolio website, a site regularly updated every 6 - 27 months.</p>
             </div>
 
-            <div class="mediaSection" id="Projects">
+            <div class="mediaSection" id="Projects" style="height: fit-content;">
                 <h1>Projects</h1>
                 <p>Yoooo its the Projects</p>
+
+                <div class="WindowButton" style="width: 100%;">
+                    <button><img src="imageReference/TankTracksGif.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false"><p style="font-size: inherit;">Tank Tracks</p></button>
+                    <button><img src="imageReference/Flip tennis Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false"><p style="font-size: inherit;">Flip Tennis</p></button>
+                    <button><img src="imageReference/New Moves Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false"><p style="font-size: inherit;">New Moves</p></button>
+                    <!--
+                    <button style="background-size:cover; padding: 10%;">Tank Tracks</button>
+                    <button style="background-image: url('imageReference/Flip tennis Clip.gif'); background-size:cover; padding: 10%;">Flip Tennis</button>
+                    <button style="background-image: url('imageReference/New Moves Clip.gif'); background-size:cover; padding: 10%;">New Moves</button>
+
+                    <button><img src="imageReference/Flip tennis Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false">Flip Tennis</button>
+                    <button><img src="imageReference/New Moves Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false">New Moves</button>
+                    -->
+                </div>
+
             </div>
 
             <div class="mediaSection" id="Experience" style="height: fit-content;">
