@@ -147,14 +147,11 @@
                 background-color: rgb(46,46,46);
                 
                 transition: 0.5s;
-                font-size: 0;
             }
 
             .WindowButton button:hover{
                 border: 1px solid rgb(68, 185, 214);
                 color: rgb(242, 242, 242,1);
-
-                font-size: larger;
             }
 
             /* width */
@@ -227,13 +224,18 @@
             </div>
 
             <div class="mediaSection" id="Projects" style="height: fit-content;">
-                <h1>Projects</h1>
-                <p>Yoooo its the Projects</p>
+                <div style="display: flex;"><h1>Projects&nbsp</h1><h1 id="ProjectHeader1"></h1></div>
+                <p id="ProjectsDesription">below are just a few of the many projects I've worked on over the years</p>
 
                 <div class="WindowButton" style="width: 100%;">
-                    <button><img src="imageReference/TankTracksGif.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false"><p style="font-size: inherit;">Tank Tracks</p></button>
-                    <button><img src="imageReference/Flip tennis Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false"><p style="font-size: inherit;">Flip Tennis</p></button>
-                    <button><img src="imageReference/New Moves Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false"><p style="font-size: inherit;">New Moves</p></button>
+                    <button onmouseover="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.'
+                    )">
+                    <img src="imageReference/TankTracksGif.gif" style="width: 100%; text-align: center; background-color: inherit; display:block;" draggable="false"></button>
+                    <button onmouseover="PorjectSubTitle('Flip tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.'
+                    )">
+                    <img src="imageReference/Flip tennis Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:block;" draggable="false"></button>
+                    <button onmouseover="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.'
+                    )"><img src="imageReference/New Moves Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:block;" draggable="false"></button>
                     <!--
                     <button style="background-size:cover; padding: 10%;">Tank Tracks</button>
                     <button style="background-image: url('imageReference/Flip tennis Clip.gif'); background-size:cover; padding: 10%;">Flip Tennis</button>
@@ -274,6 +276,11 @@
 
             function ScrollTo(div){
                 document.getElementById(div).scrollIntoView();
+            }
+
+            function PorjectSubTitle(Title, Desription){
+                document.getElementById("ProjectHeader1").textContent = "| " + Title;
+                document.getElementById("ProjectsDesription").textContent = Desription;
             }
         </script>
     </body>
