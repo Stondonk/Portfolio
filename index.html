@@ -145,11 +145,13 @@
                 /*overflow: auto;*/
                 white-space: nowrap;
                 border: 1px solid rgb(242, 242, 242);
+                border: 0;
+                padding: 0;
             }
 
             .WindowButton button{
                 border: 1px solid rgb(242, 242, 242);
-                border-radius: 8px;
+                border-radius: 0px;
                 color: rgba(242, 242, 242, 0);
                 font-size: x-large;
                 background-color: rgb(46,46,46);
@@ -183,7 +185,7 @@
             }
 
             .ButtonMaster {
-                display: flex;
+                display: block;
                 width: 100%;
             }
             .ButtonMaster button{
@@ -198,14 +200,16 @@
             }
             .ButtonMaster button:hover{
                 border-color: rgb(68, 185, 214);
+                background-color: rgb(68, 185, 214);
                 padding: 32px;
             }
 
             #CloseButton{
                 display: none; 
-                padding: 8px; 
+                padding: 16px; 
+                padding-top: 8px; padding-bottom: 8px;
                 background-color: transparent; 
-                border-radius: 8px; 
+                border-radius: 0px; 
                 border: 1px solid rgb(242, 242, 242);
 
                 transition: 0.5s;
@@ -327,16 +331,34 @@
 
             <div class="mediaSection" id="Projects" style="height: fit-content;">
                 <div id="FakeProjects" style="display: flex; width: 100%;"><h1>Projects&nbsp</h1></div>
-                <button id="CloseButton" onclick="CloseProject()"><div style="display: flex; width: 100%;"><h1>Projects&nbsp</h1><h1 id="ProjectHeader1" style="color: rgb(68, 185, 214);"></h1></div></button>
+                <button id="CloseButton" onclick="CloseProject(true)"><div style="display: flex; width: 100%;"><h1>Projects&nbsp</h1><h1 id="ProjectHeader1" style="color: rgb(68, 185, 214);"></h1></div></button>
 
                 <!--Projects-->
                 <div id="ProjectSelect">
-                    <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
-                        <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')">New Moves</button>
-                        <button onclick="PorjectSubTitle('Tank Tracks','-','TankTrackSection')">Tank Tracks</button>
-                        <button onclick="PorjectSubTitle('Flip Tennis','-','FlipTennisSection')">Flip Tennis</button>
-                        <button>Roll The Dice</button>
-                        <button>Mighty Versus</button>
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); margin-bottom: 32px;">
+                        <h1 style="font-size: medium;">Games</h1>
+                        <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
+                            <button onclick="PorjectSubTitle('Super Mini Bros 2','-','SuperMiniBros')">Super Mini Bros 2</button>
+                            <button onclick="PorjectSubTitle('Mighty Versus','-','MightyVersus')">Mighty Versus</button>
+                            <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')">New Moves</button>
+                            <button onclick="PorjectSubTitle('Tank Tracks','-','TankTrackSection')">Tank Tracks</button>
+                            <button onclick="PorjectSubTitle('Flip Tennis','-','FlipTennisSection')">Flip Tennis</button>
+                        </div>
+                    </div>
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); margin-bottom: 32px;">
+                        <h1 style="font-size: medium;">Programming challenges</h1>
+                        <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
+                            <button onclick="PorjectSubTitle('Propulsion DS','-','PropulsionDS')">Propulsion DS remake</button>
+                            <button onclick="PorjectSubTitle('Flip Tennis 89k','-','FLIPTennis89')">Flip Tennis 89k</button>
+                            <button onclick="PorjectSubTitle('Croc Game','-','CrocGame')">Croc Game</button>
+                            <button onclick="PorjectSubTitle('C++ Engine','-','CPPEngine')">C++ Game Engine</button>
+                        </div>
+                    </div>
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242);">
+                        <h1 style="font-size: medium;">Extras</h1>
+                        <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
+                            <button onclick="PorjectSubTitle('Coming Soon','-','MiniCade')">Coming soon...</button>
+                        </div>
                     </div>
                 </div>
                 <div id="CurrentProject">
@@ -347,7 +369,7 @@
                                 <div><img src="imageReference/NM/NMS2.png"></div>
                                 <div><img src="imageReference/NM/NMS3.png"></div>
                             </div>
-                            <p>New Moves was a game created for the Juice Jame Game Jam made for the express purpose of making and incredably satisfying gaming experience and to test my knowledge and understanding of local multiplay game creation.</p>
+                            <p>New Moves was a game created for the Juice Jam Game Jam made for the express purpose of making and incredably satisfying gaming experience and to test my knowledge and understanding of local multiplay game creation.</p>
                             <h1>(Jan 2022)</h1>
                         </div>
                     </div>
@@ -374,6 +396,80 @@
                             </div>
                             <p>Flip Tennis was the first real game I created and released outside of game jam projects which i had been doing for a few years up till that point.</p>
                             <h1>(May 2021)</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="SuperMiniBros" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/SMB2/SMS1.png"></div>
+                                <div><img src="imageReference/SMB2/SMS2.png"></div>
+                                <div><img src="imageReference/SMB2/SMS3.png"></div>
+                            </div>
+                            <p>Super mini bros 2 is one of my more recent titles following in my yearly tradition of entering into the LowRezJam and creating yet another game inspired by the mario brother franchise but at a resolution of 64x64 pixels.</p>
+                            <h1>(Aug 2023)</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="MightyVersus" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/MV/MVS1.png"></div>
+                                <div><img src="imageReference/MV/MVS2.png"></div>
+                                <div><img src="imageReference/MV/MVS3.png"></div>
+                            </div>
+                            <p>Might Versus is another one of my LowRezJam entries and is created in the image of somewhat recent title under the title multi versus where inwhich you play as a gallery of characters from across the WB universe in this title I seek to recreate that game and its feel with only a handle of pixels.</p>
+                            <h1>(Aug 2022)</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="PropulsionDS" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/DP/DPS1.png"></div>
+                                <div><img src="imageReference/DP/DPS2.png"></div>
+                                <div><img src="imageReference/DP/DPS3.png"></div>
+                            </div>
+                            <p>Propulsion DS was original a game idea I proposed to the creator of the original game one night whilst drunken in a pub, after explaining all the requirements that would be needed for a very basic version of propulsion to be made I felt I had to act on it, so the following september around the creators birthday I set to work and created Propulsion DS.</p>
+                            <h1>(Sept 2023)</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="FLIPTennis89" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/89/89S1.png"></div>
+                                <div><img src="imageReference/89/89S2.png"></div>
+                                <div><img src="imageReference/89/89S3.png"></div>
+                                <div><img src="imageReference/89/89S4.png"></div>
+                            </div>
+                            <p>Flip Tennis was the game that got me into programming outside C# and other high level languages made in C with OpenGl the game measures around 89kb when compressed and hence the title of the game, combined with the fact the game is a demake of my first mobile game Flip Tennis, so we get Flip Tennis 89k a project i will never top in size.</p>
+                            <h1>(Apr 2022)</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="CrocGame" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/CG/CGS1.png"></div>
+                                <div><img src="imageReference/CG/CGS2.png"></div>
+                                <div><img src="imageReference/CG/CGS3.png"></div>
+                            </div>
+                            <p>Croc game was my first real project created entirely within C++ and the graphics library called Raylib, it was made for a college project originally to showcase what I could do at the time but since has become a reminder of how far I've come in such a short time.</p>
+                            <h1>(Feb 2023)</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="CPPEngine" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <!--
+                                <div><img src="imageReference/C++EngineClip.gif"></div>
+                                <div><img src="imageReference/C++EngineClip2.gif"></div>
+                                <div><img src="imageReference/C++EngineClip3.gif"></div>
+                                -->
+                            </div>
+                            <h1>(Dec 2022 - Dec 2023)</h1>
                         </div>
                     </div>
                 </div>
@@ -418,13 +514,17 @@
                 document.getElementById("ProjectHeader1").textContent = "| " + Title;
                 //document.getElementById("ProjectsDesription").textContent = Desription;
 
+                document.getElementById("QuickLinks").style.display = "none"
+
                 document.getElementById("ProjectSelect").style.display = "none"
                 document.getElementById(Section).style.display = "block"
                 //document.getElementById('Projects').scrollIntoView();
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
             }
 
-            function CloseProject(){
+            function CloseProject(S){
                 document.getElementById("ProjectHeader1").textContent = "";
+
                 for (let index = 0; index < document.getElementsByClassName("mediaSection2").length; index++) {
                     const element = document.getElementsByClassName("mediaSection2")[index];
                     element.style.display = "none"
@@ -433,6 +533,11 @@
                 document.getElementById("CloseButton").style.display = "none"
                 document.getElementById("FakeProjects").style.display = "block"
                 document.getElementById("ProjectSelect").style.display = "block"
+                //add default welcome projects back
+                document.getElementById("QuickLinks").style.display = "flex"
+
+                if(S)
+                    document.getElementById('Projects').scrollIntoView();
             }
         </script>
     </body>
