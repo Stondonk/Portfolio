@@ -182,6 +182,38 @@
                 border: 1px solid rgb(242, 242, 242);
             }
 
+            .ButtonMaster {
+                display: flex;
+                width: 100%;
+            }
+            .ButtonMaster button{
+                width: 100%;
+                border: 1px solid rgb(242, 242, 242);
+                background-color: transparent;
+                border-radius: 0px;
+                margin: 4px;
+                padding: 16px;
+                font-size: x-large;
+                transition: 0.25s;
+            }
+            .ButtonMaster button:hover{
+                border-color: rgb(68, 185, 214);
+                padding: 32px;
+            }
+
+            #CloseButton{
+                display: none; 
+                padding: 8px; 
+                background-color: transparent; 
+                border-radius: 8px; 
+                border: 1px solid rgb(242, 242, 242);
+
+                transition: 0.5s;
+            }
+            #CloseButton:hover{
+                border-color: rgb(68, 185, 214);
+            }
+
             /* width */
             ::-webkit-scrollbar {
                 padding: 6px;
@@ -240,6 +272,18 @@
                     width: auto;
                     height: 30vw;
                 }
+
+                .ButtonMaster{
+                    display:block;
+                }
+
+                .ButtonMaster button{
+                    width: 100%;
+                }
+
+                #CloseButton{
+                    width: 100%;
+                }
             }
         </style>
     </head>
@@ -259,21 +303,16 @@
 
             <div class="mediaSection" id="Home" style="height: fit-content;">
                 <h1>Welcome</h1>
-                <p>Hello your currently viewing Jacob standings portfolio website, a site regularly updated every 6 - 27 months.</p>
-            </div>
-
-            <div class="mediaSection" id="Projects" style="height: fit-content;">
-                <div style="display: flex;"><h1>Projects&nbsp</h1><h1 id="ProjectHeader1" style="color: rgb(68, 185, 214);"></h1></div>
                 <!--<p id="ProjectsDesription">below are just a few of the many projects I've worked on over the years</p>-->
 
                 <div class="WindowButton" style="width: 100%;" id="QuickLinks">
-                    <button onmouseover="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')">
+                    <button onclick="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')">
                     <img src="imageReference/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                     
-                    <button onmouseover="PorjectSubTitle('Flip tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.','FlipTennisSection')">
+                    <button onclick="PorjectSubTitle('Flip Tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.','FlipTennisSection')">
                     <img src="imageReference/Flip tennis Clip.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                     
-                    <button onmouseover="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.','NewMovesSection')">
+                    <button onclick="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.','NewMovesSection')">
                     <img src="imageReference/New Moves Clip.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                     <!--
                     <button style="background-size:cover; padding: 10%;">Tank Tracks</button>
@@ -284,42 +323,58 @@
                     <button><img src="imageReference/New Moves Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false">New Moves</button>
                     -->
                 </div>
+            </div>
+
+            <div class="mediaSection" id="Projects" style="height: fit-content;">
+                <div id="FakeProjects" style="display: flex; width: 100%;"><h1>Projects&nbsp</h1></div>
+                <button id="CloseButton" onclick="CloseProject()"><div style="display: flex; width: 100%;"><h1>Projects&nbsp</h1><h1 id="ProjectHeader1" style="color: rgb(68, 185, 214);"></h1></div></button>
 
                 <!--Projects-->
-                <div style="margin-left: -32px; margin-right: -32px; ">
-                    <div class="mediaSection2" id="NewMovesSection">
-                        <!--<div class="ImageDisplaySection">
-                            <div><img src="imageReference/NM/NMS1.png"></div>
-                            <div><img src="imageReference/NM/NMS2.png"></div>
-                            <div><img src="imageReference/NM/NMS3.png"></div>
-                        </div>-->
-                        <p>New Moves was a game created for the Juice Jame Game Jam made for the express purpose of making and incredably satisfying gaming experience and to test my knowledge and understanding of local multiplay game creation.</p>
-                        <h1>(Jan 2022)</h1>
+                <div id="ProjectSelect">
+                    <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
+                        <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')">New Moves</button>
+                        <button onclick="PorjectSubTitle('Tank Tracks','-','TankTrackSection')">Tank Tracks</button>
+                        <button onclick="PorjectSubTitle('Flip Tennis','-','FlipTennisSection')">Flip Tennis</button>
+                        <button>Roll The Dice</button>
+                        <button>Mighty Versus</button>
                     </div>
                 </div>
-
-                <div style="margin-left: -32px; margin-right: -32px; ">
-                    <div class="mediaSection2" id="TankTrackSection" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                        <!--<div class="ImageDisplaySection">
-                            <div><img src="imageReference/TT/TTS1.png"></div>
-                            <div><img src="imageReference/TT/TTS2.png"></div>
-                            <div><img src="imageReference/TT/TTS3.png"></div>
-                        </div>-->
-                        <p>Tank Tracks was a game created for the LowRezJam 2021, a game jam made for creating games within the confined resolution of 64 by 64 pixels.</p>
-                        <h1>(Aug 2021)</h1>
+                <div id="CurrentProject">
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="NewMovesSection">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/NM/NMS1.png"></div>
+                                <div><img src="imageReference/NM/NMS2.png"></div>
+                                <div><img src="imageReference/NM/NMS3.png"></div>
+                            </div>
+                            <p>New Moves was a game created for the Juice Jame Game Jam made for the express purpose of making and incredably satisfying gaming experience and to test my knowledge and understanding of local multiplay game creation.</p>
+                            <h1>(Jan 2022)</h1>
+                        </div>
                     </div>
-                </div>
 
-                <div style="margin-left: -32px; margin-right: -32px; ">
-                    <div class="mediaSection2" id="FlipTennisSection" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                        <!--<div class="ImageDisplaySection">
-                            <div><img src="imageReference/FT/FTS1.png"></div>
-                            <div><img src="imageReference/FT/FTS2.png"></div>
-                            <div><img src="imageReference/FT/FTS3.png"></div>
-                            <div><img src="imageReference/FT/FTS4.png"></div>
-                        </div>-->
-                        <p>Flip Tennis was the first real game I created and released outside of game jam projects which i had been doing for a few years up till that point.</p>
-                        <h1>(May 2021)</h1>
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="TankTrackSection" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/TT/TTS1.png"></div>
+                                <div><img src="imageReference/TT/TTS2.png"></div>
+                                <div><img src="imageReference/TT/TTS3.png"></div>
+                            </div>
+                            <p>Tank Tracks was a game created for the LowRezJam 2021, a game jam made for creating games within the confined resolution of 64 by 64 pixels.</p>
+                            <h1>(Aug 2021)</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="FlipTennisSection" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/FT/FTS1.png"></div>
+                                <div><img src="imageReference/FT/FTS2.png"></div>
+                                <div><img src="imageReference/FT/FTS3.png"></div>
+                                <div><img src="imageReference/FT/FTS4.png"></div>
+                            </div>
+                            <p>Flip Tennis was the first real game I created and released outside of game jam projects which i had been doing for a few years up till that point.</p>
+                            <h1>(May 2021)</h1>
+                        </div>
                     </div>
                 </div>
                 
@@ -356,16 +411,28 @@
             }
 
             function PorjectSubTitle(Title, Desription, Section){
+                CloseProject();
+
+                document.getElementById("CloseButton").style.display = "flex"
+                document.getElementById("FakeProjects").style.display = "none"
                 document.getElementById("ProjectHeader1").textContent = "| " + Title;
                 //document.getElementById("ProjectsDesription").textContent = Desription;
 
+                document.getElementById("ProjectSelect").style.display = "none"
+                document.getElementById(Section).style.display = "block"
+                //document.getElementById('Projects').scrollIntoView();
+            }
+
+            function CloseProject(){
+                document.getElementById("ProjectHeader1").textContent = "";
                 for (let index = 0; index < document.getElementsByClassName("mediaSection2").length; index++) {
                     const element = document.getElementsByClassName("mediaSection2")[index];
                     element.style.display = "none"
                     
                 }
-
-                document.getElementById(Section).style.display = "block"
+                document.getElementById("CloseButton").style.display = "none"
+                document.getElementById("FakeProjects").style.display = "block"
+                document.getElementById("ProjectSelect").style.display = "block"
             }
         </script>
     </body>
