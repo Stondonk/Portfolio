@@ -279,6 +279,7 @@
 
                 .ButtonMaster{
                     display:block;
+                    /*padding-right: 32px;*/
                 }
 
                 .ButtonMaster button{
@@ -297,7 +298,7 @@
             <!--<span style="font-size:30px;cursor:pointer;color:#f2f2f2;z-index: 100;height: 100%;" onclick="openNav()">&#9776; OPEN</span>-->
             <div id="mySidenav" class="sidenav">
                 <button onClick="ScrollTo('Home')"><p  style="font-size: inherit;">Home</p></button>
-                <button onClick="ScrollTo('Projects')"><p  style="font-size: inherit;">Projects</p></button>
+                <button onClick="ScrollTo('Projects');CloseProject(true);"><p  style="font-size: inherit;">Projects</p></button>
                 <button onClick="ScrollTo('Experience')"><p  style="font-size: inherit;">Experience</p></button>
                 <button onClick="ScrollTo('Contact')"><p  style="font-size: inherit;">Contact</p></button>
             </div>
@@ -310,13 +311,13 @@
                 <!--<p id="ProjectsDesription">below are just a few of the many projects I've worked on over the years</p>-->
 
                 <div class="WindowButton" style="width: 100%;" id="QuickLinks">
-                    <button onclick="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')">
+                    <button onclick="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')" style="margin-left: auto;">
                     <img src="imageReference/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                     
                     <button onclick="PorjectSubTitle('Flip Tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.','FlipTennisSection')">
                     <img src="imageReference/Flip tennis Clip.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                     
-                    <button onclick="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.','NewMovesSection')">
+                    <button onclick="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.','NewMovesSection')" style="margin-right: auto;">
                     <img src="imageReference/New Moves Clip.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                     <!--
                     <button style="background-size:cover; padding: 10%;">Tank Tracks</button>
@@ -335,7 +336,7 @@
 
                 <!--Projects-->
                 <div id="ProjectSelect">
-                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); margin-bottom: 32px;">
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
                         <h1 style="font-size: medium;">Games</h1>
                         <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
                             <button onclick="PorjectSubTitle('Super Mini Bros 2','-','SuperMiniBros')">Super Mini Bros 2</button>
@@ -345,7 +346,7 @@
                             <button onclick="PorjectSubTitle('Flip Tennis','-','FlipTennisSection')">Flip Tennis</button>
                         </div>
                     </div>
-                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); margin-bottom: 32px;">
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
                         <h1 style="font-size: medium;">Programming challenges</h1>
                         <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
                             <button onclick="PorjectSubTitle('Propulsion DS','-','PropulsionDS')">Propulsion DS remake</button>
@@ -354,7 +355,7 @@
                             <button onclick="PorjectSubTitle('C++ Engine','-','CPPEngine')">C++ Game Engine</button>
                         </div>
                     </div>
-                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242);">
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px;">
                         <h1 style="font-size: medium;">Extras</h1>
                         <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
                             <button onclick="PorjectSubTitle('Coming Soon','-','MiniCade')">Coming soon...</button>
@@ -481,9 +482,9 @@
                 <p>Yoooo its the Experience</p>
             </div>
 
-            <div class="mediaSection" id="Contact" style="height: fit-content;">
+            <div class="mediaSection" id="Contact" style="height: fit-content; margin-bottom: 32px;">
                 <h1>Contact</h1>
-                <p>Yoooo its the Contact</p>
+                <p>If you want to contact me for any purpose use the email below and check my itch.io page for most of the projects listed above.<br/><br/>Email - stondonkdev@gmail.com <br/>Itch - https://stondonk.itch.io/</p>
             </div>
 
         </div>
