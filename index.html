@@ -204,6 +204,21 @@
                 padding: 32px;
             }
 
+            .MediaButton {
+                border: solid 1px rgb(242, 242, 242);
+                color: rgb(242, 242, 242); 
+                font-size: x-large;
+                padding: 16px;
+                border-radius: 8px;
+                margin-right: 16px;
+
+                transition: 0.5s;
+            }
+            
+            .MediaButton:hover {
+                font-size: xx-large;
+            }
+
             #CloseButton{
                 display: none; 
                 padding: 16px; 
@@ -286,6 +301,16 @@
                     width: 100%;
                 }
 
+                .MediaButton{
+                    width: 100%;
+                    font-size: medium;
+                }
+
+                .MediaButton:hover{
+                    font-size: medium;
+                    width: 110%;
+                }
+
                 #CloseButton{
                     width: 100%;
                 }
@@ -336,7 +361,7 @@
 
                 <!--Projects-->
                 <div id="ProjectSelect">
-                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
+                    <div style="padding: 16px; border: 1px solid rgb(198, 241, 40); padding-right: 24px; margin-bottom: 32px;">
                         <h1 style="font-size: medium;">Games</h1>
                         <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
                             <button onclick="PorjectSubTitle('Super Mini Bros 2','-','SuperMiniBros')">Super Mini Bros 2</button>
@@ -484,7 +509,12 @@
 
             <div class="mediaSection" id="Contact" style="height: fit-content; margin-bottom: 32px;">
                 <h1>Contact</h1>
-                <p>If you want to contact me for any purpose use the email below and check my itch.io page for most of the projects listed above.<br/><br/>Email - stondonkdev@gmail.com <br/>Itch - https://stondonk.itch.io/</p>
+                <p>If you want to contact me for any purpose use the email below and check my itch.io page for most of the projects listed above.<br/><br/></p>
+                <div id="LinkButtons" style="width: 100%; display: flex;">
+                    <button id="EmailLink" class="MediaButton" onclick="CopyToClip('stondonkdev@gmail.com', 'EMAIL', 'EmailLink')" style="background-color: rgb(68, 185, 214);">EMAIL</button>
+                    <button class="MediaButton" onclick="location.href='http://stondonk.itch.io/'" style="background-color: rgb(250, 92, 92);">ITCH</button>
+                    <button class="MediaButton" onclick="location.href='https://github.com/Stondonk'" style="background-color: rgb(155, 89, 182);">GITHUB</button>
+                </div>
             </div>
 
         </div>
@@ -539,6 +569,19 @@
 
                 if(S)
                     document.getElementById('Projects').scrollIntoView();
+            }
+
+            function CopyToClip(s,Pt,Te){
+                copyText = s
+                navigator.clipboard.writeText(s);
+                if(Te != NaN){
+                    var tooltip = document.getElementById(Te);
+                    tooltip.innerHTML = "Copied";
+                    document.getElementById(Te).style.transition="0s";
+                    document.getElementById(Te).style.color="rgb(68, 185, 214)";
+                    document.getElementById(Te).style.backgroundColor="rgb(242,242,242)";
+                    window.setTimeout(function(){tooltip.innerHTML = Pt; document.getElementById(Te).style.color="rgb(242,242,242)"; document.getElementById(Te).style.backgroundColor="rgb(68, 185, 214)"; document.getElementById(Te).style.transition="0.5s";}, 750);
+                }
             }
         </script>
     </body>
