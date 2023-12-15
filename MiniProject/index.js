@@ -30,6 +30,9 @@ document.body.addEventListener('keyup', keyup);
 document.getElementById("GameArea").addEventListener('mousedown', function(){ActionButton = true;});
 document.getElementById("GameArea").addEventListener('mouseup', function(){ActionButton = false;});
 
+document.getElementById("GameArea").addEventListener('ontouchstart', function(){ActionButton = true;});
+document.getElementById("GameArea").addEventListener('ontouchend', function(){ActionButton = false;});
+
 function keydown(key){
     if(key.keyCode == 32){
         ActionButton = true;}
