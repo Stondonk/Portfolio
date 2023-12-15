@@ -46,7 +46,7 @@ function keyup(key){
 
 //player
 var Player = {
-    x: -48,
+    x: -32,
     y: 0,
     rot:0,
 
@@ -68,7 +68,15 @@ var Player = {
     score:0,
 }
 
-var Spikes = [[-16,-8],[-48,8],[-80,-8],[-112,-16]]
+//to fix small vector dynamic array errors i split coordinates into two arrays
+var Spikes = [[32,-8],[64,8],[96,-8],[128,-16],[160,-8],[192,8],[224,-8],[256,-16],[288,-8],[320,8],[352,-8],[384,-16]]
+//really shit feature but a game for an adaptive resoultion is fu***** annoying to make, like bro i havent slept in like 24 hours im a tired man
+function calcRandHeight(){
+    for (let index = 0; index < Spikes.length; index++) {
+        Spikes[index][1] = ((parseInt(Math.random()*5)/5)*24)-8;
+    }
+}
+
 var SpikeRot = 0
 
 var FrameTick = 0
@@ -114,6 +122,8 @@ document.addEventListener("visibilitychange", () => {
     //}
 });
 
+let endPoint = Spikes.length - 1;
+
 function Update(){
     clearScreen();
 
@@ -141,11 +151,12 @@ function Update(){
     
     for (let index = 0; index < Spikes.length; index++) {
         DrawSprite(1,45,18,18,Spikes[index][0]-8,Spikes[index][1]-8,18,18, SpikeRot);
-        if(!Player.Killed){
+        if(!Player.Killed && InBrows){
             //Set new Spike
             if(Spikes[index][0]+8 < camX - (canvas.width/2)){
-                Spikes[index][0]+=128;
+                Spikes[index][0]= Spikes[endPoint][0] + 32;
                 Spikes[index][1]=((parseInt(Math.random()*5)/5)*24)-8;
+                endPoint=index;
                 Player.TargetSpeed += 0.5
             }
 
@@ -207,12 +218,15 @@ function Update(){
             if(Player.y > 128){
                 //reset game
                 Player.Killed = false;
-                Player.x = -64;
+                Player.x = -32;
                 Player.TargetSpeed = 14;
                 Player.Vx = 100;
                 Player.rot = 0;
 
-                Spikes = [[-16,-8],[-48,8],[-80,-8],[-112,-16]]
+                camX = 0;
+
+                Spikes = [[32,-8],[64,8],[96,-8],[128,-16],[160,-8],[192,8],[224,-8],[256,-16],[288,-8],[320,8],[352,-8],[384,-16]]
+                calcRandHeight();
             }
         }
         
