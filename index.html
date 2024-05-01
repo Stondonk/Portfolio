@@ -365,14 +365,14 @@
 
             <div class="mediaSection" id="Projects" style="height: fit-content;">
                 <div id="FakeProjects" style="display: flex; width: 100%;"><h1>Projects&nbsp</h1></div>
-                <button id="CloseButton" onclick="CloseProject(true)"><div style="display: flex; width: 100%;"><h1>Projects&nbsp</h1><h1 id="ProjectHeader1" style="color: rgb(68, 185, 214);"></h1></div></button>
+                <button id="CloseButton" onclick="CloseProject(true)"><div id="PMasterHead" style="display: flex; width: 100%; font-size: xx-large;"><h1 style=" font-size: inherit;">Projects&nbsp</h1><h1 id="ProjectHeader1" style="color: rgb(68, 185, 214); font-size: inherit;"></h1></div></button>
 
                 <!--Projects-->
                 <div id="ProjectSelect">
                     <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
                         <h1 style="font-size: medium;">Games</h1>
                         <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
-                            <button onclick="PorjectSubTitle('Untitled Laser','-','LaserRoom')">Untitled Laser Room</button>
+                            <button onclick="PorjectSubTitle('Untitled Laser Room','x-large','LaserRoom')">Untitled Laser Room</button>
                             <button onclick="PorjectSubTitle('Super Mini Bros 2','-','SuperMiniBros')">Super Mini Bros 2</button>
                             <button onclick="PorjectSubTitle('Mighty Versus','-','MightyVersus')">Mighty Versus</button>
                             <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')">New Moves</button>
@@ -587,6 +587,10 @@
                 document.getElementById("CloseButton").style.display = "flex"
                 document.getElementById("FakeProjects").style.display = "none"
                 document.getElementById("ProjectHeader1").textContent = "| " + Title;
+                if(Desription != '-')
+                    document.getElementById("PMasterHead").style.fontSize = Desription;
+                else
+                    document.getElementById("PMasterHead").style.fontSize = "xx-large";
                 //document.getElementById("ProjectsDesription").textContent = Desription;
 
                 document.getElementById("Home").style.display = "none"
