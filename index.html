@@ -372,6 +372,7 @@
                     <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
                         <h1 style="font-size: medium;">Games</h1>
                         <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
+                            <button onclick="PorjectSubTitle('Untitled Laser Room','-','LaserRoom')">Untitled Laser Room</button>
                             <button onclick="PorjectSubTitle('Super Mini Bros 2','-','SuperMiniBros')">Super Mini Bros 2</button>
                             <button onclick="PorjectSubTitle('Mighty Versus','-','MightyVersus')">Mighty Versus</button>
                             <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')">New Moves</button>
@@ -396,6 +397,25 @@
                     </div>
                 </div>
                 <div id="CurrentProject">
+                    <div style="margin-left: -32px; margin-right: -32px; ">
+                        <div class="mediaSection2" id="LaserRoom">
+                            <div class="ImageDisplaySection">
+                                <div><img src="imageReference/UTLR/LsroSS1.png"></div>
+                                <div><img src="imageReference/UTLR/LsroSS2.png"></div>
+                                <div><img src="imageReference/UTLR/LsroSS3.png"></div>
+                            </div>
+                            
+                            <div class="ImageDisplaySection"><div style="width: 100%;"><img src="imageReference/UTLR/UTLRBANN1.png"></div></div>
+                            <div class="ImageDisplaySection">
+                                <div style="width: 100%;"><img src="imageReference/UTLR/ULR1R.png"></div>
+                                <div style="width: 100%;"><img src="imageReference/UTLR/ULR2R.png"></div>
+                                <div style="width: 100%;"><img src="imageReference/UTLR/ULR3R.png"></div>
+                            </div>
+                            <p>This is project was made around the very crazy game jam theme, that being a level from the video game portal 2, specifically the one called test chamber 20. Originally, I had seen a mod for the game that converted a lot of its aspects into a collectathon platformer, taking inspiration from that I tried quite hard to convert this seemingly simple puzzle level into an intricate and fun platforming stage that took full advantage of a new tool I'd been using at the time, the Godot engine. </p>
+                            <h1>(Mar 2024)</h1>
+                        </div>
+                    </div>
+
                     <div style="margin-left: -32px; margin-right: -32px; ">
                         <div class="mediaSection2" id="NewMovesSection">
                             <div class="ImageDisplaySection">
@@ -518,7 +538,7 @@
             <div class="mediaSection" id="Experience" style="height: fit-content;">
                 <h1>Experience</h1>
                 <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
-                    <p>Small game jams<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">2018 - Current</p></p>
+                    <p>Game jams<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">2018 - Current</p></p>
                 </div>
                 <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
                     <p>First mobile game released<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">May 2021</p></p>
@@ -569,7 +589,7 @@
                 document.getElementById("ProjectHeader1").textContent = "| " + Title;
                 //document.getElementById("ProjectsDesription").textContent = Desription;
 
-                document.getElementById("QuickLinks").style.display = "none"
+                document.getElementById("Home").style.display = "none"
 
                 document.getElementById("ProjectSelect").style.display = "none"
                 document.getElementById(Section).style.display = "block"
@@ -589,7 +609,7 @@
                 document.getElementById("FakeProjects").style.display = "block"
                 document.getElementById("ProjectSelect").style.display = "block"
                 //add default welcome projects back
-                document.getElementById("QuickLinks").style.display = "flex"
+                document.getElementById("Home").style.display = "block"
 
                 if(S)
                     document.getElementById('Projects').scrollIntoView();
