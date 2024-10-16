@@ -334,7 +334,6 @@ function Update(){
                 if(BoxBox(Player.x-Player.w/2,Player.y-Player.h/2,Player.x+Player.w/2,Player.y+Player.h/2,CheckPx-1,CheckPy-1,CheckPx+1,CheckPy+1)){
                     Player.Killed = true;
                 }
-                DrawRect(CheckPx,CheckPy,1,1)
             }
 
         }
