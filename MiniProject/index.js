@@ -3,7 +3,13 @@ const ctx = canvas.getContext("2d");
 
 ctx.imageSmoothingEnabled = false;
 
+const DEG2RAD = (Math.PI/180);
+const RAD2DEG = (180/Math.PI);
+
 var DeltaTime = 0.013;
+
+var InGameTime = 0.0;
+var ActTime = 0.0;
 
 var camX = 0, camY = 0;
 var camZoom = 1;
@@ -37,7 +43,8 @@ function keydown(key){
     if(key.keyCode == 32){
         ActionButton = true;}
     if(key.keyCode == 27){
-        camZoom += 16 * DeltaTime;}
+        InBrows = false;}
+        //camZoom += 16 * DeltaTime;}
 }
 function keyup(key){
     if(key.keyCode == 32){
@@ -46,9 +53,12 @@ function keyup(key){
 
 //player
 var Player = {
-    x: -32,
+    x: -640,
     y: 0,
     rot:0,
+
+    w:4,
+    h:12,
 
     Vx:100,
     Vy:0,
@@ -64,17 +74,48 @@ var Player = {
     JetForce:300,
 
     Killed:false,
+    JK:false,
 
     score:0,
 }
 
 //to fix small vector dynamic array errors i split coordinates into two arrays
-var Spikes = [[32,-8],[64,8],[96,-8],[128,-16],[160,-8],[192,8],[224,-8],[256,-16],[288,-8],[320,8],[352,-8],[384,-16]]
+var spikes = [[0,0]];
+var rockets = [];
+var lasers = [];
 //really shit feature but a game for an adaptive resoultion is fu***** annoying to make, like bro i havent slept in like 24 hours im a tired man
-function calcRandHeight(){
-    for (let index = 0; index < Spikes.length; index++) {
-        Spikes[index][1] = ((parseInt(Math.random()*5)/5)*24)-8;
+function StartGame(){
+    spikes = [];
+    rockets = [];
+    lasers = [];
+
+    console.log(document.getElementById("MiniCade").clientWidth/2)
+    Player.x = -(canvas.width/2) - 8;
+    Player.y = 0;
+    Player.Killed = false;
+    Player.TargetSpeed = 14;
+    Player.Vx = 100;
+    Player.Vy = 0;
+    Player.rot = 0;
+
+    camX = 0;
+    camY = 0;
+    for (let index = 0; index < (canvas.width / 64); index++) {
+        SpawnRandomItem(index*64)
     }
+    //add_rocket(32,0,315)
+    //SpawnLaser()
+}
+
+//adding objects
+function add_rocket(x,y,a){
+    rockets.push([x,y,a]);
+}
+function add_laser(x,y,a,l){
+    lasers.push([x,y,a,l]);
+}
+function add_spike(x,y){
+    spikes.push([x,y]);
 }
 
 var SpikeRot = 0
@@ -122,7 +163,43 @@ document.addEventListener("visibilitychange", () => {
     //}
 });
 
-let endPoint = Spikes.length - 1;
+function SpawnRandomItem(xOff=0,yOff=0){
+    var Selection = Math.floor(Math.random()*3);
+    console.log("f ",Selection)
+    switch(Selection){
+        case 0:
+            SpawnSpike(xOff,yOff)
+        break;
+        case 1:
+            SpawnLaser(xOff,yOff)
+        break;
+        case 2:
+            SpawnRocket(xOff,yOff)
+        break;
+    }
+}
+function SpawnSpike(xOff=0,yOff=0){
+    var SpawnHeight = 16;
+    if(Math.floor(Math.random() * 2) == 1)
+        SpawnHeight = -24;
+    add_spike(camX + (canvas.width/2)+16+xOff,SpawnHeight+yOff);
+}
+function SpawnRocket(xOff=0,yOff=0){
+    var SpawnHeightVarT = 4;
+    var SpawnHeight = (Math.floor(Math.random() * SpawnHeightVarT))*((canvas.height-8)/SpawnHeightVarT) - (canvas.height-8)/2;
+    add_rocket(camX + (canvas.width/2)+xOff,SpawnHeight+8+yOff,270+(Math.floor(Math.random()*30))-15);
+}
+function SpawnLaser(xOff=0,yOff=0){
+    var SpawnHeightVarT = 3;
+    var SpawnHeight = (Math.floor(Math.random() * SpawnHeightVarT))*((canvas.height-8)/SpawnHeightVarT) - (canvas.height-8)/2;
+    add_laser(camX + (canvas.width/2) + 32+xOff,SpawnHeight+8+yOff,Math.floor(Math.random()*8)*360/8,32);
+}
+
+function Init(){
+    //StartGame();
+}
+
+Init();
 
 function Update(){
     clearScreen();
@@ -139,40 +216,131 @@ function Update(){
     if(document.getElementById("MiniCade").clientWidth > document.getElementById("MiniCade").clientHeight)
         Wid+=(parseFloat(document.getElementById("MiniCade").clientWidth - document.getElementById("MiniCade").clientHeight) / parseFloat(document.getElementById("MiniCade").clientHeight))
     canvas.width = Wid;
-    console.log(Wid)
 
     //RENDER STUFF
-    var LockPoint = clamp(Player.x,0,Player.x + 64);
+    var LockPoint = Math.max(0,Player.x);
     if(Player.x > 0)
         DrawText(String(Player.score),0,LockPoint,FloorHeight + 2,0)
     //DrawRect(Player.x-2,Player.y-2,4,4)
     DrawSprite(16*Player.Spr,0,16,16,Player.x-8,Player.y-8,16,16, Player.rot);
     DrawRect(LockPoint-canvas.width/2,FloorHeight,canvas.width,1)
-    
-    for (let index = 0; index < Spikes.length; index++) {
-        DrawSprite(1,45,18,18,Spikes[index][0]-8,Spikes[index][1]-8,18,18, SpikeRot);
-        if(!Player.Killed && InBrows){
-            //Set new Spike
-            if(Spikes[index][0]+8 < camX - (canvas.width/2)){
-                Spikes[index][0]= Spikes[endPoint][0] + 32;
-                Spikes[index][1]=((parseInt(Math.random()*5)/5)*24)-8;
-                endPoint=index;
-                Player.TargetSpeed += 0.5
-            }
 
-            if(BoxBox(Player.x - 4, Player.y - 8, Player.x + 4, Player.y + 8, Spikes[index][0]-5, Spikes[index][1]-5, Spikes[index][0]+5, Spikes[index][1]+5)){
-                Player.Killed = true;Player.Vy = -100;}
+    //RENDER OBS
+    for (let Spike_Idx = 0; Spike_Idx < spikes.length; Spike_Idx++) {
+        DrawSprite(2,46,16,16,spikes[Spike_Idx][0]-8,spikes[Spike_Idx][1]-8,16,16,-InGameTime*180);
+    }
+    for (let Rocket_Idx = 0; Rocket_Idx < rockets.length; Rocket_Idx++) {
+        DrawSprite(32,16,16,16,rockets[Rocket_Idx][0]-8,rockets[Rocket_Idx][1]-8,16,16,rockets[Rocket_Idx][2]);
+    }
+    //Update Lasers
+    for (let Laser_Idx = 0; Laser_Idx < lasers.length; Laser_Idx++) {
+        var ax = Math.sin(lasers[Laser_Idx][2]*DEG2RAD) ;
+        var ay = -Math.cos(lasers[Laser_Idx][2]*DEG2RAD) ;
+        var rax = Math.cos(lasers[Laser_Idx][2]*DEG2RAD) ;
+        var ray = Math.sin(lasers[Laser_Idx][2]*DEG2RAD) ;
+        DrawSprite(1,17,14,14,lasers[Laser_Idx][0]+(ax*lasers[Laser_Idx][3]/2)-8,lasers[Laser_Idx][1]+(ay*lasers[Laser_Idx][3]/2)-8,14,14,lasers[Laser_Idx][2]-180);
+        DrawSprite(1,17,14,14,lasers[Laser_Idx][0]-(ax*lasers[Laser_Idx][3]/2)-8,lasers[Laser_Idx][1]-(ay*lasers[Laser_Idx][3]/2)-8,14,14,lasers[Laser_Idx][2]);
+        var Wire_Length = 12;
+        var Wire_Dist = 12;
+        for (let Lp = 0; Lp < Wire_Length; Lp++) {
+            var sinT = (Math.sin((InGameTime * 10.0) + Lp/2.0) * Wire_Dist)*(Math.sin((Lp/Wire_Length*2)*(Math.PI*0.5))/Math.PI);
+            var StrAx = lasers[Laser_Idx][0]-(ax*lasers[Laser_Idx][3]/2) + (ax*lasers[Laser_Idx][3]/Wire_Length)*Lp;
+            var StrAy = lasers[Laser_Idx][1]-(ay*lasers[Laser_Idx][3]/2) + (ay*lasers[Laser_Idx][3]/Wire_Length)*Lp;
+            //DrawCircle(StrAx+(rax*sinT),StrAy+(ray*sinT),4);
+            DrawRect(StrAx+(rax*sinT)-2,StrAy+(ray*sinT)-2,2,2)
+            //DrawLine(StrAx+(rax*sinT),StrAy+(ray*sinT),StrAx+(rax*sinT) + (rax*4),StrAy+(ray*sinT)+ (ray*4))
         }
     }
 
     if(InBrows){
         //UPDATE STUFF
+        InGameTime += DeltaTime;
+        ActTime += DeltaTime;
+
         if(document.getElementById("MiniCade").style.display == "none")
             InBrows = false;
 
         SpikeRot+=32*DeltaTime
         if(SpikeRot>360)
             SpikeRot -= 360
+
+        //Obsticles
+        //Update Spike
+        var Spike_Remove = []
+
+        for (let Spike_Idx = 0; Spike_Idx < spikes.length; Spike_Idx++) {
+            //lasers[Laser_Idx][2]+=32*DeltaTime;
+            spikes[Spike_Idx][0] -= 30*DeltaTime;
+
+            if(spikes[Spike_Idx][0] < camX - (canvas.width/2) - 16){
+                SpawnRandomItem();
+                Spike_Remove.push(Spike_Idx)
+            }
+
+            if(BoxBox(Player.x-Player.w/2,Player.y-Player.h/2,Player.x+Player.w/2,Player.y+Player.h/2,spikes[Spike_Idx][0]-4,spikes[Spike_Idx][1]-4,spikes[Spike_Idx][0]+4,spikes[Spike_Idx][1]+4)){
+                Player.Killed = true;
+            }
+
+        }
+        for (let LR = 0; LR < Spike_Remove.length; LR++) {
+            spikes.splice(Spike_Remove[LR],1);
+        }
+
+        //Update Rockets
+        var Rocket_Remove = []
+
+        const RocketSpeed = 20;
+        for (let Rocket_Idx = 0; Rocket_Idx < rockets.length; Rocket_Idx++) {
+            var ax = Math.sin(rockets[Rocket_Idx][2]*DEG2RAD) * RocketSpeed;
+            var ay = -Math.cos(rockets[Rocket_Idx][2]*DEG2RAD) * RocketSpeed;
+            rockets[Rocket_Idx][0]+=ax*DeltaTime;
+            rockets[Rocket_Idx][1]+=ay*DeltaTime;
+
+            if(rockets[Rocket_Idx][0] < camX - (canvas.width/2) - 16){
+                SpawnRandomItem();
+                Rocket_Remove.push(Rocket_Idx)
+            }
+
+            if(BoxBox(Player.x-Player.w/2,Player.y-Player.h/2,Player.x+Player.w/2,Player.y+Player.h/2,rockets[Rocket_Idx][0]-4,rockets[Rocket_Idx][1]-4,rockets[Rocket_Idx][0]+4,rockets[Rocket_Idx][1]+4)){
+                Player.Killed = true;
+            }
+        }
+        for (let LR = 0; LR < Rocket_Remove.length; LR++) {
+            rockets.splice(Rocket_Remove[LR],1);
+        }
+        //Update Lasers
+        var Laser_Remove = []
+
+        for (let Laser_Idx = 0; Laser_Idx < lasers.length; Laser_Idx++) {
+            //lasers[Laser_Idx][2]+=32*DeltaTime;
+            if(lasers[Laser_Idx][0] < camX - (canvas.width/2) - lasers[Laser_Idx][3]){
+                SpawnRandomItem();
+                Laser_Remove.push(Laser_Idx)
+            }
+
+            //Multi point collision check (was too lazy and also didnt really need to add proper line box collision)
+
+            var ax = Math.sin(lasers[Laser_Idx][2]*DEG2RAD) ;
+            var ay = -Math.cos(lasers[Laser_Idx][2]*DEG2RAD) ;
+
+            const PointCheck = 4;
+            const PointDist = 16;
+            var Sx = lasers[Laser_Idx][0]-ax*(PointDist/2);
+            var Sy = lasers[Laser_Idx][1]-ay*(PointDist/2);
+
+            for (let Pdex = 0; Pdex < PointCheck; Pdex++) {
+                var CheckPx = Sx+(ax*((PointDist/(PointCheck-1))*Pdex));
+                var CheckPy = Sy+(ay*((PointDist/(PointCheck-1))*Pdex));
+                if(BoxBox(Player.x-Player.w/2,Player.y-Player.h/2,Player.x+Player.w/2,Player.y+Player.h/2,CheckPx-1,CheckPy-1,CheckPx+1,CheckPy+1)){
+                    Player.Killed = true;
+                }
+                DrawRect(CheckPx,CheckPy,1,1)
+            }
+
+        }
+        for (let LR = 0; LR < Laser_Remove.length; LR++) {
+            lasers.splice(Laser_Remove[LR],1);
+        }
 
         //PLAYER
         const Gravity = 200
@@ -181,24 +349,31 @@ function Update(){
         Player.Vy += Gravity*DeltaTime
 
         if(!Player.Killed){
+            Player.JK = false;
             Player.score = parseInt(Player.x/10);
             
-            if(ActionButton)
+            if(ActionButton){
+                if(Player.grounded)
+                    Player.Vy = -8;
                 Player.Vy -= (Player.JetForce*DeltaTime)
+            }
 
             //Collision
-            Player.grounded = false;
             if(Player.y+(Player.Vy*DeltaTime) > FloorHeight - 8){
                 Player.y = FloorHeight - 8;
                 Player.Vy = 0;
+                if(!Player.grounded)
+                    camZoom = 1.125;
                 Player.grounded = true;
 
                 Player.StartSpr = 0;
                 Player.LockSpr = 1;
             }else if(Player.y+(Player.Vy*DeltaTime) < -32 + 8){
+                Player.grounded = false;
                 Player.y = -32 + 8;
                 Player.Vy = 0;
             }else{
+                Player.grounded = false;
                 Player.StartSpr = 2;
                 Player.LockSpr = 1;
             }
@@ -211,31 +386,33 @@ function Update(){
                 FrameTick = 0;
             }else
                 FrameTick += DeltaTime;
+
+            Player.TargetSpeed = clamp(14+(Player.x/100),14,640);
                 
         }else{
+            if(!Player.JK){
+                Player.Vy = -100;
+            }
+            Player.JK = true;
             Player.Spr = 0;
             Player.rot+=100 * DeltaTime;
             if(Player.y > 128){
                 //reset game
-                Player.Killed = false;
-                Player.x = -32;
-                Player.TargetSpeed = 14;
-                Player.Vx = 100;
-                Player.rot = 0;
-
-                camX = 0;
-
-                Spikes = [[32,-8],[64,8],[96,-8],[128,-16],[160,-8],[192,8],[224,-8],[256,-16],[288,-8],[320,8],[352,-8],[384,-16]]
-                calcRandHeight();
+                StartGame();
             }
         }
+
+        camZoom = lerp(camZoom,1,6*DeltaTime);
         
 
         Player.x+=parseInt(Player.Vx)*DeltaTime;
         Player.y+=Player.Vy*DeltaTime;
     }else{
-        if(ActionButton)
+        if(ActionButton){
+            if (ActTime <= 0)
+                StartGame()
             InBrows = true
+        }
 
         DrawSprite(48,48,16,16,camX - 8,camY - 8,16,16, 0);
     }
@@ -245,6 +422,29 @@ function Update(){
 function DrawRect(x,y,w,h){
     ctx.fillStyle = "#f2f2f2"
     ctx.fillRect(Math.round(((x - camX) * camZoom) + canvas.width/2 ),Math.round((( y - camY) * camZoom) + canvas.height/2),w * camZoom,h * camZoom);
+}
+function DrawCircle(x,y,r){
+    ctx.fillStyle = "#f2f2f2"
+    ctx.beginPath();
+    ctx.strokeStyle = "#f2f2f2";
+    ctx.arc(Math.round(((x - camX) * camZoom) + canvas.width/2 ), Math.round((( y - camY) * camZoom) + canvas.height/2), r, 0, 2 * Math.PI);
+    ctx.stroke();
+    //ctx.fill();
+}
+function DrawLine(x1,y1,x2,y2,w=1.0){
+    ctx.strokeStyle = "#f2f2f2";
+    ctx.globalalpha = 1.0
+    ctx.lineWidth = w;
+    ctx.beginPath();
+    var Vet1 = {
+        x: Math.round(((x1 - camX) * camZoom) + canvas.width/2 ),
+        y: Math.round(((y1 - camY) * camZoom) + canvas.height/2 )
+    }
+    var Vet2 = {
+        x: Math.round(((x2 - camX) * camZoom) + canvas.width/2 ),
+        y: Math.round(((y2 - camY) * camZoom) + canvas.height/2 )
+    }
+    ctx.stroke();
 }
 
 function DrawSprite(Sx, Sy, Sw, Sh, x, y, w, h, degrees){
