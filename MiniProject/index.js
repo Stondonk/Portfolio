@@ -32,6 +32,8 @@ var ActionButton = false
 
 document.body.addEventListener('keydown', keydown);
 document.body.addEventListener('keyup', keyup);
+canvas.addEventListener("touchstart", (e) => {ActionButton = true; });
+canvas.addEventListener("touchend", (e) => {ActionButton = false; });
 
 document.getElementById("GameArea").addEventListener('mousedown', function(){ActionButton = true;});
 document.getElementById("GameArea").addEventListener('mouseup', function(){ActionButton = false;});
@@ -80,7 +82,7 @@ var Player = {
 }
 
 //to fix small vector dynamic array errors i split coordinates into two arrays
-var spikes = [[0,0]];
+var spikes = [];
 var rockets = [];
 var lasers = [];
 //really shit feature but a game for an adaptive resoultion is fu***** annoying to make, like bro i havent slept in like 24 hours im a tired man
@@ -89,7 +91,6 @@ function StartGame(){
     rockets = [];
     lasers = [];
 
-    console.log(document.getElementById("MiniCade").clientWidth/2)
     Player.x = -(canvas.width/2) - 8;
     Player.y = 0;
     Player.Killed = false;
@@ -165,7 +166,6 @@ document.addEventListener("visibilitychange", () => {
 
 function SpawnRandomItem(xOff=0,yOff=0){
     var Selection = Math.floor(Math.random()*3);
-    console.log("f ",Selection)
     switch(Selection){
         case 0:
             SpawnSpike(xOff,yOff)
@@ -187,7 +187,7 @@ function SpawnSpike(xOff=0,yOff=0){
 function SpawnRocket(xOff=0,yOff=0){
     var SpawnHeightVarT = 4;
     var SpawnHeight = (Math.floor(Math.random() * SpawnHeightVarT))*((canvas.height-8)/SpawnHeightVarT) - (canvas.height-8)/2;
-    add_rocket(camX + (canvas.width/2)+xOff,SpawnHeight+8+yOff,270+(Math.floor(Math.random()*30))-15);
+    add_rocket(camX + (canvas.width/2)+16+xOff,SpawnHeight+8+yOff,270+(Math.floor(Math.random()*30))-15);
 }
 function SpawnLaser(xOff=0,yOff=0){
     var SpawnHeightVarT = 3;
