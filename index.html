@@ -233,6 +233,28 @@
                 border-color: rgb(68, 185, 214);
             }
 
+            #SecondQl{
+                padding: 0px; 
+                margin: 0px; 
+                display:grid; 
+                margin-right: auto; 
+                width: auto; 
+                height: 100%; 
+                margin-left: 8px;
+
+                transition: 0.5s;
+            }
+
+            #SpecGifs{
+                height: 16vw; 
+                width: 100%;
+            }
+
+            #SpecGifs div img{
+                width:100%; 
+                height: 100%;
+            }
+
             /* width */
             ::-webkit-scrollbar {
                 padding: 6px;
@@ -284,12 +306,14 @@
                 }
                 
                 .WindowButton{
-                    display: inline-flex;
+                    display:grid;
+                    width: 100%;
                 }
 
                 .WindowButton button{
+                    margin: 0px;
                     width: auto;
-                    height: 30vw;
+                    height: 34vw;
                 }
 
                 .ButtonMaster{
@@ -330,6 +354,33 @@
                 #CloseButton{
                     width: 100%;
                 }
+
+                #SecondQL{
+                    width: auto;
+                    height: 100%;
+                    padding: 0;
+                    display: inline-flex;
+
+                    margin-left: 0;
+                    margin-left: 0;
+                }
+
+                #SecondQL Button {
+                    height: auto;
+                }
+
+                #SpecGifS {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                #SpecGifs div{
+                    width: min-content;
+                }
+                #SpecGifs div img{
+                    width: fit-content;
+                }
+
             }
 
             /*Mini project stuff*/
@@ -360,14 +411,24 @@
                 <!--<p id="ProjectsDesription">below are just a few of the many projects I've worked on over the years</p>-->
 
                 <div class="WindowButton" style="width: 100%;" id="QuickLinks">
-                    <button onclick="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')" style="margin-left: auto;">
-                    <img src="imageReference/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                    <div id="FirstQl" style="display: inline-flex; padding: 0px; margin: 0px;">
+                        <button onclick="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')" style="margin-left: auto;">
+                        <img src="imageReference/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                        
+                        <button onclick="PorjectSubTitle('Untitled Laser Room','Jam Project - created over a few days releasing on windows and linux with a version 1.1 following 2 days later.','LaserRoom')">
+                        <img src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                        
+                        <button onclick="PorjectSubTitle('Flip Tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.','FlipTennisSection')" style="margin-right: auto;">
+                        <img src="imageReference/FT/FliptennisIClipA.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                    </div>
+
+                    <div id="SecondQL">
+                        <button onclick="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.','NewMovesSection')" style="margin-right: auto;">
+                        <img src="imageReference/NM/NewMovesGifClipA.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                     
-                    <button onclick="PorjectSubTitle('Flip Tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.','FlipTennisSection')">
-                    <img src="imageReference/Flip tennis Clip.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
-                    
-                    <button onclick="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.','NewMovesSection')" style="margin-right: auto;">
-                    <img src="imageReference/New Moves Clip.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                        <button id="IH8CSS" onclick="PorjectSubTitle('CPP Engine','A Long term project to create a generic basis for projects of all kinds to be build off, making developing for multiple devices easier.','CPPEngine')" style="margin-right: auto;">
+                        <img src="imageReference/CPPE/C++EngineClip2.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                    </div>
                     <!--
                     <button style="background-size:cover; padding: 10%;">Tank Tracks</button>
                     <button style="background-image: url('imageReference/Flip tennis Clip.gif'); background-size:cover; padding: 10%;">Flip Tennis</button>
@@ -528,13 +589,12 @@
 
                     <div style="margin-left: -32px; margin-right: -32px; ">
                         <div class="mediaSection2" id="CPPEngine" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <!--
-                                <div><img src="imageReference/C++EngineClip.gif"></div>
-                                <div><img src="imageReference/C++EngineClip2.gif"></div>
-                                <div><img src="imageReference/C++EngineClip3.gif"></div>
-                                -->
+                            <div id="SpecGifS" class="ImageDisplaySection" >
+                                <div style="margin-left: auto;"><img src="imageReference/CPPE/C++EngineClip2.gif"></div>
+                                <div><img src="imageReference/CPPE/C++EngineClip.gif"></div>
+                                <div style="margin-right: auto;"><img src="imageReference/CPPE/C++EngineClip3.gif"></div>
                             </div>
+                            <p>A Simple CPP ECS setup used in projects such as (Raylib Game Engine), (Nintendo DS Game Engine) and (OpenGl Game Engine), Currently being worked on.</p>
                             <h1>(Dec 2022 - Oct 2024)</h1>
                         </div>
                     </div>
