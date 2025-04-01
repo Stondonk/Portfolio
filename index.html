@@ -117,7 +117,7 @@
                 text-align: center;
                 position:fixed;
 
-                background-color: rgba(46, 46, 46, 0.56);
+                background-color: rgba(46, 46, 46, 0.849);
 
                 border-bottom: 1px solid rgb(242, 242, 242);
                 overflow-x: hidden;
@@ -375,6 +375,9 @@
                 #QuickI1{
                     display: none;
                 }
+                #QuickI2{
+                    display: none;
+                }
 
             }
 
@@ -433,7 +436,7 @@
 
             <div class="PageSection">
                 <div style="padding: 0; width: 100%; height: 100%;">
-                    <h1>Quick Links</h1>
+                    <h1>Game Quick Links</h1>
                     <div style="display: flex; height: fit-content;">
                         <div id="QuickLinksButtons" class="ButtonMaster">
                             <button onclick="PorjectSubTitle('Untitled Laser Room','x-large','LaserRoom')" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
@@ -451,16 +454,46 @@
             </div>
 
             <div class="PageSection" style="display: block;">
+                <div style="display: flex;">
+                    <div class="MobilePreviewButton" style="margin-right: 4px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
+                    <div class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></div>
+                </div>
                 <div style="display: flex; width: 100%;">
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
-                    <div class="MediaWindow">
+                    <div id="MediaWindow1" class="MediaWindow">
                         <p>TEST</p>
                     </div>
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></div>
                 </div>
+            </div>
+
+            <div class="PageSection">
+                <div style="padding: 0; width: 100%; height: 100%;">
+                    <h1>Programming Projects Links</h1>
+                    <div style="display: flex; height: fit-content;">
+                        <div id="QuickI2" class="ButtonDisplayer" style="height: auto;">
+                            <img id="QuickImage2" src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
+                        </div>
+                        <div id="QuickLinksButtons" class="ButtonMaster">
+                            <button onclick="PorjectSubTitle('CPP Game Engine','x-large','CPPGameEngine')" onmouseover="ChangeBSI('QuickImage2','imageReference/PDS/PropDSGif.gif')">C++ Game Engine</button>
+                            <button onclick="PorjectSubTitle('Propulsion on Nintendo DS','x-large','PropulsionDS')" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">Propulsion DS</button>
+                            <button onclick="PorjectSubTitle('Flip Tennis 89k','-','FT89k')" onmouseover="ChangeBSI('QuickImage2','imageReference/MV/MightyVersus footage.gif')">Flip Tennis 89k</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="PageSection" style="display: block;">
                 <div style="display: flex;">
                     <div class="MobilePreviewButton" style="margin-right: 4px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
-                    <div class="MobilePreviewButton" style="margin-left: 4px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></div>
+                    <div class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></div>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
+                    <div id="MediaWindow2" class="MediaWindow">
+                        <p>TEST</p>
+                    </div>
+                    <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></div>
                 </div>
             </div>
 
