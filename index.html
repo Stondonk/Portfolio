@@ -487,7 +487,7 @@
                             <button onclick="LoadCard('MediaWindow1','Games/SMB2.Json'); ScrollTo('MediaWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/SMB2/SMB2.gif')">Super Mini Bros 2</button>
                             <button onclick="PorjectSubTitle('Mighty Versus','-','MightyVersus')" onmouseover="ChangeBSI('QuickImage1','imageReference/MV/MightyVersus footage.gif')">Mighty Versus</button>
                             <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')" onmouseover="ChangeBSI('QuickImage1','imageReference/NM/NewMovesGifClipA.gif')">New Moves</button>
-                            <button onclick="PorjectSubTitle('Tank Tracks','-','TankTrackSection')" onmouseover="ChangeBSI('QuickImage1','imageReference/TT/TankTracksGif.gif')">Tank Tracks</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('MediaWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/TT/TankTracksGif.gif')">Tank Tracks</button>
                             <button onclick="PorjectSubTitle('Flip Tennis','-','FlipTennisSection')" onmouseover="ChangeBSI('QuickImage1','imageReference/FT/FliptennisIClipA.gif')">Flip Tennis</button>
                         </div>
                         <div id="QuickI1" class="ButtonDisplayer" style="height: auto;">
@@ -499,8 +499,8 @@
 
             <div class="PageSection" style="display: block;">
                 <div style="display: flex;">
-                    <div class="MobilePreviewButton" style="margin-right: 4px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
-                    <div class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></div>
+                    <button class="MobilePreviewButton" style="margin-right: 4px;" onclick="LoadNextCard('MediaWindow1',-1)"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
+                    <button class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;" onclick="LoadNextCard('MediaWindow1',-1)"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></button>
                 </div>
                 <div style="display: flex; width: 100%;">
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
@@ -508,6 +508,7 @@
                         <p id="MediaWindow1Des">TEST</p>
                         <div id="MediaImages1" class="MediaImageWindow"></div>
                         <p id="MediaDescription">Empty</p>
+                        <div id="MediaSlideInFolder" style="display: none;">0</div> <!--Kinda shit way of check current card in folder in the html but it works so eh-->
                     </div>
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></div>
                 </div>

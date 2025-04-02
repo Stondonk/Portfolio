@@ -1,8 +1,8 @@
+const fs = require('fs');
 
 async function RequestJson(Address){
     var TempData = await fetch(Address);
     var Data = await TempData.json();
-    console.log(Data);
 
     return Data;
 }
@@ -31,4 +31,11 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
     Des.textContent = JsonData["Description"];
     //console.log(JsonData["Title"]);
     
+}
+
+async function LoadNextCard(PreviewID = "EMPTY", Direction = 1){
+    const Card = document.getElementById(PreviewID);
+    var IdChild = Card.childElementCount-1;
+    var CardID = Card.children[IdChild];
+    console.log(CardID.textContent);
 }
