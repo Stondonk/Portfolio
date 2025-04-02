@@ -1,0 +1,5 @@
+{
+    //Temp until I can get file system to work better
+    "Games":["LaserRoom.Json","SMB2.Json","MightyVersus.Json","NewMoves.Json","TankTracks.Json","FlipTennis.Json"],
+    "Projects":["CPPGameEngine.Json","CrocGame.Json","FT98K.Json","PropulsionDS.Json"]
+}
