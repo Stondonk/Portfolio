@@ -8,7 +8,7 @@ async function RequestJson(Address){
 }
 
 
-async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
+async function LoadCard(PreviewID = "EMPTY", CardAdress = "", ManualID = -1){
     const Card = document.getElementById(PreviewID);
     var JsonData = await RequestJson("PreviewCards/"+CardAdress);
     if(!JsonData) return "ERROR";
@@ -18,7 +18,7 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
 
     var IdChild = Card.childElementCount-1;
     var CardID = Card.children[IdChild];
-    CardID.textContent = (await RPathIndex(CardAdress)).toString();
+    CardID.textContent = ManualID >= 0 ? (await RPathIndex(CardAdress)).toString() : ManualID;
     //Title
     Title.textContent = JsonData["Title"];
     //Images
@@ -56,6 +56,6 @@ async function LoadNextCard(PreviewID = "EMPTY", Direction = 1, Files="Games"){
     var FilesData = await RequestJson("PreviewCards/Files.Json");
     if(IdT >= FilesData[Files].length) IdT -= FilesData[Files].length
     if(IdT < 0) IdT += FilesData[Files].length
-    LoadCard(PreviewID,(Files + "/" + FilesData[Files][IdT]).toString());
+    LoadCard(PreviewID,(Files + "/" + FilesData[Files][IdT]).toString(), IdT);
     //CardID.textContent = (parseInt(Card.textContent)).toString();
 }
