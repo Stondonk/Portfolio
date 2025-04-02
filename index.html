@@ -45,6 +45,7 @@
                 overflow-x: hidden;
                 overflow-y: hidden;
 
+                z-index: 10;
                 display: none;
             }
 
@@ -123,6 +124,7 @@
                 overflow-x: hidden;
                 overflow-y: hidden;
 
+                z-index: 10;
                 display: flex;
             }
             .sidenav button{
@@ -325,16 +327,17 @@
             
             /*Media Image Window*/
             .MediaImageWindow{
-                width: fit-content;
-                display: flex;
+                width: calc(100%-16px);
+                display: grid;
+                grid-template-columns: repeat(3, 3fr);
                 border: 1px solid rgb(242, 242, 242);
                 padding: 8px;
             }
             .MediaImageWindow img{
-                display:block;
-                width: 33%;
-                height: 33%;
-                margin: 1px;
+                display:flex;
+                width: 96%;
+                max-height: 50vh;
+                margin: 2px;
             }
 
             #MediaImgStart{
@@ -342,6 +345,20 @@
             }
             #MediaImgEnd{
                 margin-right: 0px;
+            }
+
+            .MediaButton{
+                border: solid 1px rgb(242, 242, 242);
+                color: rgb(242, 242, 242); 
+                font-size: x-large;
+                padding: 16px;
+                
+                margin-right: 16px;
+
+                transition: 0.5s;
+            }
+            .MediaButton:hover{
+                font-size: xx-large;
             }
 
             /*Mini project stuff*/
@@ -402,7 +419,13 @@
                 }
                 .MediaImageWindow img{
                     width: 100%;
+                    max-width: 25vh;
                     margin: 4px;
+
+                }
+
+                .MediaWindowName{
+                    text-align: center;
                 }
                 #MediaImgStart{
                     margin-left: 0;
@@ -436,8 +459,8 @@
             <button onclick="Nav()" id="NavBarPress"><p style="font-size: medium;">&#9776; Navigate</p></button>
             <!--<span style="font-size:30px;cursor:pointer;color:#f2f2f2;z-index: 100;height: 100%;" onclick="openNav()">&#9776; OPEN</span>-->
             <div id="MainSideNav" class="mainnavside">
-                <button onClick="CloseProject(true);ScrollTo('Home');"><p  style="font-size: inherit;">Home</p></button>
-                <button onClick="ScrollTo('Projects');CloseProject(true);"><p  style="font-size: inherit;">Projects</p></button>
+                <button onClick="ScrollTo('Home');"><p  style="font-size: inherit;">Home</p></button>
+                <button onClick="ScrollTo('Projects');"><p  style="font-size: inherit;">Projects</p></button>
                 <button onClick="ScrollTo('Experience')"><p  style="font-size: inherit;">Experience</p></button>
                 <button onClick="ScrollTo('Contact')"><p  style="font-size: inherit;">Contact</p></button>
             </div>
@@ -445,25 +468,26 @@
         <!--Side bar desktop only-->
         <div id="Sidenav" class="sidenav">
             <p style="margin-left: 24px; margin-right: 24px; font-size: large;">&#9776;</p>
-            <button onClick="CloseProject(true);ScrollTo('Home');">Home</button>
-            <button onClick="ScrollTo('Projects');CloseProject(true);">Projects</button>
+            <button onClick="ScrollTo('Home');">Home</button>
+            <button onClick="ScrollTo('Projects');">Projects</button>
             <button onClick="ScrollTo('Experience')">Experience</button>
             <button onClick="ScrollTo('Contact')">Contact</button>
         </div>
 
         <!--Main-->
         <div id="Main" class="main">
+            <div id="Home"></div>
             <div class="PageSection" style="margin-top:48px;">
                 <div id="PageContents1" class="PageContents">
                     <div class="WindowButton" style="width: 100%;" id="QuickLinks">
                         <div id="FirstQl" style="display: inline-flex; padding: 0px; margin-left: auto; margin-right: auto;">
-                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('MediaWindow1');" style="margin-left: auto;">
+                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('PreviewWindow1');" style="margin-left: auto;">
                             <img src="imageReference/TT/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                             
-                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('MediaWindow1');">
+                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('PreviewWindow1');">
                             <img src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                             
-                            <button onclick="LoadCard('MediaWindow1','Games/FlipTennis.Json'); ScrollTo('MediaWindow1');" style="margin-right: auto;">
+                            <button onclick="LoadCard('MediaWindow1','Games/FlipTennis.Json'); ScrollTo('PreviewWindow1');" style="margin-right: auto;">
                             <img src="imageReference/FT/FliptennisIClipA.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                         </div>
                     </div>
@@ -478,17 +502,18 @@
                 </div>
             </div>
 
+            <div id="Projects"></div>
             <div class="PageSection">
                 <div style="padding: 0; width: 100%; height: 100%;">
                     <h1>Game Quick Links</h1>
                     <div style="display: flex; height: fit-content;">
                         <div id="QuickLinksButtons" class="ButtonMaster">
-                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('MediaWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
-                            <button onclick="LoadCard('MediaWindow1','Games/SMB2.Json'); ScrollTo('MediaWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/SMB2/SMB2.gif')">Super Mini Bros 2</button>
-                            <button onclick="PorjectSubTitle('Mighty Versus','-','MightyVersus')" onmouseover="ChangeBSI('QuickImage1','imageReference/MV/MightyVersus footage.gif')">Mighty Versus</button>
-                            <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')" onmouseover="ChangeBSI('QuickImage1','imageReference/NM/NewMovesGifClipA.gif')">New Moves</button>
-                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('MediaWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/TT/TankTracksGif.gif')">Tank Tracks</button>
-                            <button onclick="PorjectSubTitle('Flip Tennis','-','FlipTennisSection')" onmouseover="ChangeBSI('QuickImage1','imageReference/FT/FliptennisIClipA.gif')">Flip Tennis</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/SMB2.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/SMB2/SMB2.gif')">Super Mini Bros 2</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/MightyVersus.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/MV/MightyVersus footage.gif')">Mighty Versus</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/NewMoves.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/NM/NewMovesGifClipA.gif')">New Moves</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/TT/TankTracksGif.gif')">Tank Tracks</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/FlipTennis.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/FT/FliptennisIClipA.gif')">Flip Tennis</button>
                         </div>
                         <div id="QuickI1" class="ButtonDisplayer" style="height: auto;">
                             <img id="QuickImage1" src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
@@ -497,7 +522,7 @@
                 </div>
             </div>
 
-            <div class="PageSection" style="display: block;">
+            <div class="PageSection" id="PreviewWindow1" style="display: block;">
                 <div style="display: flex;">
                     <button class="MobilePreviewButton" style="margin-right: 4px;" onclick="LoadNextCard('MediaWindow1',-1)"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
                     <button class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;" onclick="LoadNextCard('MediaWindow1',-1)"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></button>
@@ -505,7 +530,7 @@
                 <div style="display: flex; width: 100%;">
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
                     <div id="MediaWindow1" class="MediaWindow">
-                        <p id="MediaWindow1Des">TEST</p>
+                        <h1 id="MediaWindow1Name" class="MediaWindowName">TEST</h1>
                         <div id="MediaImages1" class="MediaImageWindow"></div>
                         <p id="MediaDescription">Empty</p>
                         <div id="MediaSlideInFolder" style="display: none;">0</div> <!--Kinda shit way of check current card in folder in the html but it works so eh-->
@@ -522,15 +547,15 @@
                             <img id="QuickImage2" src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
                         </div>
                         <div id="QuickLinksButtons" class="ButtonMaster">
-                            <button onclick="LoadCard('MediaWindow2','Games/LaserRoom.txt')" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">C++ Game Engine</button>
-                            <button onclick="PorjectSubTitle('Propulsion on Nintendo DS','x-large','PropulsionDS')" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">Propulsion DS</button>
-                            <button onclick="PorjectSubTitle('Flip Tennis 89k','-','FT89k')" onmouseover="ChangeBSI('QuickImage2','imageReference/MV/MightyVersus footage.gif')">Flip Tennis 89k</button>
+                            <button onclick="LoadCard('MediaWindow2','Projects/FlipTennis.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">C++ Game Engine</button>
+                            <button onclick="PorjectSubTitle('Propulsion on Nintendo DS','x-large','PropulsionDS')" onmouseover="ChangeBSI('QuickImage2','imageReference/PDS/PropDSGif.gif')">Propulsion DS</button>
+                            <button onclick="LoadCard('MediaWindow2','Projects/FT89k.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/MV/MightyVersus footage.gif')">Flip Tennis 89k</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="PageSection" style="display: block;">
+            <div class="PageSection" id="PreviewWindow2"  style="display: block;">
                 <div style="display: flex;">
                     <div class="MobilePreviewButton" style="margin-right: 4px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
                     <div class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></div>
@@ -538,11 +563,37 @@
                 <div style="display: flex; width: 100%;">
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
                     <div id="MediaWindow2" class="MediaWindow">
-                        <p>TEST</p>
+                        <h1 id="MediaWindow2Name" class="MediaWindowName">TEST</h1>
+                        <div id="MediaImages2" class="MediaImageWindow"></div>
+                        <p id="MediaDescription2">Empty</p>
+                        <div id="MediaSlideInFolder2" style="display: none;">0</div> 
                     </div>
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></div>
                 </div>
             </div>
+            
+            <div id="Experience"></div>
+            <div class="PageSection">
+                <div style="padding: 0;">
+                    <h1>Experience</h1>
+                    <p>EX Stuff</p>
+                </div>
+            </div>
+
+            <div id="Contact"></div>
+            <div class="PageSection" style="display: block;">
+                <div style="padding: 0;">
+                    <h1>Contact</h1>
+                    <p>If you want to contact me for any purpose use the email below and check my itch.io page for most of the projects listed above.</p>
+                </div>
+                <div style="padding: 0;">
+                    <button id="EmailLink" class="MediaButton" onclick="CopyToClip('stondonkdev@gmail.com', 'EMAIL', 'EmailLink')" style="background-color: rgb(68, 185, 214);">EMAIL</button>
+                    <button class="MediaButton" onclick="location.href='http://stondonk.itch.io/'" style="background-color: rgb(250, 92, 92);">ITCH</button>
+                    <button class="MediaButton" onclick="location.href='https://github.com/Stondonk'" style="background-color: rgb(155, 89, 182);">GITHUB</button>
+                </div>
+            </div>
+
+
 
             <div class="PageSection" style="display: block;">
                 <p>MiniGame</p>
@@ -558,6 +609,9 @@
 
             let Menu = false;
             let Mobile = false;
+
+            LoadCard('MediaWindow1','Games/LaserRoom.Json');
+
             //Window Rezise
             window.addEventListener('resize', function(event){ 
                 Mobile = event.width <= 620;
@@ -582,7 +636,7 @@
                 }
             }
 
-            function ScrollTo(div){
+            function ScrollTo(div,off){
                 document.getElementById(div).scrollIntoView();
             }
 

@@ -19,6 +19,7 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
     Title.textContent = JsonData["Title"];
     //Images
     ImageD.querySelectorAll('*').forEach(c => c.remove());
+    ImageD.style.gridTemplateColumns = "repeat("+JsonData["Images"].length.toString()+", 3fr)";
     for (let ImgIdx = 0; ImgIdx < JsonData["Images"].length; ImgIdx++) {
         let Image = document.createElement("img");
         Image.id = (ImgIdx <= 0 ? "MediaImgStart" : ImgIdx >= JsonData["Images"].length-1 ? "MediaImgEnd" : "");
@@ -38,4 +39,6 @@ async function LoadNextCard(PreviewID = "EMPTY", Direction = 1){
     var IdChild = Card.childElementCount-1;
     var CardID = Card.children[IdChild];
     console.log(CardID.textContent);
+
+    CardID.textContent = (parseInt(Card.textContent)).toString();
 }
