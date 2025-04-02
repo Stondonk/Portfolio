@@ -347,7 +347,7 @@
                 margin-right: 0px;
             }
 
-            .MediaButton{
+            .SocialMediaButton{
                 border: solid 1px rgb(242, 242, 242);
                 color: rgb(242, 242, 242); 
                 font-size: x-large;
@@ -357,8 +357,12 @@
 
                 transition: 0.5s;
             }
-            .MediaButton:hover{
+            .SocialMediaButton:hover{
                 font-size: xx-large;
+            }
+
+            .SocialMediaLinks{
+                display: block;
             }
 
             /*Mini project stuff*/
@@ -422,6 +426,13 @@
                     max-width: 25vh;
                     margin: 4px;
 
+                }
+
+                .SocialMediaButton{
+                    width: 100%;
+                }
+                .SocialMediaLinks{
+                    display: flex;
                 }
 
                 .MediaWindowName{
@@ -547,8 +558,8 @@
                             <img id="QuickImage2" src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
                         </div>
                         <div id="QuickLinksButtons" class="ButtonMaster">
-                            <button onclick="LoadCard('MediaWindow2','Projects/FlipTennis.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">C++ Game Engine</button>
-                            <button onclick="PorjectSubTitle('Propulsion on Nintendo DS','x-large','PropulsionDS')" onmouseover="ChangeBSI('QuickImage2','imageReference/PDS/PropDSGif.gif')">Propulsion DS</button>
+                            <button onclick="LoadCard('MediaWindow2','Projects/CPPGameEngine.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">C++ Game Engine</button>
+                            <button onclick="LoadCard('MediaWindow2','Projects/PropulsionDS.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/PDS/PropDSGif.gif')">Propulsion DS</button>
                             <button onclick="LoadCard('MediaWindow2','Projects/FT89k.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/MV/MightyVersus footage.gif')">Flip Tennis 89k</button>
                         </div>
                     </div>
@@ -586,10 +597,10 @@
                     <h1>Contact</h1>
                     <p>If you want to contact me for any purpose use the email below and check my itch.io page for most of the projects listed above.</p>
                 </div>
-                <div style="padding: 0;">
-                    <button id="EmailLink" class="MediaButton" onclick="CopyToClip('stondonkdev@gmail.com', 'EMAIL', 'EmailLink')" style="background-color: rgb(68, 185, 214);">EMAIL</button>
-                    <button class="MediaButton" onclick="location.href='http://stondonk.itch.io/'" style="background-color: rgb(250, 92, 92);">ITCH</button>
-                    <button class="MediaButton" onclick="location.href='https://github.com/Stondonk'" style="background-color: rgb(155, 89, 182);">GITHUB</button>
+                <div class="SocialMediaLinks" style="padding: 0;">
+                    <button id="EmailLink" class="SocialMediaButton" onclick="CopyToClip('stondonkdev@gmail.com', 'EMAIL', 'EmailLink')" style="background-color: rgb(68, 185, 214);">EMAIL</button>
+                    <button class="SocialMediaButton" onclick="location.href='http://stondonk.itch.io/'" style="background-color: rgb(250, 92, 92);">ITCH</button>
+                    <button class="SocialMediaButton" onclick="location.href='https://github.com/Stondonk'" style="background-color: rgb(155, 89, 182);">GITHUB</button>
                 </div>
             </div>
 
@@ -611,6 +622,7 @@
             let Mobile = false;
 
             LoadCard('MediaWindow1','Games/LaserRoom.Json');
+            LoadCard('MediaWindow2','Projects/CPPGameEngine.Json');
 
             //Window Rezise
             window.addEventListener('resize', function(event){ 
