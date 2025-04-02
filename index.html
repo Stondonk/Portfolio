@@ -535,18 +535,18 @@
 
             <div class="PageSection" id="PreviewWindow1" style="display: block;">
                 <div style="display: flex;">
-                    <button class="MobilePreviewButton" style="margin-right: 4px;" onclick="LoadNextCard('MediaWindow1',-1)"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
-                    <button class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;" onclick="LoadNextCard('MediaWindow1',-1)"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></button>
+                    <button class="MobilePreviewButton" style="margin-right: 4px;" onclick="LoadNextCard('MediaWindow1',-1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
+                    <button class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;" onclick="LoadNextCard('MediaWindow1',1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></button>
                 </div>
                 <div style="display: flex; width: 100%;">
-                    <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow1',-1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
                     <div id="MediaWindow1" class="MediaWindow">
                         <h1 id="MediaWindow1Name" class="MediaWindowName">TEST</h1>
                         <div id="MediaImages1" class="MediaImageWindow"></div>
                         <p id="MediaDescription">Empty</p>
                         <div id="MediaSlideInFolder" style="display: none;">0</div> <!--Kinda shit way of check current card in folder in the html but it works so eh-->
                     </div>
-                    <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></div>
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow1',1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></button>
                 </div>
             </div>
 
@@ -569,18 +569,18 @@
 
             <div class="PageSection" id="PreviewWindow2"  style="display: block;">
                 <div style="display: flex;">
-                    <div class="MobilePreviewButton" style="margin-right: 4px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
-                    <div class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></div>
+                    <button class="MobilePreviewButton" style="margin-right: 4px;" onclick="LoadNextCard('MediaWindow2',-1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
+                    <button class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;" onclick="LoadNextCard('MediaWindow2',1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></button>
                 </div>
                 <div style="display: flex; width: 100%;">
-                    <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow2',-1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
                     <div id="MediaWindow2" class="MediaWindow">
                         <h1 id="MediaWindow2Name" class="MediaWindowName">TEST</h1>
                         <div id="MediaImages2" class="MediaImageWindow"></div>
                         <p id="MediaDescription2">Empty</p>
                         <div id="MediaSlideInFolder2" style="display: none;">0</div> 
                     </div>
-                    <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></div>
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow2',1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></button>
                 </div>
             </div>
             

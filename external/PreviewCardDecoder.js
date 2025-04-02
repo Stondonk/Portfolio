@@ -15,6 +15,10 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
     var Title = Card.children[0];//Might Change later
     var ImageD = Card.children[1];
     var Des = Card.children[2];
+
+    var IdChild = Card.childElementCount-1;
+    var CardID = Card.children[IdChild];
+    CardID.textContent = (await RPathIndex(CardAdress)).toString();
     //Title
     Title.textContent = JsonData["Title"];
     //Images
@@ -34,11 +38,24 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
     
 }
 
-async function LoadNextCard(PreviewID = "EMPTY", Direction = 1){
+async function RPathIndex(CardAdress = ""){
+    const W = CardAdress.split("/");
+    var JsonData = await RequestJson("PreviewCards/Files.Json");
+    for (let wIdx = 0; wIdx < JsonData[W[0]].length; wIdx++) {
+        if(JsonData[W[0]][wIdx] == W[1]) return wIdx;
+    }
+    return 0;
+}
+
+async function LoadNextCard(PreviewID = "EMPTY", Direction = 1, Files="Games"){
     const Card = document.getElementById(PreviewID);
     var IdChild = Card.childElementCount-1;
     var CardID = Card.children[IdChild];
     console.log(CardID.textContent);
-
-    CardID.textContent = (parseInt(Card.textContent)).toString();
+    let IdT = parseInt(CardID.textContent)+Direction
+    var FilesData = await RequestJson("PreviewCards/Files.Json");
+    if(IdT >= FilesData[Files].length) IdT -= FilesData[Files].length
+    if(IdT < 0) IdT += FilesData[Files].length
+    LoadCard(PreviewID,(Files + "/" + FilesData[Files][IdT]).toString());
+    //CardID.textContent = (parseInt(Card.textContent)).toString();
 }
