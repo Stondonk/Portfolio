@@ -1,4 +1,4 @@
 {
-    "Games":["LaserRoom.Json","SMB2.Json","MightyVersus.Json","NewMoves.Json","TankTracks.Json","FlipTennis.Json"],
+    "Games":["LaserRoom.Json","SMB2.Json","MightyVersus.Json","NewMoves.Json","TankTracks.json","FlipTennis.Json"],
     "Projects":["CPPGameEngine.Json","PropulsionDS.Json","CrocGame.Json","FT89K.Json"]
 }
