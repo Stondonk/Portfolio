@@ -222,13 +222,18 @@
             }
 
             .MediaWindow {
-                display: flex;
+                display: flexbox;
                 height: fit-content; 
                 border: 0;
                 padding: 32px;
                 height: 100%;
                 border: 1px solid rgb(242, 242, 242);
                 width: calc(100% - 64px);
+            }
+
+            .MediaWindowSlice {
+                display: none;
+
             }
 
             .ButtonMaster {
@@ -317,6 +322,16 @@
             .MobilePreviewButton:hover{
                 background-color: rgb(68, 185, 214);
             }
+            
+            /*Media Image Window*/
+            .MediaImageWindow{
+                display: flex;
+                border: 1px solid rgb(242, 242, 242);
+                padding: 8px;
+            }
+            .MediaImageWindow img{
+                width: 100%;
+            }
 
             /*Mini project stuff*/
             canvas {
@@ -386,6 +401,8 @@
     </head>
 
     <body>
+        <!--Script include -->
+        <script src="external/PreviewCardDecoder.js"></script>
 
         <!--Top bar mobile only-->
         <div id="Mainnav" class="mainnav">
@@ -439,8 +456,8 @@
                     <h1>Game Quick Links</h1>
                     <div style="display: flex; height: fit-content;">
                         <div id="QuickLinksButtons" class="ButtonMaster">
-                            <button onclick="PorjectSubTitle('Untitled Laser Room','x-large','LaserRoom')" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
-                            <button onclick="PorjectSubTitle('Super Mini Bros 2','x-large','SuperMiniBros')" onmouseover="ChangeBSI('QuickImage1','imageReference/SMB2/SMB2.gif')">Super Mini Bros 2</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('MediaWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/SMB2.Json'); ScrollTo('MediaWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/SMB2/SMB2.gif')">Super Mini Bros 2</button>
                             <button onclick="PorjectSubTitle('Mighty Versus','-','MightyVersus')" onmouseover="ChangeBSI('QuickImage1','imageReference/MV/MightyVersus footage.gif')">Mighty Versus</button>
                             <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')" onmouseover="ChangeBSI('QuickImage1','imageReference/NM/NewMovesGifClipA.gif')">New Moves</button>
                             <button onclick="PorjectSubTitle('Tank Tracks','-','TankTrackSection')" onmouseover="ChangeBSI('QuickImage1','imageReference/TT/TankTracksGif.gif')">Tank Tracks</button>
@@ -461,7 +478,9 @@
                 <div style="display: flex; width: 100%;">
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></div>
                     <div id="MediaWindow1" class="MediaWindow">
-                        <p>TEST</p>
+                        <p id="MediaWindow1Des">TEST</p>
+                        <div id="MediaImages1" class="MediaImageWindow"></div>
+                        <p id="MediaDescription">Empty</p>
                     </div>
                     <div class="PreviewButton"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></div>
                 </div>
@@ -475,7 +494,7 @@
                             <img id="QuickImage2" src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
                         </div>
                         <div id="QuickLinksButtons" class="ButtonMaster">
-                            <button onclick="PorjectSubTitle('CPP Game Engine','x-large','CPPGameEngine')" onmouseover="ChangeBSI('QuickImage2','imageReference/PDS/PropDSGif.gif')">C++ Game Engine</button>
+                            <button onclick="LoadCard('MediaWindow2','Games/LaserRoom.txt')" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">C++ Game Engine</button>
                             <button onclick="PorjectSubTitle('Propulsion on Nintendo DS','x-large','PropulsionDS')" onmouseover="ChangeBSI('QuickImage2','imageReference/SMB2/SMB2.gif')">Propulsion DS</button>
                             <button onclick="PorjectSubTitle('Flip Tennis 89k','-','FT89k')" onmouseover="ChangeBSI('QuickImage2','imageReference/MV/MightyVersus footage.gif')">Flip Tennis 89k</button>
                         </div>
@@ -508,6 +527,7 @@
         </div>
 
         <script>
+
             let Menu = false;
             let Mobile = false;
             //Window Rezise
