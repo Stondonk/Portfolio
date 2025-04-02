@@ -44,6 +44,9 @@
                 background-color: rgb(46, 46, 46);
                 overflow-x: hidden;
                 overflow-y: hidden;
+
+                z-index: 10;
+                display: none;
             }
 
             .mainnav button{
@@ -59,7 +62,7 @@
                 background-color: rgba(0, 0, 0, 0.295);
             }
 
-            .sidenav {
+            .mainnavside{
                 height: 0;
                 width: 100%;
                 position: fixed;
@@ -73,10 +76,13 @@
                 overflow-y: hidden;
                 transition: 0.5s;
                 text-align:center;
-            }
 
-            .sidenav button{
-                width: 55%;
+                margin-top: 1px;
+                font-size: medium;
+            }
+            
+            .mainnavside button{
+                width: 98%;
                 height: fit-content;
 
                 margin-top: 3px;
@@ -92,42 +98,69 @@
                 text-align:center;
             }
 
-            .sidenav button:hover{
+            .mainnavside button:hover{
                 background-color: rgb(68, 185, 214);
                 transition: 0.5s;
             }
 
-            .sidenav a {
-                padding: 8px 8px 8px 0px;
-                text-decoration: none;
-                font-size: 25px;
-                color: #818181;
-                display: block;
-                transition: 0.3s;
+            .sidenav{
+                width: 100%;
+                margin: 0;
+                padding: 0px 0px;
+                left: 0;
+                top: 0;
 
+                float: left;
+
+                justify-content: left;
+                align-items: center;
+                align-self: center;
+                text-align: center;
+                position:fixed;
+
+                background-color: rgba(46, 46, 46, 0.849);
+
+                border-bottom: 1px solid rgb(242, 242, 242);
+                overflow-x: hidden;
+                overflow-y: hidden;
+
+                z-index: 10;
+                display: flex;
+            }
+            .sidenav button{
+                height: fit-content;
+                border: 0px;
+
+                font-size: larger;
+
+                z-index: 1;
+                left: 0;
+                height: 48px;
+
+                margin: 0px;
+
+                padding-left: 16px;
+                padding-right: 16px;
+
+                border: 0px rgba(255, 255, 255, 0.5) groove;
+                border-bottom: 0px;
+                border-top: 0px;
+                border-right: 0px;
+                background-color: transparent; /* rgb(46, 46, 46);*/
+                transition: 0.5s;
+                text-align:center;
             }
 
-            .mediaSection {
-                background-color: rgba(46, 46, 46, 0.56);
-                padding: 32px;
-                height: 100%;
-                width: calc(100% - 64px);
-                margin-top: 32px;
-                border: 1px solid rgb(242, 242, 242);
-            }
+            .sidenav button:hover{
+                background-color: rgb(68, 185, 214);
 
-            .mediaSection2 {
-                display: none;
-                height: fit-content; 
-                background-color: rgb(68, 185, 214); 
-                border: 0;
-                padding: 32px;
-                height: 100%;
-                width: calc(100% - 64px);
-                margin-top: 32px;
+                padding-left: 48px;
+                padding-right: 48px;
             }
 
             .main{
+                padding-top: 48px;
+
                 width: 75%;
 
                 margin-left: 12.5%;
@@ -140,13 +173,34 @@
                 transition: 2s;
             }
 
+            .PageSection{
+                display: flex;
+                background-color: rgba(46, 46, 46, 0.56);
+                padding: 32px;
+                height: fit-content; 
+                width: calc(100% - 64px);
+                margin-top: 16px; /* Page offset */
+                border: 1px solid rgb(242, 242, 242);
+            }
+
+            .PageContents{
+                align-content: center;
+                align-items: center;
+                align-self: center;
+
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                padding-left: 1%;
+                padding-right: 1%;
+            }
+
+            /* pages */
+
             .WindowButton{
                 display: flex;
-                /*overflow: auto;*/
-                white-space: nowrap;
-                border: 1px solid rgb(242, 242, 242);
-                border: 0;
-                padding: 0;
+                width: 100%;
+                margin: auto;
             }
 
             .WindowButton button{
@@ -169,24 +223,25 @@
                 padding: 2%;
             }
 
-            .ImageDisplaySection{
-                white-space: nowrap;
-                width: 100%;
-                display: flex;
-            }
-            .ImageDisplaySection img{
-                object-fit: contain;
-                width: 100%;
-            }
-            .ImageDisplaySection div{
-                margin: 4px;
-                padding: 0;
+            .MediaWindow {
+                display: flexbox;
+                height: fit-content; 
+                border: 0;
+                padding: 32px;
+                height: 100%;
                 border: 1px solid rgb(242, 242, 242);
+                width: calc(100% - 64px);
+            }
+
+            .MediaWindowSlice {
+                display: none;
+
             }
 
             .ButtonMaster {
                 display: block;
                 width: 100%;
+                
             }
             .ButtonMaster button{
                 width: 100%;
@@ -204,183 +259,110 @@
                 padding: 32px;
             }
 
-            .MediaButton {
+            .ButtonDisplayer{
+                display: flex;
+                padding: 16px;
+                margin: 4px;
+                margin-right: 16px;
+                margin-left: 16px;
+                border: 1px solid rgb(242, 242, 242);
+                transition: 0.25s;
+            }
+
+            .PreviewButton{
+                display: flex;
+                height: auto;
+                width: 5%;
+                border: 1px solid rgb(242, 242, 242);
+                background-color: rgb(46,46,46,0.56);
+
+                font-size: xx-large;
+                color:rgb(242, 242, 242);
+
+                align-content: center;
+                align-items: center;
+
+                padding: 4px;
+                padding-top: 0;
+
+                margin-left: 8px;
+                margin-right: 8px;
+
+                transition: 0.25s;
+            }
+
+            .PreviewButton:hover{
+                background-color: rgb(68, 185, 214);
+            }
+
+            .MobilePreviewButton{
+                display: none;
+                height: auto;
+                width: 100%;
+                height: 64px;
+                border: 1px solid rgb(242, 242, 242);
+                background-color: rgb(46,46,46,0.56);
+
+                font-size: xx-large;
+                color:rgb(242, 242, 242);
+
+                text-align: center;
+                align-content: center;
+                align-items: center;
+
+                padding: 0px;
+                padding-top: 0;
+
+                padding-left: auto;
+                padding-right: auto;
+
+                margin-top: 8px;
+
+                transition: 0.25s;
+            }
+
+            .MobilePreviewButton:hover{
+                background-color: rgb(68, 185, 214);
+            }
+            
+            /*Media Image Window*/
+            .MediaImageWindow{
+                width: calc(100%-16px);
+                display: grid;
+                grid-template-columns: repeat(3, 3fr);
+                border: 1px solid rgb(242, 242, 242);
+                padding: 8px;
+            }
+            .MediaImageWindow img{
+                display:flex;
+                width: 96%;
+                max-height: 50vh;
+                margin: 2px;
+            }
+
+            #MediaImgStart{
+                margin-left: 0px;
+            }
+            #MediaImgEnd{
+                margin-right: 0px;
+            }
+
+            .SocialMediaButton{
                 border: solid 1px rgb(242, 242, 242);
                 color: rgb(242, 242, 242); 
                 font-size: x-large;
                 padding: 16px;
-                border-radius: 8px;
+                
                 margin-right: 16px;
 
                 transition: 0.5s;
             }
-            
-            .MediaButton:hover {
+            .SocialMediaButton:hover{
                 font-size: xx-large;
             }
 
-            #CloseButton{
-                display: none; 
-                padding: 16px; 
-                padding-top: 8px; padding-bottom: 8px;
-                background-color: transparent; 
-                border-radius: 0px; 
-                border: 1px solid rgb(242, 242, 242);
-
-                transition: 0.5s;
-            }
-            #CloseButton:hover{
-                border-color: rgb(68, 185, 214);
-            }
-
-            #SecondQl{
-                padding: 0px; 
-                margin: 0px; 
-                display:grid; 
-                margin-right: auto; 
-                width: auto; 
-                height: 100%; 
-                margin-left: 8px;
-
-                transition: 0.5s;
-            }
-
-            #SpecGifs{
-                height: 16vw; 
-                width: 100%;
-            }
-
-            #SpecGifs div img{
-                width:100%; 
-                height: 100%;
-            }
-
-            /* width */
-            ::-webkit-scrollbar {
-                padding: 6px;
-                width: 20px;
-            }
-
-            /* Track */
-            ::-webkit-scrollbar-track {
-                padding: 6px;
-                background:  rgb(156, 156, 156); 
-                border-radius: 0px;
-            }
-            ::-webkit-scrollbar-thumb {
-                background: rgba(242, 242, 242,1); 
-                background-image: rgba(242, 242, 242,1);
-                border-radius: 0px;
-            }
-
-            /* Handle on hover */
-            ::-webkit-scrollbar-thumb:hover {
-                background: rgb(20, 20, 20); 
-                background-image: rgb(20, 20, 20);
-            }
-
-            @media screen and (max-width: 560px) {
-                .sidenav button {
-                    margin-top: 1px;
-                    width: 100%;
-                    font-size: medium;
-                }
-
-                .main{
-                    border-spacing: 0;
-                    width: 100%;
-                    margin-left: 0;
-                    padding: 0;
-                }
-
-                .mediaSection{
-                    scroll-margin-top: 24px;
-                    border-left: 0;
-                    border-right: 0;
-                }
-
-                .mediaSection2{
-                    scroll-margin-top: 24px;
-                    border-left: 0;
-                    border-right: 0;
-                }
-                
-                .WindowButton{
-                    display:grid;
-                    width: 100%;
-                }
-
-                .WindowButton button{
-                    margin: 0px;
-                    width: auto;
-                    height: 34vw;
-                }
-
-                .ButtonMaster{
-                    display:block;
-                    /*padding-right: 32px;*/
-                }
-
-                .ButtonMaster button{
-                    width: 100%;
-                }
-
-                .MediaButton{
-                    width: 100%;
-                    font-size: medium;
-                }
-
-                .MediaButton:hover{
-                    font-size: medium;
-                    width: 110%;
-                }
-
-                .ImageDisplaySection{
-                    white-space: nowrap;
-                    overflow-x: scroll;
-                    height: 100%;
-                    display: flex;
-
-                    background-color: transparent; 
-                    border-radius: 0px; 
-                    border: 1px solid rgb(242, 242, 242);
-                }
-
-                .ImageDisplaySection img {
-                    width:auto;
-                    height: 48vw;
-                }
-
-                #CloseButton{
-                    width: 100%;
-                }
-
-                #SecondQL{
-                    width: auto;
-                    height: 100%;
-                    padding: 0;
-                    display: inline-flex;
-
-                    margin-left: 0;
-                    margin-left: 0;
-                }
-
-                #SecondQL Button {
-                    height: auto;
-                }
-
-                #SpecGifS {
-                    width: 100%;
-                    height: 100%;
-                }
-
-                #SpecGifs div{
-                    width: min-content;
-                }
-                #SpecGifs div img{
-                    width: fit-content;
-                }
-
+            .SocialMediaLinks{
+                display: block;
             }
 
             /*Mini project stuff*/
@@ -390,266 +372,299 @@
                 width: 100%;
                 height: 512px;
             }
+
+            /* Mobile Setting */
+            @media screen and (max-width: 720px) {
+                .mainnav{
+                    display: block;
+                }
+
+                .sidenav{
+                    display: none;
+                }
+
+                .main{
+                    border-spacing: 0;
+                    width: 100%;
+                    margin-left: 0;
+                    padding: 0;
+                }
+
+                .PageSection{
+                    scroll-margin-top: 24px;
+                    border-left: 0;
+                    border-right: 0;
+                }
+
+                /* pages */
+
+                .WindowButton{
+                    display:grid;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .WindowButton button{
+                    margin: 0px;
+                    width: auto;
+                    height: 34vw;
+                }
+
+                .PreviewButton{
+                    display: none;
+                }
+                .MobilePreviewButton{
+                    display: flex;
+                }
+
+                .MediaImageWindow{
+                    display: flex;
+                    overflow-x: scroll;
+                }
+                .MediaImageWindow img{
+                    width: 100%;
+                    max-width: 25vh;
+                    margin: 4px;
+
+                }
+
+                .SocialMediaButton{
+                    width: 100%;
+                }
+                .SocialMediaLinks{
+                    display: flex;
+                }
+
+                .MediaWindowName{
+                    text-align: center;
+                }
+                #MediaImgStart{
+                    margin-left: 0;
+                }
+                #MediaImgEnd{
+                    margin-right: 0;
+                }
+
+                #QuickImage{
+                    display: none;
+                }
+                #QuickI1{
+                    display: none;
+                }
+                #QuickI2{
+                    display: none;
+                }
+
+            }
+
+            
         </style>
     </head>
+
     <body>
-        <div id="myMainnav" class="mainnav">
-            <button onclick="Nav()" id="NavBarPres"><p style="font-size: medium;">&#9776; OPEN</p></button>
+        <!--Script include -->
+        <script src="external/PreviewCardDecoder.js"></script>
+
+        <!--Top bar mobile only-->
+        <div id="Mainnav" class="mainnav">
+            <button onclick="Nav()" id="NavBarPress"><p style="font-size: medium;">&#9776; Navigate</p></button>
             <!--<span style="font-size:30px;cursor:pointer;color:#f2f2f2;z-index: 100;height: 100%;" onclick="openNav()">&#9776; OPEN</span>-->
-            <div id="mySidenav" class="sidenav">
-                <button onClick="CloseProject(true);ScrollTo('Home');"><p  style="font-size: inherit;">Home</p></button>
-                <button onClick="ScrollTo('Projects');CloseProject(true);"><p  style="font-size: inherit;">Projects</p></button>
+            <div id="MainSideNav" class="mainnavside">
+                <button onClick="ScrollTo('Home');"><p  style="font-size: inherit;">Home</p></button>
+                <button onClick="ScrollTo('Projects');"><p  style="font-size: inherit;">Projects</p></button>
                 <button onClick="ScrollTo('Experience')"><p  style="font-size: inherit;">Experience</p></button>
                 <button onClick="ScrollTo('Contact')"><p  style="font-size: inherit;">Contact</p></button>
             </div>
         </div>
+        <!--Side bar desktop only-->
+        <div id="Sidenav" class="sidenav">
+            <p style="margin-left: 24px; margin-right: 24px; font-size: large;">&#9776;</p>
+            <button onClick="ScrollTo('Home');">Home</button>
+            <button onClick="ScrollTo('Projects');">Projects</button>
+            <button onClick="ScrollTo('Experience')">Experience</button>
+            <button onClick="ScrollTo('Contact')">Contact</button>
+        </div>
 
-        <div id="Main" class="main" style="padding-top: 48px;">
-
-            <div class="mediaSection" id="Home" style="height: fit-content;">
-                <h1>Welcome</h1>
-                <!--<p id="ProjectsDesription">below are just a few of the many projects I've worked on over the years</p>-->
-
-                <div class="WindowButton" style="width: 100%;" id="QuickLinks">
-                    <div id="FirstQl" style="display: inline-flex; padding: 0px; margin: 0px;">
-                        <button onclick="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')" style="margin-left: auto;">
-                        <img src="imageReference/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
-                        
-                        <button onclick="PorjectSubTitle('Untitled Laser Room','x-large','LaserRoom')">
-                        <img src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
-                        
-                        <button onclick="PorjectSubTitle('Flip Tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.','FlipTennisSection')" style="margin-right: auto;">
-                        <img src="imageReference/FT/FliptennisIClipA.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+        <!--Main-->
+        <div id="Main" class="main">
+            <div id="Home"></div>
+            <div class="PageSection" style="margin-top:48px;">
+                <div id="PageContents1" class="PageContents">
+                    <div class="WindowButton" style="width: 100%;" id="QuickLinks">
+                        <div id="FirstQl" style="display: inline-flex; padding: 0px; margin-left: auto; margin-right: auto;">
+                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('PreviewWindow1');" style="margin-left: auto;">
+                            <img src="imageReference/TT/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                            
+                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('PreviewWindow1');">
+                            <img src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                            
+                            <button onclick="LoadCard('MediaWindow1','Games/FlipTennis.Json'); ScrollTo('PreviewWindow1');" style="margin-right: auto;">
+                            <img src="imageReference/FT/FliptennisIClipA.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
+                        </div>
                     </div>
+                </div>
 
-                    <div id="SecondQL">
-                        <button onclick="PorjectSubTitle('New Moves','Game Jam Project - created over the duration of 2 weeks for the Juice Jam, made with the intention of developing my artistic skills further.','NewMovesSection')" style="margin-right: auto;">
-                        <img src="imageReference/NM/NewMovesGifClipA.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
-                    
-                        <button id="IH8CSS" onclick="PorjectSubTitle('CPP Engine','A Long term project to create a generic basis for projects of all kinds to be build off, making developing for multiple devices easier.','CPPEngine')" style="margin-right: auto;">
-                        <img src="imageReference/CPPE/C++EngineClip2.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
-                    </div>
-                    <!--
-                    <button style="background-size:cover; padding: 10%;">Tank Tracks</button>
-                    <button style="background-image: url('imageReference/Flip tennis Clip.gif'); background-size:cover; padding: 10%;">Flip Tennis</button>
-                    <button style="background-image: url('imageReference/New Moves Clip.gif'); background-size:cover; padding: 10%;">New Moves</button>
+            </div>
 
-                    <button><img src="imageReference/Flip tennis Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false">Flip Tennis</button>
-                    <button><img src="imageReference/New Moves Clip.gif" style="width: 100%; text-align: center; background-color: inherit; display:flex;" draggable="false">New Moves</button>
-                    -->
+            <div class="PageSection">
+                <div style="padding: 0;">
+                    <h1>Welcome</h1>
+                    <p>to Stondonks Portfolio webpage.</p>
                 </div>
             </div>
 
-            <div class="mediaSection" id="Projects" style="height: fit-content;">
-                <div id="FakeProjects" style="display: flex; width: 100%;"><h1>Projects&nbsp</h1></div>
-                <button id="CloseButton" onclick="CloseProject(true)"><div id="PMasterHead" style="display: flex; width: 100%; font-size: xx-large;"><h1 style=" font-size: inherit;">Projects&nbsp</h1><h1 id="ProjectHeader1" style="color: rgb(68, 185, 214); font-size: inherit;"></h1></div></button>
+            <div id="Projects"></div>
+            <div class="PageSection">
+                <div style="padding: 0; width: 100%; height: 100%;">
+                    <h1>Game Quick Links</h1>
+                    <div style="display: flex; height: fit-content;">
+                        <div id="QuickLinksButtons" class="ButtonMaster">
+                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/SMB2.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/SMB2/SMB2.gif')">Super Mini Bros 2</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/MightyVersus.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/MV/MightyVersus footage.gif')">Mighty Versus</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/NewMoves.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/NM/NewMovesGifClipA.gif')">New Moves</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/TT/TankTracksGif.gif')">Tank Tracks</button>
+                            <button onclick="LoadCard('MediaWindow1','Games/FlipTennis.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/FT/FliptennisIClipA.gif')">Flip Tennis</button>
+                        </div>
+                        <div id="QuickI1" class="ButtonDisplayer" style="height: auto;">
+                            <img id="QuickImage1" src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <!--Projects-->
-                <div id="ProjectSelect">
+            <div class="PageSection" id="PreviewWindow1" style="display: block;">
+                <div style="display: flex;">
+                    <button class="MobilePreviewButton" style="margin-right: 4px;" onclick="LoadNextCard('MediaWindow1',-1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
+                    <button class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;" onclick="LoadNextCard('MediaWindow1',1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></button>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow1',-1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
+                    <div id="MediaWindow1" class="MediaWindow">
+                        <h1 id="MediaWindow1Name" class="MediaWindowName">TEST</h1>
+                        <div id="MediaImages1" class="MediaImageWindow"></div>
+                        <p id="MediaDescription">Empty</p>
+                        <div id="MediaSlideInFolder" style="display: none;">0</div> <!--Kinda shit way of check current card in folder in the html but it works so eh-->
+                    </div>
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow1',1, 'Games')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></button>
+                </div>
+            </div>
+
+            <div class="PageSection">
+                <div style="padding: 0; width: 100%; height: 100%;">
+                    <h1>Programming Projects Links</h1>
+                    <div style="display: flex; height: fit-content;">
+                        <div id="QuickI2" class="ButtonDisplayer" style="height: auto;">
+                            <img id="QuickImage2" src="imageReference/CPPE/C++EngineClip2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
+                        </div>
+                        <div id="QuickLinksButtons" class="ButtonMaster">
+                            <button onclick="LoadCard('MediaWindow2','Projects/CPPGameEngine.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/CPPE/C++EngineClip2.gif')">C++ Game Engine</button>
+                            <button onclick="LoadCard('MediaWindow2','Projects/PropulsionDS.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/PDS/PropDSGif.gif')">Propulsion DS</button>
+                            <button onclick="LoadCard('MediaWindow2','Projects/CrocGame.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/CG/CGG1.gif')">Croc Game</button>
+                            <button onclick="LoadCard('MediaWindow2','Projects/FT89k.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/89/89G1.gif')">Flip Tennis 89k</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="PageSection" id="PreviewWindow2"  style="display: block;">
+                <div style="display: flex;">
+                    <button class="MobilePreviewButton" style="margin-right: 4px;" onclick="LoadNextCard('MediaWindow2',-1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
+                    <button class="MobilePreviewButton" style="margin-left: 4px; margin-bottom: 8px;" onclick="LoadNextCard('MediaWindow2',1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 48px; height: 48px; margin: auto;" draggable="false"></button>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow2',-1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; transform: scaleX(-1);" draggable="false"></button>
+                    <div id="MediaWindow2" class="MediaWindow">
+                        <h1 id="MediaWindow2Name" class="MediaWindowName">TEST</h1>
+                        <div id="MediaImages2" class="MediaImageWindow"></div>
+                        <p id="MediaDescription2">Empty</p>
+                        <div id="MediaSlideInFolder2" style="display: none;">0</div> 
+                    </div>
+                    <button class="PreviewButton" onclick="LoadNextCard('MediaWindow2',1, 'Projects')"><img src="imageReference/ArrowIcon1.png" style="width: 24px; height: 24px; margin: auto; " draggable="false"></button>
+                </div>
+            </div>
+            
+            <div id="Experience"></div>
+            <div class="PageSection">
+                <div style="padding: 0; width: 100%; margin-right: 8px;">
+                    <h1>Experience</h1>
                     <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
-                        <h1 style="font-size: medium;">Games</h1>
-                        <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
-                            <button onclick="PorjectSubTitle('Untitled Laser Room','x-large','LaserRoom')">Untitled Laser Room</button>
-                            <button onclick="PorjectSubTitle('Super Mini Bros 2','x-large','SuperMiniBros')">Super Mini Bros 2</button>
-                            <button onclick="PorjectSubTitle('Mighty Versus','-','MightyVersus')">Mighty Versus</button>
-                            <button onclick="PorjectSubTitle('New Moves','-','NewMovesSection')">New Moves</button>
-                            <button onclick="PorjectSubTitle('Tank Tracks','-','TankTrackSection')">Tank Tracks</button>
-                            <button onclick="PorjectSubTitle('Flip Tennis','-','FlipTennisSection')">Flip Tennis</button>
-                        </div>
+                        <p>Game jams<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">2018 - Current</p></p>
                     </div>
                     <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
-                        <h1 style="font-size: medium;">Programming challenges</h1>
-                        <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
-                            <button onclick="PorjectSubTitle('Propulsion DS','-','PropulsionDS')">Propulsion DS remake</button>
-                            <button onclick="PorjectSubTitle('Flip Tennis 89k','-','FLIPTennis89')">Flip Tennis 89k</button>
-                            <button onclick="PorjectSubTitle('Croc Game','-','CrocGame')">Croc Game</button>
-                            <button onclick="PorjectSubTitle('C++ Engine','-','CPPEngine')">C++ Game Engine</button>
-                        </div>
+                        <p>First mobile game released<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">May 2021</p></p>
                     </div>
-                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px;">
-                        <h1 style="font-size: medium;">Extras</h1>
-                        <div id="ButtonDiv" class="ButtonMaster" style="width: 100%;">
-                            <button onclick="PorjectSubTitle('Unfinished.js','-','MiniCade')">Unfinished.js</button>
-                        </div>
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
+                        <p>Skyhook games work experience<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">Apr 2023</p></p>
                     </div>
-                </div>
-                <div id="CurrentProject">
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="LaserRoom">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/UTLR/LsroSS1.png"></div>
-                                <div><img src="imageReference/UTLR/LsroSS2.png"></div>
-                                <div><img src="imageReference/UTLR/LsroSS3.png"></div>
- 
-                            </div>
-
-                            <p>This is project was made around the very crazy game jam theme, that being a level from the video game portal 2, specifically the one called test chamber 20. Originally, I had seen a mod for the game that converted a lot of its aspects into a collectathon platformer, taking inspiration from that I tried quite hard to convert this seemingly simple puzzle level into an intricate and fun platforming stage that took full advantage of a new tool I'd been using at the time, the Godot engine. </p>
-                            <h1>(Mar 2024)</h1>
-                        </div>
+                    <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
+                        <p>First homebrew released<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">Sep 2023</p></p>
                     </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="NewMovesSection">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/NM/NMS1.png"></div>
-                                <div><img src="imageReference/NM/NMS2.png"></div>
-                                <div><img src="imageReference/NM/NMS3.png"></div>
-                            </div>
-                            <p>New Moves was a game created for the Juice Jam Game Jam made for the express purpose of making and incredably satisfying gaming experience and to test my knowledge and understanding of local multiplay game creation. I made serveral attempts to make the combat more unique in the end I landed on having the players health tick down the only way to regain health is to attack the opponent, so now cowering no hiding just attack the opponent, thats my kind of fighting game. To join this feature a replacment for not only the problem of multiple characters but also evening the playing feild for new and old players had to be added to, I made all the combat moves random you get two at the start of every round and you must master all the games actions to have a chance of being skillful but its not an easy task so it feels more casual and easier to get into than a conventional fighter.</p>
-                            <h1>(Jan 2022)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="TankTrackSection" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/TT/TTS1.png"></div>
-                                <div><img src="imageReference/TT/TTS2.png"></div>
-                                <div><img src="imageReference/TT/TTS3.png"></div>
-                            </div>
-                            <p>Tank Tracks was a game created for the LowRezJam 2021, a game jam made for creating games within the confined resolution of 64 by 64 pixels. This was my first time completing an entre for this jam as the previous year i had attempted to complete a project in a similar vain but had his the deadline and scrapped it. The Game at hand is quite interesting as the idea behind it works better ironically at a higher resoulution. Yet the principle of grabbing an enemy's projectiles mid air and flinging them back toward the opposing force was desinged around the limitations of the jam its place is better befitting a more fleshed out title come the day I revisit the idea if ever. </p>
-                            <h1>(Aug 2021)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="FlipTennisSection" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/FT/FTS1.png"></div>
-                                <div><img src="imageReference/FT/FTS2.png"></div>
-                                <div><img src="imageReference/FT/FTS3.png"></div>
-                                <div><img src="imageReference/FT/FTS4.png"></div>
-                            </div>
-                            <p>Flip Tennis was the first real game I created and released outside of game jam projects which I had been doing for a few years up and till that point. It has quite an unfortunate story behind it released in Spring 2021 the game was intially released, following up on that a handful of updates were sprinkled after release adding more content in the form of courts to play and skins to use. Following its updates an unfortunate set of events we set in motion, the hard drive the project was originally stored on got currupted and the data for the project was deemed unrecoverable, the closest backup being a few weeks from launch with a lot of assets missing it was deemed to be not worth while restoring and so I moved on.</p>
-                            <h1>(May 2021)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="SuperMiniBros" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/SMB2/SMS1.png"></div>
-                                <div><img src="imageReference/SMB2/SMS2.png"></div>
-                                <div><img src="imageReference/SMB2/SMS3.png"></div>
-                            </div>
-                            <p>Super mini bros 2 is one of my more recent titles following in my yearly tradition of entering into the LowRezJam and creating yet another game inspired by the mario brother franchise but at a resolution of 64x64 pixels. Building off one of my entries in the franchise Super Mario Bros 2 I recreted the feel of the game making not only the engine for it but also and external editor for creating the levels. The editor was former in a c++ program building off my knowledge of language but also the knowledge I had for the graphics API raylib helping to make the vision reliased in only a handful of hours.</p>
-                            <h1>(Aug 2023)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="MightyVersus" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/MV/MVS1.png"></div>
-                                <div><img src="imageReference/MV/MVS2.png"></div>
-                                <div><img src="imageReference/MV/MVS3.png"></div>
-                            </div>
-                            <p>Might Versus is another one of my LowRezJam entries and is created in the image of somewhat recent at the time, title called multi versus, where inwhich you play as a multitude of characters from across the WB / Warner bros universe. In this title I seek to recreate that game basic fundimentals in a much smaller screen resoulution with lesser audio and effects all running in JavaScript in the web browser. Honestly I feel this was one of my best examples of my ability to work within limitation given the fact the game doesnt feel to dissimilar to its original counter part in only a handful of pixels.</p>
-                            <h1>(Aug 2022)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="PropulsionDS" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/DP/DPS1.png"></div>
-                                <div><img src="imageReference/DP/DPS2.png"></div>
-                                <div><img src="imageReference/DP/DPS3.png"></div>
-                            </div>
-                            <p>Propulsion DS was original a game idea I proposed to the creator of the original game one night whilst drunken in a pub, after explaining all the requirements that would be needed for a very basic version of propulsion to be made I know it was possible on lesser hardware, I felt I had to act on this, so the following september around the creators birthday I set to work and created Propulsion DS. Created using the DevKitPro Ds set up for compiling C++ applications to Nintendo DS roms, unfortunatley the api and set up was not to dissimilar to a much much older open gl version to create assets and enviroments was still relativley easy.</p>
-                            <h1>(Sept 2023)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="FLIPTennis89" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <div ><img src="imageReference/89/89S1.png"></div>
-                                <div ><img src="imageReference/89/89S2.png"></div>
-                                <div ><img src="imageReference/89/89S3.png"></div>
-                                <div ><img src="imageReference/89/89S4.png"></div>
-                                <div ><img src="imageReference/89/89S5.png"></div>
-                            </div>
-                            <p>Flip Tennis 89K was the game that got me into programming outside C# and other high level languages, made in C with OpenGl the game measures around 89kb when compressed hence the title of the game, combined with the fact the game is a demake of my first mobile game Flip Tennis, so we get Flip Tennis 89k a project I will never top in sizing.</p>
-                            <h1>(Apr 2022)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="CrocGame" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div class="ImageDisplaySection">
-                                <div><img src="imageReference/CG/CGS1.png"></div>
-                                <div><img src="imageReference/CG/CGS2.png"></div>
-                                <div><img src="imageReference/CG/CGS3.png"></div>
-                            </div>
-                            <p>Croc game was my first real project created entirely within C++ and the graphics library Raylib, it was made for a college project originally, to showcase what I could do at the time but since has become a reminder of how far I've come in such a short time. The game was the first time I really applied my ability and knowledge for creating programs from the ground up and is one of my favourites. </p>
-                            <h1>(Feb 2023)</h1>
-                        </div>
-                    </div>
-
-                    <div style="margin-left: -32px; margin-right: -32px; ">
-                        <div class="mediaSection2" id="CPPEngine" style="height: fit-content; background-color: rgb(68, 185, 214); border: 0;">
-                            <div id="SpecGifS" class="ImageDisplaySection" >
-                                <div style="margin-left: auto;"><img src="imageReference/CPPE/C++EngineClip2.gif"></div>
-                                <div><img src="imageReference/CPPE/C++EngineClip.gif"></div>
-                                <div style="margin-right: auto;"><img src="imageReference/CPPE/C++EngineClip3.gif"></div>
-                            </div>
-                            <p>A Simple CPP ECS setup used in projects such as (Raylib Game Engine), (Nintendo DS Game Engine) and (OpenGl Game Engine), Currently being worked on.</p>
-                            <h1>(Dec 2022 - Oct 2024)</h1>
-                        </div>
-                    </div>
-                    
-                    <div id="MiniCade" class="mediaSection2" style="display: none; aspect-ratio: 1; padding: 0px; border: 1px solid rgb(242, 242, 242); background-color: rgba(0,0,0,0); width: 100%; height: 512px;">
-                        <canvas id="GameArea"width=64px height=64px scale="8" style=" user-select: none;"></canvas>
-                        <script src="MiniProject/index.js" type="module"></script>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="mediaSection" id="Experience" style="height: fit-content;">
-                <h1>Experience</h1>
-                <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
-                    <p>Game jams<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">2018 - Current</p></p>
-                </div>
-                <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
-                    <p>First mobile game released<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">May 2021</p></p>
-                </div>
-                <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
-                    <p>Skyhook games work experience<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">Apr 2023</p></p>
-                </div>
-                <div style="padding: 16px; border: 1px solid rgb(242, 242, 242); padding-right: 24px; margin-bottom: 32px;">
-                    <p>First homebrew released<br/> <p style="font-weight: bold;color: rgb(68, 185, 214);">Sep 2023</p></p>
                 </div>
             </div>
 
-            <div class="mediaSection" id="Contact" style="height: fit-content; margin-bottom: 32px;">
-                <h1>Contact</h1>
-                <p>If you want to contact me for any purpose use the email below and check my itch.io page for most of the projects listed above.<br/><br/></p>
-                <div id="LinkButtons" style="width: 100%; display: flex;">
-                    <button id="EmailLink" class="MediaButton" onclick="CopyToClip('stondonkdev@gmail.com', 'EMAIL', 'EmailLink')" style="background-color: rgb(68, 185, 214);">EMAIL</button>
-                    <button class="MediaButton" onclick="location.href='http://stondonk.itch.io/'" style="background-color: rgb(250, 92, 92);">ITCH</button>
-                    <button class="MediaButton" onclick="location.href='https://github.com/Stondonk'" style="background-color: rgb(155, 89, 182);">GITHUB</button>
+            <div id="Contact"></div>
+            <div class="PageSection" style="display: block;">
+                <div style="padding: 0;">
+                    <h1>Contact</h1>
+                    <p>If you want to contact me for any purpose use the email below and check my itch.io page for most of the projects listed above.</p>
                 </div>
+                <div class="SocialMediaLinks" style="padding: 0;">
+                    <button id="EmailLink" class="SocialMediaButton" onclick="CopyToClip('stondonkdev@gmail.com', 'EMAIL', 'EmailLink')" style="background-color: rgb(68, 185, 214);">EMAIL</button>
+                    <button class="SocialMediaButton" onclick="location.href='http://stondonk.itch.io/'" style="background-color: rgb(250, 92, 92);">ITCH</button>
+                    <button class="SocialMediaButton" onclick="location.href='https://github.com/Stondonk'" style="background-color: rgb(155, 89, 182);">GITHUB</button>
+                </div>
+            </div>
+
+
+
+            <div class="PageSection" style="display: block;">
+                <p>MiniGame</p>
+                <div id="MiniCade" class="MediaWindow" style="display: flex; aspect-ratio: 1; padding: 0px; border: 1px solid rgb(242, 242, 242); background-color: rgba(0,0,0,0); width: 100%; height: 512px;">
+                    <canvas id="GameArea"width=64px height=64px scale="8" style=" user-select: none;"></canvas>
+                    <script src="MiniProject/MiniGameAindex.js" type="module"></script>
+                </div>
+            </div>
+
+            <div id="ExtraPadding" style="margin-bottom: 32px;">
+
             </div>
 
         </div>
 
         <script>
+
             let Menu = false;
-            function Nav() {
-                Menu=!Menu;
+            let Mobile = false;
+
+            LoadCard('MediaWindow1','Games/LaserRoom.Json');
+            LoadCard('MediaWindow2','Projects/CPPGameEngine.Json');
+
+            //Window Rezise
+            window.addEventListener('resize', function(event){ 
+                Mobile = event.width <= 620;
+                Nav(false);
+            });
+
+            function ChangeBSI(ImageID = "None",NewImageSource = "S.png"){
+                document.getElementById(ImageID).setAttribute("src", NewImageSource);	
+                //document.getElementById(ImageID).src = NewImageSource;
+            }
+
+            function Nav(force) {
+                if(force != null) Menu = force
+                else Menu=!Menu;
                 if(!Menu){
-                    document.getElementById("mySidenav").style.height = "0";
-                    document.getElementById("NavBarPres").style.backgroundColor = "rgba(255,255,255,0)";
+                    document.getElementById("MainSideNav").style.height = "0";
+                    document.getElementById("NavBarPress").style.backgroundColor = "rgba(255,255,255,0)";
                 }
                 else{
-                    document.getElementById("mySidenav").style.height = "100%";
-                    document.getElementById("NavBarPres").style.backgroundColor = "rgba(68, 185, 214, 1)";
+                    document.getElementById("MainSideNav").style.height = "100%";
+                    document.getElementById("NavBarPress").style.backgroundColor = "rgba(68, 185, 214, 1)";
                 }
             }
 
-            function ScrollTo(div){
+            function ScrollTo(div,off){
                 document.getElementById(div).scrollIntoView();
             }
 

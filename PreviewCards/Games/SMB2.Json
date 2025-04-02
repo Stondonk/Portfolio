@@ -1,0 +1,5 @@
+{
+    "Title" : "Super Mini Bros 2",
+    "Images": ["SMB2/SMS1.png","SMB2/SMS2.png","SMB2/SMS3.png"],
+    "Description":"Super mini bros 2 is one of my more recent titles following in my yearly tradition of entering into the LowRezJam and creating yet another game inspired by the mario brother franchise but at a resolution of 64x64 pixels. Building off one of my entries in the franchise Super Mario Bros 2 I recreted the feel of the game making not only the engine for it but also and external editor for creating the levels. The editor was former in a c++ program building off my knowledge of language but also the knowledge I had for the graphics API raylib helping to make the vision reliased in only a handful of hours."
+}
