@@ -325,12 +325,15 @@
             
             /*Media Image Window*/
             .MediaImageWindow{
+                width: 100%;
                 display: flex;
                 border: 1px solid rgb(242, 242, 242);
                 padding: 8px;
             }
             .MediaImageWindow img{
-                width: 100%;
+                display:block;
+                width: 33%;
+                height: 33%;
             }
 
             /*Mini project stuff*/
@@ -369,6 +372,7 @@
                 .WindowButton{
                     display:grid;
                     width: 100%;
+                    height: 100%;
                 }
 
                 .WindowButton button{
@@ -382,6 +386,15 @@
                 }
                 .MobilePreviewButton{
                     display: flex;
+                }
+
+                .MediaImageWindow{
+                    display: flex;
+                    overflow-x: scroll;
+                }
+                .MediaImageWindow img{
+                    width: 100%;
+                    margin: 4px;
                 }
 
                 #QuickImage{

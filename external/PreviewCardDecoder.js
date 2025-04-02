@@ -22,6 +22,8 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
     for (let ImgIdx = 0; ImgIdx < JsonData["Images"].length; ImgIdx++) {
         let Image = document.createElement("img");
         Image.src = "imageReference/"+JsonData["Images"][ImgIdx];
+        if(ImgIdx <= 0) Image.style.marginLeft = 0;
+        if(ImgIdx >= JsonData["Images"].length-1) Image.style.marginRight = 0;
         ImageD.appendChild(Image);
     }
     //Description
