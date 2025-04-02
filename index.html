@@ -325,7 +325,7 @@
             
             /*Media Image Window*/
             .MediaImageWindow{
-                width: 100%;
+                width: fit-content;
                 display: flex;
                 border: 1px solid rgb(242, 242, 242);
                 padding: 8px;
@@ -334,6 +334,14 @@
                 display:block;
                 width: 33%;
                 height: 33%;
+                margin: 1px;
+            }
+
+            #MediaImgStart{
+                margin-left: 0px;
+            }
+            #MediaImgEnd{
+                margin-right: 0px;
             }
 
             /*Mini project stuff*/
@@ -396,6 +404,12 @@
                     width: 100%;
                     margin: 4px;
                 }
+                #MediaImgStart{
+                    margin-left: 0;
+                }
+                #MediaImgEnd{
+                    margin-right: 0;
+                }
 
                 #QuickImage{
                     display: none;
@@ -443,13 +457,13 @@
                 <div id="PageContents1" class="PageContents">
                     <div class="WindowButton" style="width: 100%;" id="QuickLinks">
                         <div id="FirstQl" style="display: inline-flex; padding: 0px; margin-left: auto; margin-right: auto;">
-                            <button onclick="PorjectSubTitle('Tank Tracks','Game Jam Project - created over the duration of a week for the LOWREZ Jam, with the intention of seeing if 64 by 64 pixel resolution.','TankTrackSection')" style="margin-left: auto;">
+                            <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('MediaWindow1');" style="margin-left: auto;">
                             <img src="imageReference/TT/TankTracksGif.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                             
-                            <button onclick="PorjectSubTitle('Untitled Laser Room','x-large','LaserRoom')">
+                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('MediaWindow1');">
                             <img src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                             
-                            <button onclick="PorjectSubTitle('Flip Tennis','Mobile Game - created over a few months for release on android and is apporiate storefronts, Flip tennis was my first full release back in 2021.','FlipTennisSection')" style="margin-right: auto;">
+                            <button onclick="LoadCard('MediaWindow1','Games/FlipTennis.Json'); ScrollTo('MediaWindow1');" style="margin-right: auto;">
                             <img src="imageReference/FT/FliptennisIClipA.gif" style="width: 100%; height: 100%; text-align: center; padding: 0; background-color: inherit; display:block;" draggable="false"></button>
                         </div>
                     </div>

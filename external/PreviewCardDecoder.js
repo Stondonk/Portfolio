@@ -21,6 +21,7 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = ""){
     ImageD.querySelectorAll('*').forEach(c => c.remove());
     for (let ImgIdx = 0; ImgIdx < JsonData["Images"].length; ImgIdx++) {
         let Image = document.createElement("img");
+        Image.id = (ImgIdx <= 0 ? "MediaImgStart" : ImgIdx >= JsonData["Images"].length-1 ? "MediaImgEnd" : "");
         Image.src = "imageReference/"+JsonData["Images"][ImgIdx];
         if(ImgIdx <= 0) Image.style.marginLeft = 0;
         if(ImgIdx >= JsonData["Images"].length-1) Image.style.marginRight = 0;
