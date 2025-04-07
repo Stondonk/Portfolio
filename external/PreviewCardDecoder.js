@@ -18,7 +18,7 @@ async function LoadCard(PreviewID = "EMPTY", CardAdress = "", ManualID = -1){
 
     var IdChild = Card.childElementCount-1;
     var CardID = Card.children[IdChild];
-    CardID.textContent = ManualID >= 0 ? (await RPathIndex(CardAdress)).toString() : ManualID;
+    CardID.textContent = ManualID < 0 ? (await RPathIndex(CardAdress)).toString() : ManualID;
     //Title
     Title.textContent = JsonData["Title"];
     //Images
@@ -59,3 +59,25 @@ async function LoadNextCard(PreviewID = "EMPTY", Direction = 1, Files="Games"){
     LoadCard(PreviewID,(Files + "/" + FilesData[Files][IdT]).toString(), IdT);
     //CardID.textContent = (parseInt(Card.textContent)).toString();
 }
+
+function SetAttributeC(SID="Empty",Type="src",NewItem="Empty"){
+    document.getElementById(SID).setAttribute(Type, NewItem);	
+}
+
+async function GenerateEntries(SectionID = "Empty", PreviewID = "Empty", DescriptionID = "Empty", FileType = "Games", Scroll = true){
+    var JsonFiles = await RequestJson("PreviewCards/Files.Json");
+    for (let Fidx = 0; Fidx < JsonFiles[FileType].length; Fidx++) {
+        var JsonData = await RequestJson("PreviewCards/"+FileType+'/'+JsonFiles[FileType][Fidx]);
+        if(!JsonData) return "ERROR";
+        let Button = document.createElement("button");
+            
+        Button.textContent = JsonData["Title"];
+        var OverFuncAddress = 'imageReference/'+ JsonData["PreviewImage"];
+        Button.setAttribute("onmouseover","SetAttributeC("+"\'"+PreviewID+"\',\'src\',\'"+OverFuncAddress+"\'"+")");
+        var Amp = "ScrollTo(\'"+DescriptionID+"\');";
+        if(Scroll) Amp = 
+        Button.setAttribute("onclick","LoadCard(\'"+DescriptionID+"\',\'"+FileType+'/'+JsonFiles[FileType][Fidx]+"\');"+Amp+""); 
+        document.getElementById(SectionID).appendChild(Button);
+        
+    }
+}6

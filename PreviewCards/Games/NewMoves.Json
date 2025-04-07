@@ -1,5 +1,6 @@
 {
     "Title" : "New Moves",
+    "PreviewImage" : "NM/NewMovesGifClipA.gif",
     "Images": ["NM/NMS1.png","NM/NMS2.png","NM/NMS3.png"],
     "Description":"New Moves was a game created for the Juice Jam Game Jam made for the express purpose of making and incredably satisfying gaming experience and to test my knowledge and understanding of local multiplay game creation. I made serveral attempts to make the combat more unique in the end I landed on having the players health tick down the only way to regain health is to attack the opponent, so now cowering no hiding just attack the opponent, thats my kind of fighting game. To join this feature a replacment for not only the problem of multiple characters but also evening the playing feild for new and old players had to be added to, I made all the combat moves random you get two at the start of every round and you must master all the games actions to have a chance of being skillful but its not an easy task so it feels more casual and easier to get into than a conventional fighter."
 }

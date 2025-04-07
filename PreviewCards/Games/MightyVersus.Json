@@ -1,5 +1,6 @@
 {
     "Title" : "Mighty Versus",
+    "PreviewImage" : "MV/MightyVersus footage.gif",
     "Images": ["MV/MVS1.png","MV/MVS2.png","MV/MVS3.png"],
     "Description":"Might Versus is another one of my LowRezJam entries and is created in the image of somewhat recent at the time, title called multi versus, where inwhich you play as a multitude of characters from across the WB / Warner bros universe. In this title I seek to recreate that game basic fundimentals in a much smaller screen resoulution with lesser audio and effects all running in JavaScript in the web browser. Honestly I feel this was one of my best examples of my ability to work within limitation given the fact the game doesnt feel to dissimilar to its original counter part in only a handful of pixels."
 }

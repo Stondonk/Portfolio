@@ -519,12 +519,13 @@
                     <h1>Game Quick Links</h1>
                     <div style="display: flex; height: fit-content;">
                         <div id="QuickLinksButtons" class="ButtonMaster">
-                            <button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
+                            <!--<button onclick="LoadCard('MediaWindow1','Games/LaserRoom.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/UTLR/UTLRG12B2.gif')">Untitled Laser Room</button>
                             <button onclick="LoadCard('MediaWindow1','Games/SMB2.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/SMB2/SMB2.gif')">Super Mini Bros 2</button>
                             <button onclick="LoadCard('MediaWindow1','Games/MightyVersus.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/MV/MightyVersus footage.gif')">Mighty Versus</button>
                             <button onclick="LoadCard('MediaWindow1','Games/NewMoves.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/NM/NewMovesGifClipA.gif')">New Moves</button>
                             <button onclick="LoadCard('MediaWindow1','Games/TankTracks.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/TT/TankTracksGif.gif')">Tank Tracks</button>
                             <button onclick="LoadCard('MediaWindow1','Games/FlipTennis.Json'); ScrollTo('PreviewWindow1');" onmouseover="ChangeBSI('QuickImage1','imageReference/FT/FliptennisIClipA.gif')">Flip Tennis</button>
+                            -->
                         </div>
                         <div id="QuickI1" class="ButtonDisplayer" style="height: auto;">
                             <img id="QuickImage1" src="imageReference/UTLR/UTLRG12B2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
@@ -557,11 +558,8 @@
                         <div id="QuickI2" class="ButtonDisplayer" style="height: auto;">
                             <img id="QuickImage2" src="imageReference/CPPE/C++EngineClip2.gif" style="width: 100%;height: fit-content; padding: 0; margin-top: auto; margin-bottom: auto; background-color: inherit; border: 1px solid rgb(242, 242, 242);" draggable="false">
                         </div>
-                        <div id="QuickLinksButtons" class="ButtonMaster">
-                            <button onclick="LoadCard('MediaWindow2','Projects/CPPGameEngine.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/CPPE/C++EngineClip2.gif')">C++ Game Engine</button>
-                            <button onclick="LoadCard('MediaWindow2','Projects/PropulsionDS.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/PDS/PropDsGif.gif')">Propulsion DS</button>
-                            <button onclick="LoadCard('MediaWindow2','Projects/CrocGame.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/CG/CGG1.gif')">Croc Game</button>
-                            <button onclick="LoadCard('MediaWindow2','Projects/FT89k.Json'); ScrollTo('PreviewWindow2');" onmouseover="ChangeBSI('QuickImage2','imageReference/89/89G1.gif')">Flip Tennis 89k</button>
+                        <div id="QuickLinksButtons2" class="ButtonMaster">
+
                         </div>
                     </div>
                 </div>
@@ -636,6 +634,9 @@
 
             let Menu = false;
             let Mobile = false;
+
+            GenerateEntries('QuickLinksButtons2','QuickImage2','MediaWindow2','Projects');
+            GenerateEntries('QuickLinksButtons','QuickImage1','MediaWindow1','Games');
 
             LoadCard('MediaWindow1','Games/LaserRoom.Json',0);
             LoadCard('MediaWindow2','Projects/CPPGameEngine.Json',0);

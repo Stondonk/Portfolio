@@ -1,5 +1,6 @@
 {
     "Title" : "C++ Game Engine",
+    "PreviewImage" : "CPPE/C++EngineClip2.gif",
     "Images": ["CPPE/CPPES1.png","CPPE/CPPES2.png","CPPE/CPPES4.png"],
     "Description":"A Simple CPP ECS setup used in projects such as (Raylib Game Engine), (Nintendo DS Game Engine) and (OpenGl Game Engine), Currently being worked on."
 }
