@@ -1,0 +1,6 @@
+{
+    "Title" : "WORM",
+    "PreviewImage" : "WORM/WORMGif2.gif",
+    "Images": ["WORM/WORMS1.png","WORM/WORMS2.png","WORM/WORMS3.png"],
+    "Description":"Worm was a game created for the 2025 4mb jam its a puzzle game about connecting wire worms and solving puzzles with there uquie abilities. The game is designed to be simple yet challenging, with each level introducing new mechanics and obstacles, like bouncey worms the player can jump off, or worms that have a connection in the middle allowing you to syphon power from one source to another. The game is about 2.2 Mega bytes in system, was written in C# with raylib, includes a basic physics engine, 3D model loading and a blender plugin for export maps from the modeling software for easy custom level creation. One neat thing that happened during development was an issue with tutorials, I was approaching the deadline fast, staying up the whole night getting things finished so I could get on with my plans for the following day. I had the idea to reimplement the pickup system I had thrown away during development as an optional tutorial system reimplementing it with the new systems in place, it cost me a higher level count, leading to me just barely making the deadline, but I think it shows that many people to still get through this “demo” even with this primitive system in place."
+}
