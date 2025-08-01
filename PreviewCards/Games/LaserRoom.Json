@@ -2,5 +2,5 @@
     "Title": "Untitled Laser Room",
     "PreviewImage" : "UTLR/UTLRG12B2.gif",
     "Images": ["UTLR/LsroSS1.png","UTLR/LsroSS2.png","UTLR/LsroSS3.png"],
-    "Description":"This is project was made around the very crazy game jam theme, that being a level from the video game portal 2, specifically the one called test chamber 20. Originally, I had seen a mod for the game that converted a lot of its aspects into a collectathon platformer, taking inspiration from that I tried quite hard to convert this seemingly simple puzzle level into an intricate and fun platforming stage that took full advantage of a new tool I'd been using at the time, the Godot engine."
+    "Description":"This project was made around a very crazy game jam theme, that being a level from the video game Portal 2, specifically the one called test chamber 20. Originally, I had seen a mod for the game that converted a lot of its aspects into a collectathon platformer, taking inspiration from that, I tried quite hard to convert this seemingly simple puzzle level into an intricate and fun platforming stage that took full advantage of a new tool I'd been using at the time, the Godot engine."
 }

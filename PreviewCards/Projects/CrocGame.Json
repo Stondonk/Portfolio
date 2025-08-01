@@ -2,5 +2,5 @@
     "Title" : "Croc Game",
     "PreviewImage" : "CG/CGG1.gif",
     "Images": ["CG/CGS1.png","CG/CGS2.png","CG/CGS3.png"],
-    "Description":"Croc game was my first real project created entirely within C++ and the graphics library Raylib, it was made for a college project originally, to showcase what I could do at the time but since has become a reminder of how far I've come in such a short time. The game was the first time I really applied my ability and knowledge for creating programs from the ground up and is one of my favourites."
+    "Description":"Croc game was my first real project created entirely within C++ and the graphics library Raylib. It was made for a college project originally, to showcase what I could do at the time, but it has since become a reminder of how far I've come in such a short time. The game was the first time I really applied my ability and knowledge for creating programs from the ground up, and is one of my favourite projects I've worked on."
 }
